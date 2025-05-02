@@ -119,3 +119,4 @@ models/mobilevit_v2_025.onnx
 models/Llama-3.2-3B.Q4_0.gguf
 models/Llama-3.2-3B-Instruct.Q4_0.gguf
 models/Allenbv/all-MiniLM-L6-v2-similarity-es-onnx/onnx/model_quantized.onnx
+models/Xenova/all-MiniLM-L6-v2/onnx/model_quantized.onnx
