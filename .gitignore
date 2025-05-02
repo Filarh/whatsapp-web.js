@@ -1,9 +1,58 @@
+# Dependencias
+node_modules/
+package-lock.json
+yarn.lock
+
+# Archivos de sesión de WhatsApp
+.wwebjs_auth/
+.wwebjs_cache/
+
 # Logs
-logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de entorno
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Archivos de IDE/editores
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Archivos temporales
+temp/
+tmp/
+
+# Archivos de construcción/distribución
+dist/
+build/
+out/
+
+# Archivos de medios (puede ser personalizado según necesidades)
+media/
+uploads/
+downloads/
+
+# Archivos de respaldo
+*.bak
+*.backup
+
+# Otros
+.directory
+*.sqlite
 
 # Runtime data
 pids
@@ -33,12 +82,7 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
 jspm_packages/
-
-# Lock files
-package-lock.json
-yarn.lock
 
 # TypeScript v1 declaration files
 typings/
@@ -58,23 +102,20 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
-
 # next.js build output
 .next
 
 # macOS
 ._*
-.DS_Store
 
 # Test sessions
 *session.json
-.wwebjs_auth/
-
-# local version cache
-.wwebjs_cache/
 
 # IDE's
 .idea
 .vscode
+models/qwq-0.5b-distilled_and_uncensored.gguf
+models/mobilevit_v2_025.onnx
+models/Llama-3.2-3B.Q4_0.gguf
+models/Llama-3.2-3B-Instruct.Q4_0.gguf
+models/Allenbv/all-MiniLM-L6-v2-similarity-es-onnx/onnx/model_quantized.onnx

@@ -1,3 +1,140 @@
+# Bot de WhatsApp con Sistema de Plugins
+
+Este proyecto es un bot de WhatsApp modular y extensible basado en la biblioteca [whatsapp-web.js](https://wwebjs.dev/).
+
+## Características
+
+- **Sistema de plugins**: Arquitectura modular para añadir funcionalidades
+- **Configuración centralizada**: Fácil personalización sin modificar el código
+- **Autenticación local**: Mantiene la sesión activa entre reinicios
+- **Gestión de comandos**: Sistema unificado de comandos con prefijo
+- **Respuestas automáticas**: Detecta patrones en mensajes y responde automáticamente
+
+## Estructura del proyecto
+
+```
+├── app.js              # Archivo principal del bot
+├── config.js           # Configuración centralizada
+├── package.json        # Dependencias del proyecto
+├── utils/              # Utilidades compartidas
+│   └── helper.js       # Funciones auxiliares
+├── plugins/            # Plugins del bot
+│   ├── comandos-basicos.js      # Comandos básicos
+│   ├── comandos-multimedia.js   # Comandos de multimedia
+│   ├── comandos-grupos.js       # Comandos para grupos
+│   ├── comandos-ayuda.js        # Comando de ayuda
+│   └── respuestas-automaticas.js # Respuestas automáticas
+└── archivos/           # Directorio para archivos multimedia
+```
+
+## Comandos disponibles
+
+El bot incluye varios plugins con distintos comandos:
+
+### Comandos básicos
+- `!ping` - Comprobar si el bot está activo
+- `!hola` - Saludar al bot
+- `!hora` - Ver la hora actual
+- `!fecha` - Ver la fecha actual
+- `!info` - Información sobre el chat
+- `!eco [texto]` - Repetir el texto
+
+### Comandos multimedia
+- `!imagen` - Enviar una imagen aleatoria
+- `!sticker` - Convertir una imagen a sticker
+- `!ubicacion` - Enviar ubicación
+- `!guardar [nombre]` - Guardar archivo multimedia
+
+### Comandos de grupos
+- `!todos` - Mencionar a todos los participantes
+- `!grupo` - Mostrar información del grupo
+- `!miembros` - Listar participantes del grupo
+- `!link` - Obtener enlace de invitación
+
+### Ayuda
+- `!ayuda` - Mostrar lista de comandos disponibles
+- `!ayuda [plugin]` - Mostrar ayuda específica de un plugin
+
+## Instalación
+
+1. Asegúrate de tener Node.js 18 o superior instalado
+2. Clona este repositorio o descarga los archivos
+3. Instala las dependencias:
+
+```bash
+npm install
+```
+
+4. Inicia el bot:
+
+```bash
+npm start
+```
+
+5. Escanea el código QR con tu teléfono:
+   - Abre WhatsApp en tu teléfono
+   - Ve a Configuración > Dispositivos vinculados > Vincular un dispositivo
+   - Escanea el código QR mostrado en la terminal
+
+## Desarrollo y personalización
+
+### Crear un nuevo plugin
+
+Para crear un nuevo plugin, añade un archivo JavaScript en la carpeta `plugins/` con la siguiente estructura:
+
+```javascript
+module.exports = (client, config) => {
+    // Configuración del plugin
+    const prefijo = config.bot.prefijo;
+    
+    // Lista de comandos del plugin
+    const comandos = {
+        'micomando': (message, args) => {
+            message.reply('¡Mi comando personalizado!');
+        }
+    };
+    
+    // Registrar handler para escuchar mensajes
+    client.on('message', async (message) => {
+        // Ignorar mensajes propios
+        if (message.fromMe) return;
+        
+        // Solo procesar comandos con el prefijo
+        if (!message.body.startsWith(prefijo)) return;
+        
+        // Extraer comando y argumentos
+        const args = message.body.slice(prefijo.length).trim().split(/ +/);
+        const comando = args.shift().toLowerCase();
+        
+        // Ejecutar comando si existe
+        if (comandos[comando]) {
+            try {
+                await comandos[comando](message, args);
+            } catch (error) {
+                console.error(`Error en comando ${comando}:`, error);
+                message.reply(config.cliente.respuestas.error);
+            }
+        }
+    });
+    
+    // Retornar metadatos del plugin
+    return {
+        nombre: 'Mi Plugin',
+        descripcion: 'Descripción de mi plugin',
+        version: '1.0.0',
+        comandos: Object.keys(comandos).map(cmd => `${prefijo}${cmd}`)
+    };
+};
+```
+
+### Configurar el bot
+
+Puedes personalizar el comportamiento del bot modificando el archivo `config.js`.
+
+## Licencia
+
+MIT
+
 <div align="center">
     <br />
     <p>
