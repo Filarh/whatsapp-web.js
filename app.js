@@ -3,8 +3,9 @@
  * Este archivo carga todos los plugins y configura el cliente de WhatsApp
  */
 
-// Importar dependencias
-const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
+const { Client, RemoteAuth } = require('whatsapp-web.js');
+const remoteStore = require('./utils/remoteStoreSupabase');
+
 const qrcode = require('qrcode-terminal');
 const fs = require('fs');
 const path = require('path');
@@ -16,13 +17,19 @@ const { log, crearDirectorio, cargarArchivos } = require('./utils/helper');
 // Crear directorios necesarios
 Object.values(config.directorios).forEach(crearDirectorio);
 
-// Configurar cliente de WhatsApp
 const clientOptions = {
-    authStrategy: new LocalAuth(),
+    authStrategy: new RemoteAuth({
+      clientId: 'mksbot01',
+      store: remoteStore,
+      dataPath: '/tmp', // en Render es ideal usar esto
+      backupSyncIntervalMs: 60000 // guarda cada minuto
+    }),
     puppeteer: {
-        headless: config.cliente.opciones.headless,
+      headless: config.cliente.opciones.headless,
+      args: ['--no-sandbox']
     }
-};
+  };
+  
 
 // Crear cliente
 const client = new Client(clientOptions);
