@@ -14,6 +14,9 @@ const path = require('path');
 const config = require('./config');
 const { log, crearDirectorio, cargarArchivos } = require('./utils/helper');
 
+// Importar WebUI para Render.com compatibilidad
+const webui = require('./services/webui');
+
 // Crear directorios necesarios
 Object.values(config.directorios).forEach(crearDirectorio);
 
@@ -36,6 +39,18 @@ const client = new Client(clientOptions);
 
 // Array para almacenar plugins cargados
 let pluginsCargados = [];
+
+// Estado global del bot para la WebUI
+global.botStatus = {
+    isReady: false,
+    isAuthenticated: false,
+    startTime: new Date(),
+    pluginsLoaded: 0,
+    messagesProcessed: 0,
+    lastActivity: null,
+    qrCode: null,
+    clientInfo: null
+};
 
 // Función para cargar plugins
 const cargarPlugins = async () => {
@@ -133,6 +148,10 @@ const cargarPlugins = async () => {
         log('WARN', 'No se encontró el plugin de ayuda (comandos-ayuda.js)');
     }
     
+    // Actualizar estado global
+    global.botStatus.pluginsLoaded = pluginsCargados.length;
+    global.botStatus.plugins = pluginsCargados;
+    
     log('INFO', `Total de ${pluginsCargados.length} plugins cargados correctamente`);
 };
 
@@ -140,16 +159,25 @@ const cargarPlugins = async () => {
 client.on('qr', (qr) => {
     log('INFO', 'Código QR recibido, escanea con tu teléfono');
     qrcode.generate(qr, { small: true });
+    
+    // Actualizar estado global para WebUI
+    global.botStatus.qrCode = qr;
+    global.botStatus.lastActivity = new Date();
 });
 
 // Evento cuando el cliente está autenticado
 client.on('authenticated', () => {
     log('INFO', 'Autenticación exitosa');
+    global.botStatus.isAuthenticated = true;
+    global.botStatus.qrCode = null;
+    global.botStatus.lastActivity = new Date();
 });
 
 // Evento cuando hay un fallo de autenticación
 client.on('auth_failure', (msg) => {
     log('ERROR', `Fallo de autenticación: ${msg}`);
+    global.botStatus.isAuthenticated = false;
+    global.botStatus.lastActivity = new Date();
 });
 
 // Evento cuando el cliente está listo
@@ -157,9 +185,35 @@ client.once('ready', async () => {
     log('INFO', 'Cliente listo');
     log('INFO', `Bot ${config.bot.name} v${config.bot.version} iniciado correctamente`);
     
+    // Actualizar estado global
+    global.botStatus.isReady = true;
+    global.botStatus.lastActivity = new Date();
+    
+    // Obtener información del cliente
+    try {
+        const info = client.info;
+        global.botStatus.clientInfo = {
+            pushname: info.pushname,
+            me: info.me,
+            platform: info.platform
+        };
+    } catch (error) {
+        log('WARN', 'No se pudo obtener información del cliente');
+    }
+    
     // Cargar plugins cuando el cliente esté listo
     await cargarPlugins();
 });
+
+// Escuchar mensajes para estadísticas
+client.on('message', () => {
+    global.botStatus.messagesProcessed++;
+    global.botStatus.lastActivity = new Date();
+});
+
+// Inicializar WebUI antes del cliente
+log('INFO', 'Iniciando WebUI...');
+const webuiInstance = webui.iniciar(client, config);
 
 // Inicializar cliente
 log('INFO', 'Iniciando cliente...');
@@ -171,6 +225,12 @@ client.initialize().catch(err => {
 // Manejar señales para cerrar el bot correctamente
 process.on('SIGINT', async () => {
     log('INFO', 'Cerrando el bot...');
+    
+    // Cerrar WebUI
+    if (webuiInstance && webuiInstance.close) {
+        webuiInstance.close();
+    }
+    
     await client.destroy();
     process.exit(0);
 });
@@ -180,3 +240,7 @@ process.on('uncaughtException', (err) => {
     log('ERROR', `Error no capturado: ${err.message}`);
     console.error(err);
 });
+
+// Exponer cliente y plugins para la WebUI
+global.whatsappClient = client;
+global.loadedPlugins = pluginsCargados;
