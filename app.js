@@ -33,7 +33,6 @@ const clientOptions = {
     }
   };
   
-
 // Crear cliente
 const client = new Client(clientOptions);
 
@@ -155,6 +154,13 @@ const cargarPlugins = async () => {
     log('INFO', `Total de ${pluginsCargados.length} plugins cargados correctamente`);
 };
 
+// INICIALIZAR WEBUI PRIMERO (SIN BLOQUEAR)
+log('INFO', 'Iniciando WebUI...');
+// Iniciar WebUI de forma asíncrona sin bloquear
+webui.iniciar(client, config).catch(err => {
+    log('ERROR', `Error al iniciar WebUI: ${err.message}`);
+});
+
 // Evento cuando se recibe un código QR
 client.on('qr', (qr) => {
     log('INFO', 'Código QR recibido, escanea con tu teléfono');
@@ -211,12 +217,8 @@ client.on('message', () => {
     global.botStatus.lastActivity = new Date();
 });
 
-// Inicializar WebUI antes del cliente
-log('INFO', 'Iniciando WebUI...');
-const webuiInstance = webui.iniciar(client, config);
-
-// Inicializar cliente
-log('INFO', 'Iniciando cliente...');
+// INICIALIZAR CLIENTE DESPUÉS DE CONFIGURAR WEBUI
+log('INFO', 'Iniciando cliente WhatsApp...');
 client.initialize().catch(err => {
     log('ERROR', `Error al inicializar cliente: ${err.message}`);
     console.error(err);
@@ -225,12 +227,6 @@ client.initialize().catch(err => {
 // Manejar señales para cerrar el bot correctamente
 process.on('SIGINT', async () => {
     log('INFO', 'Cerrando el bot...');
-    
-    // Cerrar WebUI
-    if (webuiInstance && webuiInstance.close) {
-        webuiInstance.close();
-    }
-    
     await client.destroy();
     process.exit(0);
 });

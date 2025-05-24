@@ -1,6 +1,6 @@
 /**
  * WebUI Service - Interfaz web para el bot de WhatsApp
- * Solución workaround para Render.com que requiere puertos expuestos
+ * Solución optimizada para Render.com
  */
 
 const express = require('express');
@@ -28,29 +28,23 @@ class WebUIService {
             next();
         });
 
-        // Logging middleware
+        // Logging middleware simplificado para no saturar
         this.app.use((req, res, next) => {
-            const important = ['POST', 'PUT', 'DELETE'];
-            if (important.includes(req.method)) {
-            log('INFO', `WebUI: ${req.method} ${req.path} - ${req.ip}`);
+            // Solo loggear peticiones importantes o errores
+            if (req.method === 'POST' || req.path.includes('/api/')) {
+                log('INFO', `WebUI: ${req.method} ${req.path}`);
             }
             next();
         });
-          
     }
 
     setupRoutes() {
         // Ruta principal - Dashboard
         this.app.get('/', (req, res) => {
-            res.json({
-                status: 'success',
-                message: 'WhatsApp Bot WebUI - Dashboard',
-                timestamp: new Date().toISOString(),
-                bot: this.getBotStatus()
-            });
+            res.redirect('/dashboard');
         });
 
-        // Health check para Render.com
+        // Health check para Render.com - MUY IMPORTANTE
         this.app.get('/health', (req, res) => {
             res.status(200).json({
                 status: 'healthy',
@@ -66,84 +60,119 @@ class WebUIService {
 
         // Estado del bot
         this.app.get('/api/status', (req, res) => {
-            res.json({
-                status: 'success',
-                data: this.getBotStatus()
-            });
+            try {
+                res.json({
+                    status: 'success',
+                    data: this.getBotStatus()
+                });
+            } catch (error) {
+                res.status(500).json({
+                    status: 'error',
+                    message: error.message
+                });
+            }
         });
 
         // Estadísticas del bot
         this.app.get('/api/stats', (req, res) => {
-            const uptime = Date.now() - (global.botStatus?.startTime?.getTime() || Date.now());
-            const stats = {
-                uptime: {
-                    milliseconds: uptime,
-                    seconds: Math.floor(uptime / 1000),
-                    minutes: Math.floor(uptime / (1000 * 60)),
-                    hours: Math.floor(uptime / (1000 * 60 * 60)),
-                    days: Math.floor(uptime / (1000 * 60 * 60 * 24))
-                },
-                messages: {
-                    processed: global.botStatus?.messagesProcessed || 0,
-                    perMinute: this.calculateMessagesPerMinute()
-                },
-                plugins: {
-                    loaded: global.botStatus?.pluginsLoaded || 0,
-                    list: global.botStatus?.plugins || []
-                },
-                memory: process.memoryUsage(),
-                system: {
-                    platform: process.platform,
-                    nodeVersion: process.version,
-                    pid: process.pid
-                }
-            };
+            try {
+                const uptime = Date.now() - (global.botStatus?.startTime?.getTime() || Date.now());
+                const stats = {
+                    uptime: {
+                        milliseconds: uptime,
+                        seconds: Math.floor(uptime / 1000),
+                        minutes: Math.floor(uptime / (1000 * 60)),
+                        hours: Math.floor(uptime / (1000 * 60 * 60)),
+                        days: Math.floor(uptime / (1000 * 60 * 60 * 24))
+                    },
+                    messages: {
+                        processed: global.botStatus?.messagesProcessed || 0,
+                        perMinute: this.calculateMessagesPerMinute()
+                    },
+                    plugins: {
+                        loaded: global.botStatus?.pluginsLoaded || 0,
+                        list: global.botStatus?.plugins || []
+                    },
+                    memory: process.memoryUsage(),
+                    system: {
+                        platform: process.platform,
+                        nodeVersion: process.version,
+                        pid: process.pid
+                    }
+                };
 
-            res.json({
-                status: 'success',
-                data: stats
-            });
+                res.json({
+                    status: 'success',
+                    data: stats
+                });
+            } catch (error) {
+                res.status(500).json({
+                    status: 'error',
+                    message: error.message
+                });
+            }
         });
 
         // Lista de plugins cargados
         this.app.get('/api/plugins', (req, res) => {
-            res.json({
-                status: 'success',
-                data: {
-                    count: global.botStatus?.pluginsLoaded || 0,
-                    plugins: global.botStatus?.plugins || []
-                }
-            });
+            try {
+                res.json({
+                    status: 'success',
+                    data: {
+                        count: global.botStatus?.pluginsLoaded || 0,
+                        plugins: global.botStatus?.plugins || []
+                    }
+                });
+            } catch (error) {
+                res.status(500).json({
+                    status: 'error',
+                    message: error.message
+                });
+            }
         });
 
         // Información del cliente WhatsApp
         this.app.get('/api/client', (req, res) => {
-            res.json({
-                status: 'success',
-                data: {
-                    info: global.botStatus?.clientInfo || null,
-                    ready: global.botStatus?.isReady || false,
-                    authenticated: global.botStatus?.isAuthenticated || false,
-                    lastActivity: global.botStatus?.lastActivity || null
-                }
-            });
-        });
-
-        // QR Code para autenticación (solo devuelve si existe)
-        this.app.get('/api/qr', (req, res) => {
-            if (global.botStatus?.qrCode) {
+            try {
                 res.json({
                     status: 'success',
                     data: {
-                        qr: global.botStatus.qrCode,
-                        message: 'Escanea este código QR with WhatsApp'
+                        info: global.botStatus?.clientInfo || null,
+                        ready: global.botStatus?.isReady || false,
+                        authenticated: global.botStatus?.isAuthenticated || false,
+                        lastActivity: global.botStatus?.lastActivity || null
                     }
                 });
-            } else {
-                res.json({
-                    status: 'success',
-                    data: null,
-                    message: global.botStatus?.isAuthenticated ? 'Bot ya autenticado' : 'QR no disponible'
+            } catch (error) {
+                res.status(500).json({
+                    status: 'error',
+                    message: error.message
+                });
+            }
+        });
+
+        // QR Code para autenticación
+        this.app.get('/api/qr', (req, res) => {
+            try {
+                if (global.botStatus?.qrCode) {
+                    res.json({
+                        status: 'success',
+                        data: {
+                            qr: global.botStatus.qrCode,
+                            message: 'Escanea este código QR con WhatsApp'
+                        }
+                    });
+                } else {
+                    res.json({
+                        status: 'success',
+                        data: null,
+                        message: global.botStatus?.isAuthenticated ? 'Bot ya autenticado' : 'QR no disponible'
+                    });
+                }
+            } catch (error) {
+                res.status(500).json({
+                    status: 'error',
+                    message: error.message
                 });
             }
         });
@@ -182,7 +211,7 @@ class WebUIService {
             });
         });
 
-        // Manejo de errores
+        // Manejo de errores global
         this.app.use((err, req, res, next) => {
             log('ERROR', `WebUI Error: ${err.message}`);
             res.status(500).json({
@@ -215,85 +244,182 @@ class WebUIService {
     }
 
     getDashboardHTML() {
-        return `
-<!DOCTYPE html>
+        return `<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WhatsApp Bot Dashboard</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #333;
+            padding: 20px;
         }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
         }
+        
         .header {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
             text-align: center;
         }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
         }
+        
         .card {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
         }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
         .status-indicator {
             display: inline-block;
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            margin-right: 8px;
+            margin-right: 10px;
+            animation: pulse 2s infinite;
         }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
         .status-online { background-color: #4CAF50; }
         .status-offline { background-color: #f44336; }
         .status-pending { background-color: #ff9800; }
+        
         .refresh-btn {
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
+            padding: 12px 24px;
+            border-radius: 8px;
             cursor: pointer;
             margin-top: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
+        
+        .refresh-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 15px;
-            margin-top: 15px;
+            margin-top: 20px;
         }
+        
         .stat-item {
             text-align: center;
-            padding: 15px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            transition: transform 0.2s ease;
+        }
+        
+        .stat-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .plugin-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .plugin-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .plugin-list li {
+            padding: 10px;
+            margin: 5px 0;
             background: #f8f9fa;
             border-radius: 8px;
+            border-left: 4px solid #667eea;
         }
-        .stat-value {
-            font-size: 24px;
-            font-weight: bold;
-            color: #667eea;
-        }
-        .stat-label {
-            font-size: 12px;
+        
+        .loading {
+            text-align: center;
             color: #666;
-            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
@@ -306,142 +432,172 @@ class WebUIService {
         
         <div class="cards">
             <div class="card">
-                <h3>Estado del Bot</h3>
-                <div id="bot-status">Cargando...</div>
-                <button class="refresh-btn" onclick="refreshData()">Actualizar</button>
+                <h3>📊 Estado del Bot</h3>
+                <div id="bot-status" class="loading">Cargando estado...</div>
+                <button class="refresh-btn" onclick="refreshData()">🔄 Actualizar</button>
             </div>
             
             <div class="card">
-                <h3>Estadísticas</h3>
-                <div id="stats-content">
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-value" id="messages-count">-</div>
-                            <div class="stat-label">Mensajes</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value" id="plugins-count">-</div>
-                            <div class="stat-label">Plugins</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value" id="uptime-hours">-</div>
-                            <div class="stat-label">Horas Activo</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value" id="memory-usage">-</div>
-                            <div class="stat-label">Memoria MB</div>
-                        </div>
+                <h3>📈 Estadísticas</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="messages-count">-</div>
+                        <div class="stat-label">Mensajes</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="plugins-count">-</div>
+                        <div class="stat-label">Plugins</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="uptime-hours">-</div>
+                        <div class="stat-label">Horas Activo</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="memory-usage">-</div>
+                        <div class="stat-label">Memoria MB</div>
                     </div>
                 </div>
             </div>
             
             <div class="card">
-                <h3>Plugins Cargados</h3>
-                <div id="plugins-list">Cargando...</div>
+                <h3>🔌 Plugins Cargados</h3>
+                <div id="plugins-list" class="plugin-list loading">Cargando plugins...</div>
             </div>
         </div>
     </div>
 
     <script>
+        let updateInterval;
+        
         async function fetchData(endpoint) {
             try {
                 const response = await fetch('/api/' + endpoint);
-                return await response.json();
+                const data = await response.json();
+                return data;
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error('Error fetching ' + endpoint + ':', error);
                 return null;
             }
         }
 
         async function updateStatus() {
-            const status = await fetchData('status');
-            if (status?.data) {
-                const data = status.data;
-                let statusHTML = '';
-                
-                if (data.ready) {
-                    statusHTML += '<div><span class="status-indicator status-online"></span>Bot Listo y Funcionando</div>';
-                } else if (data.authenticated) {
-                    statusHTML += '<div><span class="status-indicator status-pending"></span>Autenticado, Iniciando...</div>';
-                } else if (data.hasQR) {
-                    statusHTML += '<div><span class="status-indicator status-pending"></span>Esperando escaneo QR</div>';
-                } else {
-                    statusHTML += '<div><span class="status-indicator status-offline"></span>Iniciando...</div>';
+            try {
+                const status = await fetchData('status');
+                if (status?.data) {
+                    const data = status.data;
+                    let statusHTML = '';
+                    
+                    if (data.ready) {
+                        statusHTML += '<div style="margin-bottom: 15px;"><span class="status-indicator status-online"></span><strong>Bot Listo y Funcionando</strong></div>';
+                    } else if (data.authenticated) {
+                        statusHTML += '<div style="margin-bottom: 15px;"><span class="status-indicator status-pending"></span><strong>Autenticado, Iniciando...</strong></div>';
+                    } else if (data.hasQR) {
+                        statusHTML += '<div style="margin-bottom: 15px;"><span class="status-indicator status-pending"></span><strong>Esperando escaneo QR</strong></div>';
+                    } else {
+                        statusHTML += '<div style="margin-bottom: 15px;"><span class="status-indicator status-offline"></span><strong>Iniciando...</strong></div>';
+                    }
+                    
+                    statusHTML += '<div style="font-size: 0.9rem; color: #666; line-height: 1.6;">';
+                    statusHTML += '• Plugins cargados: <strong>' + (data.pluginsLoaded || 0) + '</strong><br>';
+                    statusHTML += '• Mensajes procesados: <strong>' + (data.messagesProcessed || 0) + '</strong><br>';
+                    if (data.lastActivity) {
+                        statusHTML += '• Última actividad: <strong>' + new Date(data.lastActivity).toLocaleString() + '</strong>';
+                    }
+                    statusHTML += '</div>';
+                    
+                    document.getElementById('bot-status').innerHTML = statusHTML;
                 }
-                
-                statusHTML += '<div style="margin-top: 10px; font-size: 14px; color: #666;">';
-                statusHTML += 'Plugins cargados: ' + (data.pluginsLoaded || 0) + '<br>';
-                statusHTML += 'Mensajes procesados: ' + (data.messagesProcessed || 0) + '<br>';
-                if (data.lastActivity) {
-                    statusHTML += 'Última actividad: ' + new Date(data.lastActivity).toLocaleString();
-                }
-                statusHTML += '</div>';
-                
-                document.getElementById('bot-status').innerHTML = statusHTML;
+            } catch (error) {
+                document.getElementById('bot-status').innerHTML = '<div style="color: #f44336;">Error al cargar estado</div>';
             }
         }
 
         async function updateStats() {
-            const stats = await fetchData('stats');
-            if (stats?.data) {
-                const data = stats.data;
-                document.getElementById('messages-count').textContent = data.messages.processed || 0;
-                document.getElementById('plugins-count').textContent = data.plugins.loaded || 0;
-                document.getElementById('uptime-hours').textContent = data.uptime.hours || 0;
-                document.getElementById('memory-usage').textContent = 
-                    Math.round((data.memory.heapUsed || 0) / 1024 / 1024);
+            try {
+                const stats = await fetchData('stats');
+                if (stats?.data) {
+                    const data = stats.data;
+                    document.getElementById('messages-count').textContent = data.messages?.processed || 0;
+                    document.getElementById('plugins-count').textContent = data.plugins?.loaded || 0;
+                    document.getElementById('uptime-hours').textContent = data.uptime?.hours || 0;
+                    document.getElementById('memory-usage').textContent = 
+                        Math.round((data.memory?.heapUsed || 0) / 1024 / 1024);
+                }
+            } catch (error) {
+                console.error('Error updating stats:', error);
             }
         }
 
         async function updatePlugins() {
-            const plugins = await fetchData('plugins');
-            if (plugins?.data) {
-                const pluginsList = plugins.data.plugins || [];
-                let html = '';
-                
-                if (pluginsList.length === 0) {
-                    html = '<p>No hay plugins cargados</p>';
-                } else {
-                    html = '<ul style="margin: 0; padding-left: 20px;">';
-                    pluginsList.forEach(plugin => {
-                        html += '<li>' + plugin.nombre + ' v' + plugin.version + '</li>';
-                    });
-                    html += '</ul>';
+            try {
+                const plugins = await fetchData('plugins');
+                if (plugins?.data) {
+                    const pluginsList = plugins.data.plugins || [];
+                    let html = '';
+                    
+                    if (pluginsList.length === 0) {
+                        html = '<div class="loading">No hay plugins cargados</div>';
+                    } else {
+                        html = '<ul>';
+                        pluginsList.forEach(plugin => {
+                            html += '<li><strong>' + plugin.nombre + '</strong> <span style="color: #666;">v' + plugin.version + '</span></li>';
+                        });
+                        html += '</ul>';
+                    }
+                    
+                    document.getElementById('plugins-list').innerHTML = html;
                 }
-                
-                document.getElementById('plugins-list').innerHTML = html;
+            } catch (error) {
+                document.getElementById('plugins-list').innerHTML = '<div style="color: #f44336;">Error al cargar plugins</div>';
             }
         }
 
         async function refreshData() {
-            await Promise.all([
-                updateStatus(),
-                updateStats(),
-                updatePlugins()
-            ]);
+            try {
+                await Promise.all([
+                    updateStatus(),
+                    updateStats(),
+                    updatePlugins()
+                ]);
+            } catch (error) {
+                console.error('Error refreshing data:', error);
+            }
         }
 
-        // Actualizar cada 5 segundos
-        setInterval(refreshData, 5000);
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            refreshData();
+            
+            // Actualizar cada 10 segundos (reducido para mejor performance)
+            updateInterval = setInterval(refreshData, 10000);
+        });
         
-        // Cargar datos iniciales
-        refreshData();
+        // Limpiar interval al cerrar
+        window.addEventListener('beforeunload', function() {
+            if (updateInterval) {
+                clearInterval(updateInterval);
+            }
+        });
     </script>
 </body>
 </html>`;
     }
 
-    iniciar() {
+    // MÉTODO MODIFICADO: No bloquea el hilo principal
+    async iniciar() {
         return new Promise((resolve, reject) => {
             try {
                 this.server = this.app.listen(this.port, '0.0.0.0', () => {
                     log('INFO', `WebUI iniciado en puerto ${this.port}`);
                     log('INFO', `Dashboard disponible en: http://localhost:${this.port}/dashboard`);
                     resolve(this.server);
-                }).on('error', (err) => {
+                });
+                
+                this.server.on('error', (err) => {
                     log('ERROR', `Error al iniciar WebUI: ${err.message}`);
                     reject(err);
                 });
+                
             } catch (error) {
                 log('ERROR', `Error al configurar WebUI: ${error.message}`);
                 reject(error);
@@ -454,25 +610,31 @@ class WebUIService {
             this.server.close(() => {
                 log('INFO', 'WebUI cerrado correctamente');
             });
+            this.server = null;
         }
     }
 }
 
-// Función de inicio para compatibilidad
-function iniciar(client, config) {
+// FUNCIÓN DE INICIO MODIFICADA - NO BLOQUEA
+async function iniciar(client, config) {
     const webui = new WebUIService();
-    webui.iniciar().catch(err => {
+    
+    // Iniciar de forma asíncrona sin esperar (no bloquea)
+    webui.iniciar().then(() => {
+        log('INFO', 'WebUI iniciado correctamente');
+    }).catch(err => {
         log('ERROR', `Failed to start WebUI: ${err.message}`);
     });
     
     return {
         close: () => webui.cerrar(),
         app: webui.app,
-        server: webui.server
+        server: webui.server,
+        instance: webui
     };
 }
 
 module.exports = {
     iniciar,
     WebUIService
-};
+};0.
