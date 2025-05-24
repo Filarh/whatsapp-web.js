@@ -1,0 +1,34 @@
+{
+    "967982401": {
+      "nombre": "Emily",
+      "telefono": "+593 96 798 2401",
+      "default_lora": "mlydlasrz.safetensors",
+      "activo": true,
+      "fecha_registro": "2024-01-01",
+      "usos": 0
+    },
+    "985821989": {
+      "nombre": "Marcela",
+      "telefono": "+593 98 582 1989",
+      "default_lora": "ritafjrd.safetensors",
+      "activo": true,
+      "fecha_registro": "2024-01-01",
+      "usos": 0
+    },
+    "962888416": {
+      "nombre": "Emilio",
+      "telefono": "+593 96 288 8416",
+      "default_lora": "emljsrvrf.safetensors",
+      "activo": true,
+      "fecha_registro": "2024-01-01",
+      "usos": 0
+    },
+    "967302245": {
+      "nombre": "Domenica",
+      "telefono": "+593 96 730 2245",
+      "default_lora": "domalari.safetensors",
+      "activo": true,
+      "fecha_registro": "2024-01-01",
+      "usos": 0
+    }
+  }

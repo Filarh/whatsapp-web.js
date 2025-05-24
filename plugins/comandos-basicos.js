@@ -61,6 +61,14 @@ module.exports = (client, config) => {
             }
             
             message.reply(infoMsg);
+        },
+
+        // Comando ayuda para mostrar los comandos disponibles
+        'ayuda': async (message) => {
+            const contact = await message.getContact();
+            console.log(`Solicitud de ayuda de: ${contact.number}`);
+            const listaComandos = Object.keys(comandos).map(cmd => `• ${prefijo}${cmd}`).join('\n');
+            message.reply(`📌 *Comandos disponibles:*\n${listaComandos}`);
         }
     };
     
@@ -91,8 +99,8 @@ module.exports = (client, config) => {
     // Retornar metadatos del plugin
     return {
         nombre: 'Comandos Básicos',
-        descripcion: 'Proporciona comandos básicos: ping, hola, hora, fecha, eco, info',
+        descripcion: 'Proporciona comandos básicos: ping, hola, hora, fecha, eco, info, ayuda',
         version: '1.0.0',
         comandos: Object.keys(comandos).map(cmd => `${prefijo}${cmd}`)
     };
-}; 
+};

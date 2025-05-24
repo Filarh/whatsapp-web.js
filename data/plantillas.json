@@ -1,0 +1,143 @@
+{
+    "ghibli": {
+        "palabras_clave": ["ghibli", "studio ghibli", "tipo ghibli", "estilo ghibli"],
+        "prompt": "studio ghibli style, anime illustration, whimsical, soft pastel colors, dreamy scenery, lush nature, detailed background, glowing light, cinematic, highly detailed, fantasy village atmosphere, children adventure, clouds, soft ambient lighting, masterpiece",
+        "lora": null,
+        "activation_token": null
+    },
+    "realista": {
+        "palabras_clave": ["realista", "real", "fotografico", "fotografia", "photo"],
+        "prompt": "ultra-photorealistic, DSLR quality, depth of field, soft shadows, studio lighting, perfect skin texture, hyper-detailed, cinematic lighting, 8k sharp focus, high dynamic range, lifelike skin tone, natural expression, eye-level shot",
+        "lora": null,
+        "activation_token": null
+    },
+    "anime": {
+        "palabras_clave": ["anime", "manga", "japones", "otaku"],
+        "prompt": "anime style, high detail, glossy eyes, expressive character, cel-shaded, vibrant color palette, crisp lines, manga inspired, character centered, high resolution, sakura petals, dynamic pose, stylized shading",
+        "lora": null,
+        "activation_token": null
+    },
+    "cyberpunk": {
+        "palabras_clave": ["cyberpunk", "futurista", "neon", "cyber"],
+        "prompt": "cyberpunk, neon-lit cityscape, futuristic, dystopian, high tech, dark shadows, glowing wires, rainy streets, cinematic contrast, sci-fi atmosphere, cybernetic implants, vibrant colors, detailed technology background, night scene",
+        "lora": null,
+        "activation_token": null
+    },
+    "retrato": {
+        "palabras_clave": ["retrato", "portrait", "cara", "rostro", "persona"],
+        "prompt": "professional portrait, bokeh background, cinematic lighting, realistic skin, detailed facial features, moody tones, sharp eyes, hair strands visible, close-up, centered composition, studio-style setup, subtle expressions, soft light diffusion",
+        "lora": null,
+        "activation_token": null
+    },
+    "artistico": {
+        "palabras_clave": ["artistico", "arte", "pintura", "cuadro", "artístico"],
+        "prompt": "fine art style, oil painting, expressive brushstrokes, gallery quality, canvas texture visible, renaissance tones, highly detailed, chiaroscuro lighting, impressionist elements, dramatic composition, artistic lighting",
+        "lora": null,
+        "activation_token": null
+    },
+    "fantasia": {
+        "palabras_clave": ["fantasia", "magico", "dragon", "hada", "mágico", "fantasía"],
+        "prompt": "epic fantasy, magical realm, glowing particles, enchanted forest, dragons, elves, detailed wings, ethereal lighting, mystical fog, majestic landscape, cinematic perspective, richly detailed armor and robes",
+        "lora": null,
+        "activation_token": null
+    },
+    "paisaje": {
+        "palabras_clave": ["paisaje", "landscape", "naturaleza", "montaña", "mar", "bosque"],
+        "prompt": "breathtaking landscape, cinematic scenery, majestic mountains, serene lake, golden hour lighting, highly detailed foliage, ultra wide angle, high resolution, cloudscape, natural gradients, national geographic style",
+        "lora": null,
+        "activation_token": null
+    },
+    "vintage": {
+        "palabras_clave": ["vintage", "retro", "antiguo", "clasico", "clásico"],
+        "prompt": "vintage style, warm tones, analog photo look, film grain, soft vignette, 1970s aesthetic, old paper texture, retro fashion, classic camera lens flare, nostalgic atmosphere, slight desaturation, old-school charm",
+        "lora": null,
+        "activation_token": null
+    },
+    "minimalista": {
+        "palabras_clave": ["minimalista", "simple", "limpio", "minimal"],
+        "prompt": "minimalist design, white space, clean lines, modern layout, soft pastel tones, simple geometry, Scandinavian influence, high contrast simplicity, bold composition, elegant silence, negative space",
+        "lora": null,
+        "activation_token": null
+    },
+    "claymation": {
+        "palabras_clave": ["arcilla", "clay", "claymation", "plastilina", "muñeco de arcilla"],
+        "prompt": "claymation style, stop motion look, characters made of modeling clay, visible fingerprints, soft shadows, handmade texture, vibrant colors, detailed clay surface, miniatures with imperfections, nostalgic vibe, studio setup"
+    },
+    "chibi": {
+        "palabras_clave": ["chibi", "cute", "kawaii", "pequeño", "adorable"],
+        "prompt": "chibi character, big head small body, anime style, super cute expression, pastel palette, high detail, glossy eyes, tiny hands, simplified anatomy, kawaii design, soft lighting, centered composition"
+    },
+    "sticker": {
+        "palabras_clave": ["sticker", "pegatina", "calcomanía"],
+        "prompt": "vector sticker style, bold outline, flat colors, clean edges, vibrant design, cute character, centered on white background, cartoon-like simplicity, export-ready resolution, high contrast"
+    },
+    "illustrator": {
+        "palabras_clave": ["illustrator", "vector", "adobe illustrator", "ai", "vectores"],
+        "prompt": "flat vector style, Adobe Illustrator look, geometric shapes, bold colors, minimal gradients, clean paths, scalable design, modern graphic style, professional vector art, CMYK ready"
+    },
+    "neon": {
+        "palabras_clave": ["neon", "neón", "brillante", "letrero", "glow"],
+        "prompt": "neon glow effect, dark background, vivid neon tubes, cyber theme, high contrast lighting, glowing outlines, realistic light reflection, illuminated signs, vaporwave aesthetic, night mode"
+    },
+    "vaporwave": {
+        "palabras_clave": ["vaporwave", "retro futurista", "años 80", "estética vaporwave"],
+        "prompt": "vaporwave style, retro futuristic, 80s neon, glitch effects, VHS lines, palm trees, synthwave colors, Japanese text overlay, grid backgrounds, dreamy low contrast filters"
+    },
+    "pixelart": {
+        "palabras_clave": ["pixelart", "pixeles", "retro", "8bit", "pixel"],
+        "prompt": "pixel art style, 8-bit retro aesthetic, pixel perfect, small resolution, chiptune vibe, nostalgic look, limited color palette, game sprite appearance, grid visible, old school game style"
+    },
+    "conceptart": {
+        "palabras_clave": ["concept", "arte conceptual", "boceto", "visual development"],
+        "prompt": "concept art, fantasy environment, epic scale, visual storytelling, painterly style, color keys, dramatic lighting, loose brushwork, mood focused, character design integration"
+    },
+    "artdeco": {
+        "palabras_clave": ["art deco", "años 20", "geometría elegante", "retro glam"],
+        "prompt": "art deco style, golden patterns, elegant symmetry, high contrast, vintage glamour, structured lines, luxurious textures, 1920s theme, detailed ornamentation, black and gold palette"
+    },
+    "papercraft": {
+        "palabras_clave": ["papercraft", "recorte", "collage", "papel"],
+        "prompt": "papercraft art, layered paper textures, visible cuts, drop shadows, realistic lighting, hand-cut look, 3D paper sculpture, paper collage design, high resolution, colorful handmade style"
+    },
+    "cutout": {
+        "palabras_clave": ["recorte", "cutout", "silhouette", "stencil", "forma simple"],
+        "prompt": "cutout silhouette, bold shape, high contrast, flat design, paper edge effect, playful forms, children book style, strong outline, minimal shading, vibrant blocks"
+    },
+    "comicbook": {
+        "palabras_clave": ["comic", "viñeta", "cómic", "superhéroe", "marvel"],
+        "prompt": "comic book style, bold ink outlines, halftone patterns, explosive typography, speech bubbles, heroic pose, dramatic shadows, 90s comics aesthetics, colorful characters, dynamic composition"
+    },
+    "isometrico": {
+        "palabras_clave": ["isometrico", "isométrico", "3D plano", "perspectiva"],
+        "prompt": "isometric perspective, flat 3D objects, clean lines, vibrant palette, game UI style, simulated depth, mini architecture, illustrative scene, playful and precise layout"
+    },
+    "surrealista": {
+        "palabras_clave": ["surreal", "surrealista", "sueño", "dalí", "onírico"],
+        "prompt": "surreal art style, dream-like imagery, melting objects, abstract space, floating islands, unexpected proportions, dark fantasy mood, subconscious symbols, painterly textures"
+    },
+    "grunge": {
+        "palabras_clave": ["grunge", "sucio", "textura", "underground"],
+        "prompt": "grunge texture, dirty aesthetic, scratched surface, noise, dark palette, raw design, rebellious look, distressed fonts, underground mood, high texture detail"
+    },
+    "lowpoly": {
+        "palabras_clave": ["low poly", "3d simple", "bajo polígono", "bajo detalle"],
+        "prompt": "low poly 3D, geometric simplification, clean polygonal surface, soft lighting, minimalist rendering, stylized simplicity, blocky forms, vibrant base colors"
+    },
+    "doodle": {
+        "palabras_clave": ["doodle", "garabato", "dibujado a mano", "sketch"],
+        "prompt": "hand-drawn doodle style, notebook paper, simple lines, playful randomness, funny shapes, freestyle sketching, black ink strokes, creative mess"
+    },
+    "watercolor": {
+        "palabras_clave": ["acuarela", "watercolor", "pintura suave", "arte fluido"],
+        "prompt": "watercolor painting, soft color bleeding, subtle transitions, textured paper, fluid strokes, delicate saturation, hand-painted detail, art book style"
+    },
+    "sticker3d": {
+        "palabras_clave": ["sticker 3D", "pegatina 3d", "realista", "glossy"],
+        "prompt": "3D sticker render, glossy surface, raised texture, realistic lighting, shadowed border, cut-out look, reflective plastic, isolated on white"
+    },
+    "infografia": {
+        "palabras_clave": ["infografia", "infographic", "datos", "visualizacion de datos"],
+        "prompt": "infographic style, clean vector graphics, data visualization, organized layout, minimal palette, professional design, icons and labels, infographic elements, sharp readability"
+    }
+    }
+

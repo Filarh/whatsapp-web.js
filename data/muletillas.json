@@ -1,0 +1,31 @@
+{
+    "solicitud": [
+      "hazme", "genera", "crea", "quiero", "necesito", 
+      "puedes hacer", "me haces", "haz", "crear", 
+      "generar", "hacer", "dame", "quisiera", 
+      "podrias", "me gustaria"
+    ],
+    "imagen": [
+      "imagen", "foto", "picture", "pic", 
+      "dibujo", "arte", "ilustracion", 
+      "grafico", "visual", "render"
+    ],
+    "conectores": [
+      "una", "un", "de", "del", "la", "el", 
+      "con", "en", "tipo", "estilo", "como", 
+      "al", "para", "por", "sobre", "que"
+    ],
+    "posesivos": [
+      "mia", "mio", "tuya", "tuyo", 
+      "suya", "suyo", "nuestra", "nuestro"
+    ],
+    "pronombres": [
+      "yo", "mi", "me", "mio", "mía", 
+      "conmigo", "myself", "mine"
+    ],
+    "despedidas": [
+      "gracias", "thank you", "thanks", 
+      "perfecto", "excelente", "genial"
+    ]
+  }
+  
