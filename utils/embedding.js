@@ -1,217 +1,205 @@
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
+const fs       = require('fs');
+const path     = require('path');
+const crypto   = require('crypto');
 const readline = require('readline');
-const faiss = require('faiss-node'); // ← npm install faiss-node
+const faiss    = require('faiss-node');
+const cliProgress = require('cli-progress');
+const { IndexFlatIP } = faiss;
 
-let extractor = null;
-let faissIndex = null;
-let faissMetadata = [];
-
-const instructDataPath = path.resolve('datos-instruct-tagged.jsonl');
+// --- Rutas y nombres de archivos ---
 const localModelDir = path.resolve('./models');
-const FAISS_INDEX_PATH = path.resolve('./faiss_index.bin');
-const FAISS_META_PATH = path.resolve('./faiss_metadata.json');
+const jsonlFile     = path.resolve('./productos_augmented.jsonl');
+const indexFile     = path.resolve('./productos.index');
+const idsFile       = path.resolve('./productos.ids.json');
+const outputsFile   = path.resolve('./productos.outputs.json');
+const hashFile      = path.resolve('./productos.hash');
+
+// Estado interno
+let extractor   = null;
+let faissIndex  = null;
+let ids         = [];
+let outputs     = [];
+let texts       = [];
 
 /**
- * Inicializa el modelo de embeddings
+ * Calcula el hash MD5 de un archivo completo.
+ */
+function computeFileHash(filePath) {
+  const data = fs.readFileSync(filePath);
+  return crypto.createHash('md5').update(data).digest('hex');
+}
+
+/**
+ * Inicializa el pipeline de embeddings y carga o crea el índice Faiss.
  */
 async function ensureModelLoaded() {
-  if (extractor) return extractor;
+  if (extractor) return;
 
-  try {
-    const transformers = await import('@xenova/transformers');
-    if (!fs.existsSync(localModelDir)) fs.mkdirSync(localModelDir);
-    transformers.env.cacheDir = localModelDir;
+  const { pipeline, env } = await import('@xenova/transformers');
+  if (!fs.existsSync(localModelDir)) fs.mkdirSync(localModelDir, { recursive: true });
+  env.cacheDir = localModelDir;
 
-    extractor = await transformers.pipeline(
-      'feature-extraction',
-      'Allenbv/all-MiniLM-L6-v2-similarity-es-onnx'
-    );
+  extractor = await pipeline(
+    'feature-extraction',
+    'Allenbv/mks-similarity-onnx'
+  );
 
-    await loadCachedEmbeddings();
-    return extractor;
-  } catch (error) {
-    console.error('[Embedding] Error al cargar el modelo:', error);
-    throw error;
+  const currentHash = computeFileHash(jsonlFile);
+  const storedHash  = fs.existsSync(hashFile)
+    ? fs.readFileSync(hashFile, 'utf8').trim()
+    : null;
+
+  const hasIndexFiles = fs.existsSync(indexFile)
+                     && fs.existsSync(idsFile)
+                     && fs.existsSync(outputsFile);
+
+  if (hasIndexFiles && storedHash === currentHash) {
+    faissIndex = IndexFlatIP.read(indexFile);
+    ids        = JSON.parse(fs.readFileSync(idsFile, 'utf8'));
+    outputs    = JSON.parse(fs.readFileSync(outputsFile, 'utf8'));
+    console.log('[Embedding] Carga rápida de índice Faiss (hash coincide)');
+  } else {
+    console.log('[Embedding] Rebuild de índice Faiss (hash distinto o archivos faltantes)');
+    await buildIndex();
+    fs.writeFileSync(hashFile, currentHash, 'utf8');
   }
 }
 
 /**
- * Genera embedding para texto
+ * Lee el JSONL, genera embeddings, crea el índice y guarda en disco.
+ */
+async function buildIndex() {
+  ids = [];
+  outputs = [];
+  texts = [];
+  faissIndex = null;
+
+  const lines = fs.readFileSync(jsonlFile, 'utf8').split('\n').filter(l => l.trim());
+  const progress = new cliProgress.SingleBar({
+    format: '[{bar}] {percentage}% | {value}/{total} líneas',
+    barCompleteChar: '█',
+    barIncompleteChar: '░',
+    hideCursor: true
+  }, cliProgress.Presets.shades_classic);
+
+  progress.start(lines.length, 0);
+
+  for (let i = 0; i < lines.length; i++) {
+    progress.update(i + 1);
+
+    let parsed;
+    try {
+      parsed = JSON.parse(lines[i]);
+    } catch (err) {
+      console.warn('[Embedding] Línea JSON inválida, se omite:', lines[i].slice(0, 60));
+      continue;
+    }
+
+    const { id, input, output = '', tags = [] } = parsed;
+
+    if (!id || typeof input !== 'string' || !input.trim()) {
+      console.warn('[Embedding] Entrada sin input válido, se omite:', id || '(sin ID)');
+      continue;
+    }
+
+    const enrichedText = [input, ...(Array.isArray(tags) ? tags : [])].join(' ').trim();
+    if (!enrichedText) continue;
+
+    const vec = await generateEmbedding(enrichedText);
+
+    if (!faissIndex) {
+      faissIndex = new IndexFlatIP(vec.length);
+    }
+
+    faissIndex.add(vec);
+    ids.push(id);
+    outputs.push(output);
+    texts.push(enrichedText);
+  }
+
+  progress.stop();
+
+  faissIndex.write(indexFile);
+  fs.writeFileSync(idsFile,     JSON.stringify(ids,     null, 2), 'utf8');
+  fs.writeFileSync(outputsFile, JSON.stringify(outputs, null, 2), 'utf8');
+
+  console.log(`[Embedding] Embeddings generados: ${ids.length}`);
+}
+
+/**
+ * Genera el embedding de un texto dado (JS Array de números).
  */
 async function generateEmbedding(text) {
   if (!extractor) await ensureModelLoaded();
-  const result = await extractor(text.trim(), { pooling: 'mean', normalize: true });
-  return result.data; // devuelve Float32Array directamente
+  const { data } = await extractor(text, { pooling: 'mean', normalize: true });
+  return Array.isArray(data) ? data : Array.from(data);
 }
-
-
 
 /**
- * Carga desde disco o genera FAISS desde JSONL
+ * Busca la coincidencia más cercana (solo si similarity > 0.3).
  */
-async function loadCachedEmbeddings() {
-  if (fs.existsSync(FAISS_INDEX_PATH) && fs.existsSync(FAISS_META_PATH)) {
-    faissIndex = faiss.readIndex(FAISS_INDEX_PATH);
-    faissMetadata = JSON.parse(fs.readFileSync(FAISS_META_PATH, 'utf8'));
-    console.log(`[FAISS] Índice cargado desde disco con ${faissMetadata.length} entradas`);
-    return;
-  }
-
-  console.log('[Embedding] Generando índice FAISS desde JSONL...');
-  await regenerateFaissIndex();
+async function findClosestMatch(query) {
+  await ensureModelLoaded();
+  const vec = await generateEmbedding(query);
+  const { labels, distances } = faissIndex.search(vec, 1);
+  const idx = labels[0];
+  if (idx < 0 || distances[0] < 0.3) return null;
+  return {
+    id: ids[idx],
+    output: outputs[idx],
+    similarity: distances[0]
+  };
 }
 
+/**
+ * Busca las k coincidencias más cercanas (filtradas por similarity).
+ */
+async function findMultipleMatches(query, k = 5, threshold = 0.3) {
+  await ensureModelLoaded();
+  const vec = await generateEmbedding(query);
+  const { labels, distances } = faissIndex.search(vec, k);
+  return labels.map((idx, i) => ({
+    id: ids[idx],
+    output: outputs[idx],
+    similarity: distances[i]
+  })).filter(c => c.similarity >= threshold);
+}
 
+// Carga todos los tags únicos desde el JSONL original
+async function getKnownTags() {
+  const tagsSet = new Set();
 
-async function regenerateFaissIndex() {
   const rl = readline.createInterface({
-    input: fs.createReadStream(instructDataPath),
+    input: fs.createReadStream(jsonlFile),
     crlfDelay: Infinity
   });
 
-  let contador = 0;
-  let errores = 0;
-  let vectorLength = null;
-  const allVectors = [];
-  faissMetadata = [];
-
   for await (const line of rl) {
     if (!line.trim()) continue;
-    contador++;
-
-    let data;
     try {
-      data = JSON.parse(line);
-    } catch {
-      console.warn(`[FAISS] JSON inválido en línea ${contador}`);
-      errores++;
+      const { tags = [] } = JSON.parse(line);
+      for (const tag of tags) {
+        if (tag && typeof tag === 'string') {
+          tagsSet.add(tag.toLowerCase());
+        }
+      }
+    } catch (e) {
       continue;
     }
-
-    if (!data.input || typeof data.input !== 'string') {
-      console.warn(`[FAISS] Entrada inválida (línea ${contador})`);
-      errores++;
-      continue;
-    }
-
-    let embedding;
-    try {
-      embedding = await generateEmbedding(data.input);
-    } catch (err) {
-      console.warn(`[FAISS] Error generando embedding (línea ${contador}): ${err.message}`);
-      errores++;
-      continue;
-    }
-
-    if (!(embedding instanceof Float32Array) || embedding.length === 0 || isNaN(embedding[0])) {
-      console.warn(`[FAISS] Embedding inválido (línea ${contador})`);
-      errores++;
-      continue;
-    }
-
-    if (!vectorLength) vectorLength = embedding.length;
-    else if (embedding.length !== vectorLength) {
-      console.warn(`[FAISS] Longitud inesperada en línea ${contador}: ${embedding.length} (esperado: ${vectorLength})`);
-      errores++;
-      continue;
-    }
-
-    const id = data.id || `entry-${contador}`;
-    faissMetadata.push({ ...data, id });
-    allVectors.push(embedding);
   }
 
-  console.log(`[Embedding] Generando índice con ${allVectors.length} vectores válidos...`);
-
-  if (!vectorLength || allVectors.length === 0) {
-    throw new Error("No se generaron vectores válidos para crear el índice FAISS.");
-  }
-
-  // Flatten Float32Array[] → Float32Array continuo
-  const totalSize = allVectors.length * vectorLength;
-  const flatArray = new Float32Array(totalSize);
-  allVectors.forEach((vec, i) => flatArray.set(vec, i * vectorLength));
-
-  // Crear índice FAISS
-  faissIndex = new faiss.IndexFlatL2(vectorLength);
-  faissIndex.add(flatArray, allVectors.length);
-
-  // Guardar índice y metadatos
-  faiss.writeIndex(faissIndex, FAISS_INDEX_PATH);
-  fs.writeFileSync(FAISS_META_PATH, JSON.stringify(faissMetadata, null, 2));
-
-  console.log(`[FAISS] Índice FAISS creado con ${allVectors.length} vectores (longitud: ${vectorLength}, errores: ${errores})`);
+  return Array.from(tagsSet);
 }
 
 
 
-
-
-/**
- * Busca la mejor coincidencia
- */
-async function findClosestMatch(query, threshold = 0.65) {
-  if (!query || typeof query !== 'string') return null;
-  if (!extractor) await ensureModelLoaded();
-  if (!faissIndex) return null;
-
-  const queryEmbedding = await generateEmbedding(query);
-  const result = faissIndex.search([queryEmbedding], 1);
-  const bestIndex = result.indices[0];
-  const similarity = 1 / (1 + result.distances[0]);
-
-  if (bestIndex >= 0 && similarity >= threshold) {
-    const match = faissMetadata[bestIndex];
-    return {
-      text: match.input,
-      output: match.output,
-      similarity,
-      tags: match.tags || [],
-      id: match.id
-    };
-  }
-
-  return null;
-}
-
-/**
- * Busca múltiples coincidencias
- */
-async function findMultipleMatches(query, threshold = 0.6, limit = 3) {
-  if (!query || typeof query !== 'string') return [];
-  if (!extractor) await ensureModelLoaded();
-  if (!faissIndex) return [];
-
-  const queryEmbedding = await generateEmbedding(query);
-  const result = faissIndex.search([queryEmbedding], limit);
-  const matches = [];
-
-  for (let i = 0; i < result.indices.length; i++) {
-    const idx = result.indices[i];
-    const dist = result.distances[i];
-    const sim = 1 / (1 + dist);
-
-    if (sim >= threshold && faissMetadata[idx]) {
-      matches.push({
-        text: faissMetadata[idx].input,
-        output: faissMetadata[idx].output,
-        similarity: sim,
-        tags: faissMetadata[idx].tags || [],
-        id: faissMetadata[idx].id
-      });
-    }
-  }
-
-  return matches;
-}
 
 module.exports = {
   ensureModelLoaded,
   generateEmbedding,
   findClosestMatch,
   findMultipleMatches,
-  regenerateFaissIndex
+  getKnownTags
 };
