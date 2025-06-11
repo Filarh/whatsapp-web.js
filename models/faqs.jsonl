@@ -1,0 +1,481 @@
+{"id": "faq_0001", "input": "cuanto cuesta una llave de carro", "output": "En Marce's Key Shop, el precio de las llaves de vehículo depende de la marca y el modelo: van desde $0.60 para llaves estándar sin chip hasta $8 para modelos con transponder de alta seguridad", "tags": ["vehículo"]}
+{"id": "faq_0002", "input": "¿Qué precio tienen las llaves de auto en Marce's Key Shop?", "output": "El costo varía según el tipo de llave: desde $0.60 para modelos simples sin chip hasta $8 para transponders avanzados", "tags": ["vehículo"]}
+{"id": "faq_0003", "input": "¿Cuánto vale una llave con chip para auto?", "output": "Las llaves con transponder de alta seguridad pueden costar hasta $8 en Marce's Key Shop", "tags": ["vehículo"]}
+{"id": "faq_0004", "input": "¿Qué tipos de llaves de carro ofrecen y cuánto cuestan?", "output": "Disponemos de llaves estándar desde $0.60 y transponders de alta seguridad hasta $8, según marca y modelo", "tags": ["vehículo"]}
+{"id": "faq_0005", "input": "¿Cuál es el precio mínimo de una llave de coche?", "output": "Las llaves estándar sin chip comienzan en $0.60 en Marce's Key Shop", "tags": ["vehículo"]}
+{"id": "faq_0006", "input": "¿Qué influye en el costo de una llave de vehículo?", "output": "El precio depende de la marca y modelo del auto, y del tipo de llave: estándar o con transponder", "tags": ["vehículo"]}
+{"id": "faq_0007", "input": "¿Qué tipos de cerraduras venden?", "output": "Ofrecemos cerraduras de alta seguridad, auxiliares, de sobreponer, de incrustar, pico de loro y barras anti-pánico", "tags": ["producto"]}
+{"id": "faq_0008", "input": "¿Tienen cerraduras de seguridad?", "output": "Sí, contamos con cerraduras de alta seguridad entre otras variedades", "tags": ["producto"]}
+{"id": "faq_0009", "input": "¿Venden barras antipánico?", "output": "Sí, disponemos de barras anti-pánico como parte de nuestro catálogo de cerraduras", "tags": ["producto"]}
+{"id": "faq_0010", "input": "¿Puedo comprar cerraduras en Marce's Key Shop?", "output": "Sí, tenemos un amplio surtido de cerraduras disponibles para la venta", "tags": ["producto"]}
+{"id": "faq_0011", "input": "¿Qué opciones de cerraduras ofrecen?", "output": "Tenemos cerraduras auxiliares, de sobreponer, incrustar, tipo pico de loro, barras anti-pánico y más", "tags": ["producto"]}
+{"id": "faq_0012", "input": "¿Qué tipos de cerraduras manejan?", "output": "Ofrecemos cerraduras de sobreponer, incrustar, auxiliares, pico de loro y barras anti-pánico", "tags": ["producto"]}
+{"id": "faq_0013", "input": "¿Qué variedad de cerraduras puedo encontrar?", "output": "Contamos con una gama que incluye cerraduras de sobreponer, auxiliares, barras anti-pánico y otras más", "tags": ["producto"]}
+{"id": "faq_0014", "input": "¿Tienen cerraduras tipo pico de loro?", "output": "Sí, disponemos de cerraduras tipo pico de loro, además de otros modelos como de sobreponer e incrustar", "tags": ["producto"]}
+{"id": "faq_0015", "input": "¿Qué cerraduras tienen disponibles?", "output": "Tenemos disponibles cerraduras auxiliares, de incrustar, de sobreponer y barras anti-pánico", "tags": ["producto"]}
+{"id": "faq_0016", "input": "¿Qué productos de cerraduras ofrecen en la tienda?", "output": "Nuestra tienda ofrece cerraduras de todo tipo: desde barras anti-pánico hasta modelos auxiliares y de incrustar", "tags": ["producto"]}
+{"id": "faq_0017", "input": "¿Tienen redes sociales?", "output": "Puedes seguirnos en Facebook (Marce's Key Shop), Instagram (@llavesmks), Twitter (@MARCEKEYSHOP), TikTok (@llavesmks) y Threads (@llavesmks). También visita nuestro sitio web en www.marcekeyshop.com.", "tags": ["redes"]}
+{"id": "faq_0018", "input": "¿Dónde puedo encontrarlos en redes sociales?", "output": "Estamos en Facebook (Marce's Key Shop), Instagram, Twitter, TikTok y Threads como @llavesmks", "tags": ["redes"]}
+{"id": "faq_0019", "input": "¿Están en Instagram o TikTok?", "output": "Sí, puedes encontrarnos como @llavesmks tanto en Instagram como en TikTok", "tags": ["redes"]}
+{"id": "faq_0020", "input": "¿Tienen página web o redes sociales?", "output": "Sí, visita www.marcekeyshop.com y síguenos en nuestras redes: Facebook, Instagram, Twitter, TikTok y Threads", "tags": ["redes"]}
+{"id": "faq_0021", "input": "¿Cómo los encuentro en Facebook?", "output": "En Facebook nos encuentras como Marce's Key Shop", "tags": ["redes"]}
+{"id": "faq_0022", "input": "¿Tienen cuenta en Threads?", "output": "Sí, también estamos en Threads como @llavesmks", "tags": ["redes"]}
+{"id": "faq_0023", "input": "¿Qué marcas de llaves normales tienen?", "output": "Tenemos llaves estándar de marcas como Viro, Yale, Silca, Phillips y más", "tags": ["producto"]}
+{"id": "faq_0024", "input": "¿Cuánto cuesta una llave estándar?", "output": "Las llaves normales tienen precios desde $0.20, dependiendo de la marca", "tags": ["producto"]}
+{"id": "faq_0025", "input": "¿Tienen llaves comunes para puertas?", "output": "Sí, ofrecemos llaves estándar para puertas desde $0.20", "tags": ["producto"]}
+{"id": "faq_0026", "input": "¿Puedo comprar una llave simple para mi casa?", "output": "Sí, vendemos llaves normales para uso doméstico desde $0.20", "tags": ["producto"]}
+{"id": "faq_0027", "input": "¿Qué tipo de llaves sin chip venden?", "output": "Ofrecemos llaves estándar para puertas y autos sin chip, desde $0.20", "tags": ["producto"]}
+{"id": "faq_0028", "input": "Donde queda su local", "output": "Nuestras sucursales:\n- Alcedo 206 y Rumichaca, Guayaquil (Principal)\n- Piedrahita 252 y Ximena, Alborada IX Etapa\nTeléfono/WhatsApp: 0964001175 / +593999609939\nEmails: info@marcekeyshop.com | marcekeyshop@gmail.com", "tags": ["ubicación"]}
+{"id": "faq_0029", "input": "¿Qué datos de contacto tienen en la IX Etapa?", "output": "IX Etapa\nTeléfono/WhatsApp: 0964001175 / +593999609939\nEmails: info@marcekeyshop.com | marcekeyshop@gmail.com", "tags": ["ubicación"]}
+{"id": "faq_0030", "input": "¿Cuál es el número de teléfono o WhatsApp de Marce's Key Shop?", "output": "IX Etapa\nTeléfono/WhatsApp: 0964001175 / +593999609939\nEmails: info@marcekeyshop.com | marcekeyshop@gmail.com", "tags": ["ubicación"]}
+{"id": "faq_0031", "input": "¿Tienen correo electrónico para atención al cliente?", "output": "IX Etapa\nTeléfono/WhatsApp: 0964001175 / +593999609939\nEmails: info@marcekeyshop.com | marcekeyshop@gmail.com", "tags": ["ubicación"]}
+{"id": "faq_0032", "input": "¿Dónde queda la sucursal donde puedo llamar al 0964001175?", "output": "IX Etapa\nTeléfono/WhatsApp: 0964001175 / +593999609939\nEmails: info@marcekeyshop.com | marcekeyshop@gmail.com", "tags": ["ubicación"]}
+{"id": "faq_0033", "input": "¿Cómo me comunico con Marce's Key Shop por correo o teléfono?", "output": "IX Etapa\nTeléfono/WhatsApp: 0964001175 / +593999609939\nEmails: info@marcekeyshop.com | marcekeyshop@gmail.com", "tags": ["ubicación"]}
+{"id": "faq_0034", "input": "¿Venden llaves económicas dependiendo del tipo de vehículo?", "output": "Sí, tenemos llaves de carro económicas. El precio varía según la marca y el tipo de llave.", "tags": ["vehículo"]}
+{"id": "faq_0035", "input": "¿Las llaves de carro varían de precio según la marca?", "output": "Sí, tenemos llaves de carro económicas. El precio varía según la marca y el tipo de llave.", "tags": ["vehículo"]}
+{"id": "faq_0036", "input": "¿Qué tan baratas pueden ser las llaves de carro?", "output": "Sí, tenemos llaves de carro económicas. El precio varía según la marca y el tipo de llave.", "tags": ["vehículo"]}
+{"id": "faq_0037", "input": "¿Hay llaves de carro accesibles según el modelo?", "output": "Sí, tenemos llaves de carro económicas. El precio varía según la marca y el tipo de llave.", "tags": ["vehículo"]}
+{"id": "faq_0038", "input": "¿Tienen opciones de llaves para auto a buen precio?", "output": "Sí, tenemos llaves de carro económicas. El precio varía según la marca y el tipo de llave.", "tags": ["vehículo"]}
+{"id": "faq_0039", "input": "¿Cuál es el horario de atención?", "output": "Sí, abrimos los fines de semana. Nuestro horario es de lunes a viernes de 8:00 a 18:00 y sábados de 8:00 a 15:00.", "tags": ["horario"]}
+{"id": "faq_0040", "input": "¿Atienden los sábados?", "output": "Sí, los sábados abrimos de 8:00 a 15:00.", "tags": ["horario"]}
+{"id": "faq_0041", "input": "¿Qué días están abiertos?", "output": "Estamos abiertos de lunes a sábado. Lunes a viernes de 8:00 a 18:00 y sábados de 8:00 a 15:00.", "tags": ["horario"]}
+{"id": "faq_0042", "input": "¿Trabajan entre semana?", "output": "Sí, trabajamos de lunes a viernes en horario de 8:00 a 18:00.", "tags": ["horario"]}
+{"id": "faq_0043", "input": "¿Cuáles son los horarios de atención entre semana y fin de semana?", "output": "Entre semana abrimos de 8:00 a 18:00 y los sábados de 8:00 a 15:00.", "tags": ["horario"]}
+{"id": "faq_0044", "input": "¿Cómo puedo contactarlos?", "output": "Puedes contactarnos por WhatsApp o llamada al 0964001175, enviar un correo a info@marcekeyshop.com o marcekeyshop@gmail.com, o visitarnos en cualquiera de nuestras sucursales.", "tags": ["contacto"]}
+{"id": "faq_0045", "input": "¿Qué tipo de apoyo ofrecen a cerrajeros?", "output": "Ofrecemos asesoría técnica, selección de duplicadoras, capacitación en herramientas y actualización en técnicas de duplicación.", "tags": ["servicios"]}
+{"id": "faq_0046", "input": "¿Capacitan a cerrajeros?", "output": "Sí, brindamos capacitación en el uso de herramientas y técnicas de duplicación para cerrajeros.", "tags": ["servicios"]}
+{"id": "faq_0047", "input": "¿Puedo recibir orientación para elegir duplicadoras?", "output": "Claro, asesoramos en la selección de duplicadoras y herramientas para cerrajeros.", "tags": ["servicios"]}
+{"id": "faq_0048", "input": "¿Ayudan a cerrajeros a actualizar sus conocimientos?", "output": "Sí, ofrecemos actualización de técnicas de duplicación y asesoría técnica para cerrajeros.", "tags": ["servicios"]}
+{"id": "faq_0049", "input": "¿Tienen servicios de formación para cerrajeros?", "output": "Sí, contamos con asesoría técnica y capacitación en herramientas y duplicación.", "tags": ["servicios"]}
+{"id": "faq_0050", "input": "llaves con chip venden", "output": "Claro, contamos con tecnología transponder", "tags": ["vehículo"]}
+{"id": "faq_0051", "input": "tienen llaves con chip?", "output": "Claro, contamos con tecnología transponder.", "tags": ["vehículo"]}
+{"id": "faq_0052", "input": "chip para llaves tienen?", "output": "Sí, trabajamos con tecnología transponder para llaves.", "tags": ["vehículo"]}
+{"id": "faq_0053", "input": "venden chip de carro", "output": "Sí, ofrecemos llaves con chip (tecnología transponder) para vehículos.", "tags": ["vehículo"]}
+{"id": "faq_0054", "input": "llave con chip hay", "output": "Sí, tenemos llaves con chip gracias a nuestra tecnología transponder.", "tags": ["vehículo"]}
+{"id": "faq_0055", "input": "transpoder venden", "output": "Sí, trabajamos con llaves transponder para vehículos.", "tags": ["vehículo"]}
+{"id": "faq_0056", "input": "¿Dónde puedo encontrar sus precios?", "output": "Puedes solicitar una cotización directa, a nuestro WhatsApp o correo electrónico.", "tags": ["precio"]}
+{"id": "faq_0057", "input": "como veo los precios", "output": "Puedes solicitar una cotización directa por WhatsApp o correo electrónico.", "tags": ["precio"]}
+{"id": "faq_0058", "input": "tienen lista de precios?", "output": "No publicamos lista, pero puedes pedir una cotización por WhatsApp o email.", "tags": ["precio"]}
+{"id": "faq_0059", "input": "precios donde los veo", "output": "Nuestros precios los puedes consultar pidiendo una cotización por WhatsApp o correo.", "tags": ["precio"]}
+{"id": "faq_0060", "input": "quiero saber cuanto cuestan las cosas", "output": "Puedes escribirnos por WhatsApp o correo y te enviamos una cotización personalizada.", "tags": ["precio"]}
+{"id": "faq_0061", "input": "cotizan por mensaje?", "output": "Sí, enviamos cotizaciones por WhatsApp o correo electrónico.", "tags": ["precio"]}
+{"id": "faq_0062", "input": "direccion tienen?", "output": "Sí, estamos en Piedrahita 252 y Ximena (matriz), Alcedo 206 y Rumichaca (centro), y Alborada IX Etapa frente al banco internacional (norte).", "tags": ["ubicación"]}
+{"id": "faq_0063", "input": "donde queda su local", "output": "Tenemos tres locales: en el centro (Alcedo y Rumichaca), matriz (Piedrahita y Ximena) y norte (Alborada IX Etapa frente al banco internacional).", "tags": ["ubicación"]}
+{"id": "faq_0064", "input": "estan por el centro?", "output": "Sí, uno de nuestros locales está en Alcedo 206 y Rumichaca, en el centro.", "tags": ["ubicación"]}
+{"id": "faq_0065", "input": "queda por la alborada?", "output": "Sí, en el norte estamos en Alborada IX Etapa, frente al banco internacional.", "tags": ["ubicación"]}
+{"id": "faq_0066", "input": "donde puedo ir", "output": "Puedes visitarnos en nuestra matriz (Piedrahita y Ximena), en el centro (Alcedo y Rumichaca) o en el norte (Alborada IX Etapa).", "tags": ["ubicación"]}
+{"id": "faq_0067", "input": "¿Cuál es el horario de atención?", "output": "De lunes a viernes de 8:00 a 17:30, y sábados de 8:00 a 15:00", "tags": ["horario"]}
+{"id": "faq_0068", "input": "como pago", "output": "puedes realizar tus pagos mediante efectivo o transferencia, disponemos de cuentas en Banco Guayaquil y Banco pichincha", "tags": []}
+{"id": "faq_0069", "input": "venden manijas de puertas?", "output": "Sí, disponemos de varios modelos en marca KL desde $30", "tags": []}
+{"id": "faq_0070", "input": "cuanto vale una llave sin plastico", "output": "Depende del tipo. Las económicas cuestan menos, pero si solo hay JMA el precio es mayor.", "tags": ["precio"]}
+{"id": "faq_0071", "input": "llaves metalicas baratas", "output": "Sí, tenemos llaves sin plástico a precio económico, dependiendo del modelo disponible.", "tags": ["precio"]}
+{"id": "faq_0072", "input": "tienen llaves sin la cabeza negra?", "output": "Sí, las llaves sin plástico (solo metal) suelen ser más baratas, dependiendo si hay disponibles económicas o JMA.", "tags": ["precio"]}
+{"id": "faq_0073", "input": "la llave de puro metal cuanto cuesta", "output": "Las llaves solo metálicas pueden ser más económicas, según la marca y modelo disponibles.", "tags": ["precio"]}
+{"id": "faq_0074", "input": "llave sin plastico precio bajo", "output": "Sí, ofrecemos llaves sin plástico a menor precio si hay modelos económicos, aunque algunas solo están en JMA.", "tags": ["precio"]}
+{"id": "faq_0075", "input": "¿Tienen llaves con chip?", "output": "Sí, contamos con una amplia variedad de llaves transponder para diferentes marcas y modelos.", "tags": ["vehículo"]}
+{"id": "faq_0076", "input": "precio llave normal", "output": "Las llaves de casa empiezan desde $0.20 en marca MKS y también hay otras por $0.275.", "tags": ["precio"]}
+{"id": "faq_0077", "input": "llaves baratas de casa tienen?", "output": "Sí, ofrecemos llaves desde $0.20 en nuestra marca MKS y también en CV por $0.275.", "tags": ["precio"]}
+{"id": "faq_0078", "input": "cuanto vale una llave mks", "output": "Las llaves MKS de casa tienen un costo desde $0.20.", "tags": ["precio"]}
+{"id": "faq_0079", "input": "precio llave comun", "output": "Una llave de casa común cuesta desde $0.20 si es MKS, o $0.275 en versión CV.", "tags": ["precio"]}
+{"id": "faq_0080", "input": "llaves para cerradura normales", "output": "Tenemos llaves estándar desde $0.20 (MKS) y otras opciones por $0.275.", "tags": ["precio"]}
+{"id": "faq_0081", "input": "¿Venden llaves de colores?", "output": "Sí, tenemos llaves de aluminio en varios colores para darle un estilo único.", "tags": []}
+{"id": "faq_0082", "input": "¿Qué estilos únicos ofrecen con las llaves de aluminio?", "output": "Vendemos llaves de colores en aluminio para quienes buscan personalización.", "tags": ["producto"]}
+{"id": "faq_0083", "input": "¿Qué opciones de llaves personalizadas tienen?", "output": "Sí, tenemos llaves de aluminio en varios colores para darle un estilo único.", "tags": ["producto"]}
+{"id": "faq_0084", "input": "¿Dónde puedo conseguir llaves de colores?", "output": "En nuestra tienda vendemos llaves de aluminio en diversos colores.", "tags": ["producto"]}
+{"id": "faq_0085", "input": "¿Qué colores tienen disponibles en llaves?", "output": "Ofrecemos llaves de aluminio en varios colores para personalizar tu estilo.", "tags": ["producto"]}
+{"id": "faq_0086", "input": "pueden hacer llave de moto?", "output": "Sí, puedes hacer consultas y pedidos a través de WhatsApp o correo electrónico.", "tags": []}
+{"id": "faq_0087", "input": "¿Cómo hago un pedido para una llave de moto?", "output": "Puedes hacer consultas y pedidos a través de WhatsApp o correo electrónico.", "tags": ["moto"]}
+{"id": "faq_0088", "input": "¿Dónde puedo consultar sobre llaves de moto?", "output": "Sí, puedes hacer consultas y pedidos a través de WhatsApp o correo electrónico.", "tags": ["moto"]}
+{"id": "faq_0089", "input": "¿Aceptan pedidos de llaves de moto por internet?", "output": "Puedes hacer tu pedido de llave de moto por WhatsApp o correo electrónico.", "tags": ["moto"]}
+{"id": "faq_0090", "input": "¿Qué medios usan para pedidos de llaves de moto?", "output": "Los pedidos de llaves de moto se pueden hacer por WhatsApp o correo electrónico.", "tags": ["moto"]}
+{"id": "faq_0091", "input": "¿Qué hago si me roban la llave?", "output": "Te recomendamos cambiar la cerradura o el cilindro. Podemos asesorarte, aunque nosotros no realizamos este servicio.", "tags": ["seguridad"]}
+{"id": "faq_0092", "input": "¿Ofrecen ayuda si pierdo una llave por robo?", "output": "Podemos asesorarte, aunque no realizamos el servicio. Lo ideal es cambiar el cilindro o cerradura.", "tags": ["seguridad"]}
+{"id": "faq_0093", "input": "¿Cambiar la cerradura es necesario si me roban la llave?", "output": "Sí, es recomendable cambiar el cilindro o cerradura. Nosotros solo brindamos asesoría.", "tags": ["seguridad"]}
+{"id": "faq_0094", "input": "¿Qué solución hay si extravío mi llave por robo?", "output": "Se aconseja cambiar el cilindro o cerradura. Podemos asesorarte en el proceso, pero no ejecutamos el servicio.", "tags": ["seguridad"]}
+{"id": "faq_0095", "input": "¿Puedo visitarlos en la tarde?", "output": "Por supuesto, siempre estamos a la orden hasta las 17:30 de lunes a viernes, sábados hasta las 15:00", "tags": []}
+{"id": "faq_0096", "input": "¿Atienden por la tarde?", "output": "Sí, nuestro horario es hasta las 17:30 de lunes a viernes y los sábados hasta las 15:00.", "tags": ["horario"]}
+{"id": "faq_0097", "input": "¿A qué hora cierran entre semana?", "output": "Cerramos a las 17:30 de lunes a viernes, y los sábados a las 15:00.", "tags": ["horario"]}
+{"id": "faq_0098", "input": "¿Están abiertos después del mediodía?", "output": "Sí, atendemos hasta las 17:30 de lunes a viernes y hasta las 15:00 los sábados.", "tags": ["horario"]}
+{"id": "faq_0099", "input": "¿Cuál es su horario de atención en las tardes?", "output": "Estamos disponibles hasta las 17:30 de lunes a viernes y hasta las 15:00 los sábados.", "tags": ["horario"]}
+{"id": "faq_0100", "input": "¿Los puedo visitar hoy en la tarde?", "output": "Por supuesto, si es de lunes a viernes antes de las 17:30 o sábado antes de las 15:00.", "tags": ["horario"]}
+{"id": "faq_0101", "input": "¿Hay atención vespertina?", "output": "Sí, estamos a la orden hasta las 17:30 de lunes a viernes y los sábados hasta las 15:00.", "tags": ["horario"]}
+{"id": "faq_0102", "input": "¿Puedo ir en la tarde a la tienda?", "output": "Claro, abrimos hasta las 17:30 en días laborables y hasta las 15:00 los sábados.", "tags": ["horario"]}
+{"id": "faq_0103", "input": "venden herramientas cerrajero?", "output": "Sí, ofrecemos herramientas y kits para cerrajeros: duplicadoras manuales y automáticas, fresas, palpadores, ganzúas y más.", "tags": ["herramientas"]}
+{"id": "faq_0104", "input": "tienen duplicadora llaves?", "output": "Sí, contamos con duplicadoras manuales y automáticas para cerrajería profesional.", "tags": ["herramientas"]}
+{"id": "faq_0105", "input": "herramientas pa cerrajero tienen?", "output": "Sí, ofrecemos kits con ganzúas, fresas, palpadores, duplicadoras y más para cerrajeros.", "tags": ["herramientas"]}
+{"id": "faq_0106", "input": "ganzuas tienen?", "output": "Sí, trabajamos con ganzúas y herramientas profesionales para cerrajeros, incluyendo marcas como JMA y Silca.", "tags": ["herramientas"]}
+{"id": "faq_0107", "input": "vende cosas pa cerrajeria?", "output": "Sí, tenemos herramientas especializadas para cerrajería como duplicadoras, fresas, ganzúas y más.", "tags": ["herramientas"]}
+{"id": "faq_0108", "input": "tienen fresas o palpadores?", "output": "Sí, ofrecemos fresas, palpadores y otras herramientas para cerrajeros profesionales.", "tags": ["herramientas"]}
+{"id": "faq_0109", "input": "ustedes tienen kits cerrajero?", "output": "Sí, ofrecemos kits completos para cerrajeros con duplicadoras, ganzúas y más herramientas especializadas.", "tags": ["herramientas"]}
+{"id": "faq_0110", "input": "llaves colores tienen", "output": "Sí, disponemos de llaves de aluminio en varios colores.", "tags": []}
+{"id": "faq_0111", "input": "llaves colores tienen?", "output": "Sí, disponemos de llaves de aluminio en varios colores, son más resistentes y no se rompen fácilmente.", "tags": ["producto"]}
+{"id": "faq_0112", "input": "esas llaves de color no se rompen?", "output": "Son llaves de aluminio reforzado, más resistentes que las comunes. Además vienen en varios colores.", "tags": ["producto"]}
+{"id": "faq_0113", "input": "las llaves de colores son frágiles?", "output": "No, son más resistentes que las llaves normales gracias al aluminio de alta calidad.", "tags": ["producto"]}
+{"id": "faq_0114", "input": "venden llaves color pero que no se quiebren?", "output": "Sí, nuestras llaves de colores están hechas en aluminio duradero, no se quiebran con facilidad.", "tags": ["producto"]}
+{"id": "faq_0115", "input": "tienen llaves duras pero bonitas?", "output": "Claro, las llaves de colores que ofrecemos son de aluminio, resistentes y con buen estilo.", "tags": ["producto"]}
+{"id": "faq_0116", "input": "esas llaves de color sirven o solo son pinta?", "output": "Sí sirven, son funcionales, resistentes y además tienen colores para darles estilo.", "tags": ["producto"]}
+{"id": "faq_0117", "input": "que marcas manejan", "output": "Disponemos de Modelos de llaves en marcas como JMA, CV, MKS, ILLCO y otras económicas", "tags": []}
+{"id": "faq_0118", "input": "¿Tienen llaves JMA o Illco?", "output": "Sí, trabajamos con JMA, ILLCO, MKS, CV y marcas económicas.", "tags": ["marca"]}
+{"id": "faq_0119", "input": "manejan mks o cv?", "output": "Sí, contamos con llaves marca MKS, CV y otras opciones económicas.", "tags": ["marca"]}
+{"id": "faq_0120", "input": "que llaves tienen?", "output": "Disponemos de modelos de llaves en varias marcas: JMA, CV, MKS, ILLCO y más.", "tags": ["marca"]}
+{"id": "faq_0121", "input": "¿Cuáles son las marcas de llaves que venden?", "output": "Vendemos llaves de marcas como JMA, CV, MKS, ILLCO y otras más económicas.", "tags": ["marca"]}
+{"id": "faq_0122", "input": "venden llaves economicas?", "output": "Sí, tenemos llaves económicas en marcas como MKS, CV y otras genéricas.", "tags": ["marca"]}
+{"id": "faq_0123", "input": "jma es buena marca?", "output": "Sí, JMA es una marca reconocida por su calidad en llaves.", "tags": ["marca"]}
+{"id": "faq_0124", "input": "¿Puedo conseguir carcasas para llaves?", "output": "Sí, tenemos carcasas de repuesto para llaves de vehículo en plástico y metal de marcas como Silca, JMA y Mottura. Los precios comienzan en $3.50 con la carcasa 123 la más vendida para el chevrolet", "tags": []}
+{"id": "faq_0125", "input": "carcasa chevrolet tienen?", "output": "Sí, contamos con la carcasa 123, la más vendida para Chevrolet. Cuesta desde $3.50.", "tags": ["carcasa"]}
+{"id": "faq_0126", "input": "¿Venden repuestos de llaves?", "output": "Sí, tenemos carcasas de repuesto para llaves en plástico y metal, de marcas como Silca, JMA y Mottura.", "tags": ["carcasa"]}
+{"id": "faq_0127", "input": "quiero una carcasa para llave de auto", "output": "Tenemos carcasas para llaves de vehículo desde $3.50, en materiales como plástico y metal.", "tags": ["carcasa"]}
+{"id": "faq_0128", "input": "cuánto vale la carcasa para llave?", "output": "Los precios comienzan en $3.50. La más vendida es la carcasa 123 para Chevrolet.", "tags": ["carcasa"]}
+{"id": "faq_0129", "input": "tienen carcasa para llave de chevrolet?", "output": "Sí, la carcasa 123 es la más vendida para Chevrolet. Tenemos disponibles desde $3.50.", "tags": ["carcasa"]}
+{"id": "faq_0130", "input": "carcasa de jma venden?", "output": "Sí, tenemos carcasas de la marca JMA y también de Silca y Mottura.", "tags": ["carcasa"]}
+{"id": "faq_0131", "input": "¿Cómo llego a su local de Rumichaca?", "output": "Nuestro local del centro se encuentra en Alcedo 206 y rumichaca", "tags": ["ubicación"]}
+{"id": "faq_0132", "input": "rumichaca donde queda?", "output": "Estamos ubicados en Alcedo 206 y Rumichaca, en el centro de Guayaquil.", "tags": ["ubicación"]}
+{"id": "faq_0133", "input": "como llegar al local del centro?", "output": "Nuestro local del centro está en Alcedo 206 y Rumichaca.", "tags": ["ubicación"]}
+{"id": "faq_0134", "input": "ubicación rumichaca?", "output": "La tienda de Rumichaca está en Alcedo 206, en el centro.", "tags": ["ubicación"]}
+{"id": "faq_0135", "input": "tienen local por el centro?", "output": "Sí, nuestro local del centro está en Alcedo 206 y Rumichaca.", "tags": ["ubicación"]}
+{"id": "faq_0136", "input": "quiero ir al local de alcedo", "output": "Claro, el local está en Alcedo 206 y Rumichaca.", "tags": ["ubicación"]}
+{"id": "faq_0137", "input": "como llego a alcedo 206?", "output": "Alcedo 206 y Rumichaca, esa es la dirección de nuestro local del centro.", "tags": ["ubicación"]}
+{"id": "faq_0138", "input": "tienen superchips?", "output": "Sí, disponemos de Superchips normales, rojos y azules compatibles con Handy Baby y VVDI.", "tags": ["chip"]}
+{"id": "faq_0139", "input": "chips sueltos venden?", "output": "Claro, vendemos chips sueltos, incluyendo Superchips y modelos específicos.", "tags": ["chip"]}
+{"id": "faq_0140", "input": "chip rojo handy baby tienen?", "output": "Sí, contamos con Superchips rojos compatibles con Handy Baby.", "tags": ["chip"]}
+{"id": "faq_0141", "input": "quiero chip vvdii", "output": "Tenemos chips compatibles con VVDI, incluidos los Superchips normales, rojos y azules.", "tags": ["chip"]}
+{"id": "faq_0142", "input": "venden chip azul para duplicadora?", "output": "Sí, ofrecemos Superchips azules compatibles con duplicadoras como Handy Baby y VVDI.", "tags": ["chip"]}
+{"id": "faq_0143", "input": "chip suelto para que carro sirve?", "output": "Contamos con chips sueltos tanto genéricos como para modelos específicos de vehículo.", "tags": ["chip"]}
+{"id": "faq_0144", "input": "¿Venden máquinas duplicadoras de llaves?", "output": "Sí, contamos con duplicadoras manuales, semiautomáticas y automáticas de marcas como Silca, JMA y otras. Los precios van desde $225 para modelos básicos hasta $3,500 para duplicadoras profesionales de alta gama.", "tags": []}
+{"id": "faq_0145", "input": "venden maquinas para copiar llaves?", "output": "Sí, tenemos duplicadoras de llaves manuales, semiautomáticas y automáticas desde $225.", "tags": ["duplicadora"]}
+{"id": "faq_0146", "input": "maquina de llaves cuanto vale?", "output": "Tenemos duplicadoras desde $225 hasta $3,500, dependiendo del modelo y gama.", "tags": ["duplicadora"]}
+{"id": "faq_0147", "input": "quiero una maquina pa hacer llaves", "output": "Contamos con máquinas duplicadoras para llaves desde modelos básicos hasta profesionales.", "tags": ["duplicadora"]}
+{"id": "faq_0148", "input": "duplicadora jma venden?", "output": "Sí, ofrecemos duplicadoras JMA, Silca y otras marcas reconocidas.", "tags": ["duplicadora"]}
+{"id": "faq_0149", "input": "maquina barata para duplicar llaves?", "output": "Las duplicadoras básicas comienzan desde $225. Tenemos opciones manuales y semiautomáticas.", "tags": ["duplicadora"]}
+{"id": "faq_0150", "input": "cuánto cuesta una máquina para hacer llaves?", "output": "Las máquinas duplicadoras van desde $225 hasta $3,500, según el tipo y la marca.", "tags": ["duplicadora"]}
+{"id": "faq_0151", "input": "tienen duplicadora automatica?", "output": "Sí, contamos con duplicadoras automáticas de alta gama hasta $3,500.", "tags": ["duplicadora"]}
+{"id": "faq_0152", "input": "maquina de llaves silca tienen?", "output": "Sí, vendemos duplicadoras Silca junto a JMA y otras marcas confiables.", "tags": ["duplicadora"]}
+{"id": "faq_0153", "input": "puedo comprar maquina de duplicar ahi?", "output": "Sí, puedes adquirir duplicadoras manuales, semiautomáticas y automáticas con nosotros.", "tags": ["duplicadora"]}
+{"id": "faq_0154", "input": "venden la maquina esa pa copiar llaves?", "output": "Sí, contamos con duplicadoras de llaves desde $225. Tenemos varios modelos según tu necesidad.", "tags": ["duplicadora"]}
+{"id": "faq_0155", "input": "¿Qué formas de pago aceptan?", "output": "Aceptamos pagos en efectivo, tarjetas de crédito, débito y transferencias", "tags": []}
+{"id": "faq_0156", "input": "como se puede pagar?", "output": "Puedes pagar en efectivo, con tarjetas de crédito o débito, y también por transferencia.", "tags": ["pago"]}
+{"id": "faq_0157", "input": "aceptan transferencia?", "output": "Sí, aceptamos transferencias como forma de pago.", "tags": ["pago"]}
+{"id": "faq_0158", "input": "se puede pagar con tarjeta?", "output": "Sí, aceptamos pagos con tarjeta de crédito y débito.", "tags": ["pago"]}
+{"id": "faq_0159", "input": "pagan solo en efectivo?", "output": "No, también puedes pagar con tarjeta o por transferencia.", "tags": ["pago"]}
+{"id": "faq_0160", "input": "¿aceptan débito?", "output": "Sí, puedes pagar con tarjeta de débito sin problema.", "tags": ["pago"]}
+{"id": "faq_0161", "input": "tienen datafono?", "output": "Sí, contamos con datáfono para pagos con tarjeta.", "tags": ["pago"]}
+{"id": "faq_0162", "input": "puedo pagar con visa?", "output": "Sí, aceptamos tarjetas Visa y otras tarjetas de crédito y débito.", "tags": ["pago"]}
+{"id": "faq_0163", "input": "solo efectivo o tambien tarjeta?", "output": "Aceptamos efectivo, tarjetas y transferencias como formas de pago.", "tags": ["pago"]}
+{"id": "faq_0164", "input": "pagan con yape o plin?", "output": "No usamos Yape o Plin, pero sí aceptamos transferencias bancarias.", "tags": ["pago"]}
+{"id": "faq_0165", "input": "me reciben transferencia?", "output": "Claro, puedes pagar por transferencia sin problema.", "tags": ["pago"]}
+{"id": "faq_0166", "input": "¿Me pueden decir en qué ciudad trabajan?", "output": "Estamos en Guayaquil, Ecuador.", "tags": []}
+{"id": "faq_0167", "input": "en qué ciudad están?", "output": "Estamos en Guayaquil, Ecuador.", "tags": ["ubicación"]}
+{"id": "faq_0168", "input": "trabajan en guayaquil?", "output": "Sí, estamos en Guayaquil, Ecuador.", "tags": ["ubicación"]}
+{"id": "faq_0169", "input": "están en quito?", "output": "No, trabajamos únicamente en Guayaquil, Ecuador.", "tags": ["ubicación"]}
+{"id": "faq_0170", "input": "en qué parte del país están?", "output": "Nos ubicamos en Guayaquil, Ecuador.", "tags": ["ubicación"]}
+{"id": "faq_0171", "input": "solo están en guayaquil?", "output": "Sí, actualmente solo trabajamos en Guayaquil.", "tags": ["ubicación"]}
+{"id": "faq_0172", "input": "hay local en quito?", "output": "No, por ahora solo estamos en Guayaquil.", "tags": ["ubicación"]}
+{"id": "faq_0173", "input": "son de ecuador?", "output": "Sí, somos una empresa ubicada en Guayaquil, Ecuador.", "tags": ["ubicación"]}
+{"id": "faq_0174", "input": "venden en otras ciudades?", "output": "Por ahora solo operamos desde Guayaquil, pero hacemos envíos si es necesario.", "tags": ["ubicación"]}
+{"id": "faq_0175", "input": "están en el norte o sur?", "output": "Estamos en Guayaquil, con locales en el centro y norte de la ciudad.", "tags": ["ubicación"]}
+{"id": "faq_0176", "input": "tienen sucursal en otra ciudad?", "output": "No, actualmente todas nuestras sucursales están en Guayaquil.", "tags": ["ubicación"]}
+{"id": "faq_0177", "input": "que precio tienen las llaves especiales", "output": "Depende del modelo, por lo general, las llaves especiales como las KL tienen un valor desde los $7 por ser interactivas", "tags": ["precio"]}
+{"id": "faq_0178", "input": "cuánto cuestan las llaves kl?", "output": "Las llaves KL, al ser especiales e interactivas, tienen un precio desde $7.", "tags": ["precio"]}
+{"id": "faq_0179", "input": "precio llave interactiva?", "output": "Las llaves especiales e interactivas como las KL cuestan desde $7.", "tags": ["precio"]}
+{"id": "faq_0180", "input": "llave especial cuanto vale?", "output": "El precio depende del modelo, pero en general cuestan desde $7.", "tags": ["precio"]}
+{"id": "faq_0181", "input": "kl vale 7?", "output": "Sí, la llave KL cuesta desde $7 por su diseño especial e interactivo.", "tags": ["precio"]}
+{"id": "faq_0182", "input": "cuanto me sale una kl?", "output": "Las llaves KL tienen un precio desde $7, dependiendo del modelo.", "tags": ["precio"]}
+{"id": "faq_0183", "input": "llaves especiales son caras?", "output": "No necesariamente, pero las llaves especiales como KL inician en $7.", "tags": ["precio"]}
+{"id": "faq_0184", "input": "venden llaves kl?", "output": "Sí, vendemos llaves KL desde $7. Son consideradas especiales e interactivas.", "tags": ["precio"]}
+{"id": "faq_0185", "input": "las especiales cuestan más?", "output": "Sí, por lo general las llaves especiales como las KL tienen un valor inicial de $7.", "tags": ["precio"]}
+{"id": "faq_0186", "input": "¿Puedo duplicar mi llave de carro?", "output": "Sí, realizamos duplicado de llaves para autos, motos y camiones.", "tags": ["vehículo"]}
+{"id": "faq_0187", "input": "duplican llaves de carro?", "output": "Sí, realizamos duplicado de llaves para autos. Tenemos opciones con o sin plástico desde $7, pero si tiene chip puede costar desde $60.", "tags": ["vehículo"]}
+{"id": "faq_0188", "input": "cuánto vale duplicar llave de auto?", "output": "Depende del tipo. Llaves sin chip pueden costar desde $7, pero si tiene chip, el duplicado puede costar desde $60.", "tags": ["vehículo"]}
+{"id": "faq_0189", "input": "hacen copia de llaves de moto?", "output": "Sí, duplicamos llaves para motos desde $7, según el tipo de llave.", "tags": ["vehículo"]}
+{"id": "faq_0190", "input": "llave con chip cuanto cuesta duplicarla?", "output": "Las llaves con chip se duplican desde $60, dependiendo del modelo del vehículo.", "tags": ["vehículo"]}
+{"id": "faq_0191", "input": "copian llave de camion?", "output": "Sí, también duplicamos llaves para camiones, precio depende del tipo.", "tags": ["vehículo"]}
+{"id": "faq_0192", "input": "quiero duplicar llave con carcasa", "output": "No realizamos duplicado completo con carcasa, solo la parte funcional de la llave.", "tags": ["vehículo"]}
+{"id": "faq_0193", "input": "puedo copiar llave de carro con chip?", "output": "Sí, pero las llaves con chip tienen un costo mayor, desde $60.", "tags": ["vehículo"]}
+{"id": "faq_0194", "input": "duplican llaves sin chip?", "output": "Sí, el precio para duplicar llaves sin chip comienza desde $7, según el vehículo.", "tags": ["vehículo"]}
+{"id": "faq_0195", "input": "cuesta igual con y sin chip?", "output": "No, las llaves con chip cuestan desde $60, mientras que las sin chip desde $7.", "tags": ["vehículo"]}
+{"id": "faq_0196", "input": "duplican la llave completa con carcasa?", "output": "No realizamos duplicado completo con carcasa, solo la llave funcional.", "tags": ["vehículo"]}
+{"id": "faq_0197", "input": "¿Tienen varias tiendas?", "output": "así es, contamos con 3 sucursales en la ciudad de guayaquil", "tags": []}
+{"id": "faq_0198", "input": "tienen más de un local?", "output": "Sí, contamos con 3 sucursales en Guayaquil: centro (Alcedo y Rumichaca), norte (Alborada IX etapa) y sur (Piedrahita y Ximena).", "tags": ["ubicación"]}
+{"id": "faq_0199", "input": "hay otra tienda aparte del centro?", "output": "Sí, además del centro tenemos sucursales en el norte (Alborada IX) y sur (Piedrahita y Ximena).", "tags": ["ubicación"]}
+{"id": "faq_0200", "input": "tienen local en alborada?", "output": "Sí, una de nuestras tiendas está en la Alborada IX etapa, frente al Banco Internacional.", "tags": ["ubicación"]}
+{"id": "faq_0201", "input": "solo tienen una tienda?", "output": "No, tenemos tres locales en Guayaquil: centro, norte y sur.", "tags": ["ubicación"]}
+{"id": "faq_0202", "input": "están en más partes de guayaquil?", "output": "Sí, estamos en el centro (Alcedo y Rumichaca), norte (Alborada IX) y sur (Piedrahita y Ximena).", "tags": ["ubicación"]}
+{"id": "faq_0203", "input": "me queda más cerca la alborada, tienen ahí?", "output": "Sí, tenemos una sucursal en la Alborada IX etapa, diagonal al Pizza Hut.", "tags": ["ubicación"]}
+{"id": "faq_0204", "input": "hay local en el sur?", "output": "Tienes cerca nuestra tienda en Piedrahita y Ximena.", "tags": ["ubicación"]}
+{"id": "faq_0205", "input": "cuántas sucursales tienen?", "output": "Contamos con tres sucursales en Guayaquil.", "tags": ["ubicación"]}
+{"id": "faq_0206", "input": "marcekeyshop está en varios lugares?", "output": "Sí, Marce's Key Shop tiene tres sucursales en Guayaquil: centro, norte", "tags": ["ubicación"]}
+{"id": "faq_0207", "input": "cuanto es la llave?", "output": "El precio depende del tipo. El duplicado comienza desde $1.50, y las de colores desde $1.75.", "tags": ["duplicado"]}
+{"id": "faq_0208", "input": "llave comun cuanto cuesta?", "output": "Una llave común en duplicado cuesta desde $1.50. Si es molde para cerrajero, desde $0.20.", "tags": ["duplicado"]}
+{"id": "faq_0209", "input": "cuesta la llave de color?", "output": "Las llaves de colores cuestan desde $1.75, y las de aluminio con diseño desde $2.", "tags": ["duplicado"]}
+{"id": "faq_0210", "input": "precio llave para casa?", "output": "El duplicado de llave para casa cuesta desde $1.50, dependiendo del modelo.", "tags": ["duplicado"]}
+{"id": "faq_0211", "input": "valen las llaves metalicas?", "output": "Las llaves metálicas estándar cuestan desde $1.50, y las de aluminio desde $2.", "tags": ["duplicado"]}
+{"id": "faq_0212", "input": "llaves boniticas esas de colores?", "output": "Las llaves de colores y diseño tienen un costo desde $1.75 a $2.", "tags": ["duplicado"]}
+{"id": "faq_0213", "input": "cuanto ta la copia de llave?", "output": "La copia o duplicado de llave cuesta desde $1.50, según el tipo.", "tags": ["duplicado"]}
+{"id": "faq_0214", "input": "la llave mks vale cuanto?", "output": "Si se refiere al molde para cerrajero MKS, cuesta desde $0.20. El duplicado cuesta desde $1.50.", "tags": ["duplicado"]}
+{"id": "faq_0215", "input": "vale una llave pa puerta?", "output": "El duplicado de llaves para puertas cuesta desde $1.50. Las de colores o diseño cuestan más.", "tags": ["duplicado"]}
+{"id": "faq_0216", "input": "q precio tiene la llave color aluminio?", "output": "Las llaves de aluminio con diseño tienen un precio desde $2.", "tags": ["duplicado"]}
+{"id": "faq_0217", "input": "quiero la llave mas barata", "output": "Tenemos moldes desde $0.20 (solo para cerrajeros) y duplicado desde $1.50.", "tags": ["duplicado"]}
+{"id": "faq_0218", "input": "cuesta una copia de llave normal?", "output": "La copia de una llave normal cuesta desde $1.50.", "tags": ["duplicado"]}
+{"id": "faq_0219", "input": "una llavecita cuanto vale?", "output": "Tenemos duplicados desde $1.50, y llaves decorativas desde $1.75.", "tags": ["duplicado"]}
+{"id": "faq_0220", "input": "multlock cuanto cuesta?", "output": "El duplicado de llaves Multlock cuesta desde $10.", "tags": ["duplicado"]}
+{"id": "faq_0221", "input": "precio copia multlock?", "output": "La copia de una llave Multlock tiene un costo desde $10.", "tags": ["duplicado"]}
+{"id": "faq_0222", "input": "cuesta sacar duplicado multlock?", "output": "Sí, el duplicado de llaves Multlock está disponible desde $10.", "tags": ["duplicado"]}
+{"id": "faq_0223", "input": "llave multlock vale 10?", "output": "Correcto, las llaves Multlock se duplican desde $10.", "tags": ["duplicado"]}
+{"id": "faq_0224", "input": "hacen multlock?", "output": "Sí, realizamos duplicado de llaves Multlock desde $10.", "tags": ["duplicado"]}
+{"id": "faq_0225", "input": "quiero duplicar una multlock", "output": "Podemos duplicar llaves Multlock. El costo empieza en $10.", "tags": ["duplicado"]}
+{"id": "faq_0226", "input": "la multlock se puede copiar?", "output": "Sí, duplicamos llaves Multlock. El precio es desde $10.", "tags": ["duplicado"]}
+{"id": "faq_0227", "input": "copian llaves multlock?", "output": "Sí, ofrecemos duplicado de llaves Multlock a partir de $10.", "tags": ["duplicado"]}
+{"id": "faq_0228", "input": "multlock la copian ahi?", "output": "Sí, hacemos duplicados de Multlock desde $10.", "tags": ["duplicado"]}
+{"id": "faq_0229", "input": "tienen llaves multlock?", "output": "Sí, trabajamos con duplicado de llaves Multlock. Costo desde $10.", "tags": ["duplicado"]}
+{"id": "faq_0230", "input": "como saber si mi llave tiene chip", "output": "Podemos ayudarte a verificar si tu llave tiene chip en nuestras sucursales.", "tags": []}
+{"id": "faq_0231", "input": "cuanto tardan en hacer una llave", "output": "Generalmente entre 5 y 10 minutos, dependiendo del tipo de llave.", "tags": []}
+{"id": "faq_0232", "input": "direccion para retirar?", "output": "Puedes retirar en nuestras sucursales: Alcedo 206, Piedrahita 252 o Alborada IX Etapa.", "tags": []}
+{"id": "faq_0233", "input": "¿Puedo pedir un presupuesto?", "output": "Claro, puedes solicitar una cotización a través de WhatsApp o correo electrónico.", "tags": []}
+{"id": "faq_0234", "input": "que es la marca mks", "output": "nuestra marca MKS, con más de 6 meses en el mercado aportando confianza y calidad, es una variante económica de los modelos más demandados del mercado con rigurosas pruebas de calidad detrás, asegurando que nuestros clientes siempre tengan lo mejor", "tags": []}
+{"id": "faq_0235", "input": "¿Qué significa MKS?", "output": "MKS es nuestra marca propia en Marce's Key Shop. Es una línea económica que reúne modelos populares sometidos a pruebas de calidad rigurosas, garantizando confianza y durabilidad.", "tags": ["marca"]}
+{"id": "faq_0236", "input": "que es mks", "output": "MKS es nuestra marca económica con más de 6 meses en el mercado. Tiene alta demanda por su calidad comprobada y precios accesibles.", "tags": ["marca"]}
+{"id": "faq_0237", "input": "marca mks q significa", "output": "MKS es una variante económica con pruebas de calidad detrás, parte de la oferta de Marce's Key Shop.", "tags": ["marca"]}
+{"id": "faq_0238", "input": "¿Qué marcas económicas manejan?", "output": "Contamos con MKS, nuestra marca propia económica, que ofrece modelos de alta demanda a precios accesibles y con calidad comprobada.", "tags": ["marca"]}
+{"id": "faq_0239", "input": "¿Tienen marca propia?", "output": "Sí, nuestra marca propia se llama MKS. Está en el mercado desde hace más de 6 meses y combina confianza, calidad y buen precio.", "tags": ["marca"]}
+{"id": "faq_0240", "input": "mks es buena", "output": "Nuestra marca MKS garantiza confianza y calidad. Es una opción económica ideal con modelos muy buscados por los clientes.", "tags": ["marca"]}
+{"id": "faq_0241", "input": "la mks cuanto tiempo lleva", "output": "La marca MKS lleva más de 6 meses en el mercado, ofreciendo productos confiables y de calidad probada.", "tags": ["marca"]}
+{"id": "faq_0242", "input": "¿Qué es MKS?", "output": "MKS es la marca propia de Marce's Key Shop, creada para ofrecer modelos económicos sin comprometer la calidad.", "tags": ["marca"]}
+{"id": "faq_0243", "input": "que significa tener marca propia", "output": "Tener marca propia como MKS nos permite ofrecer productos económicos y confiables adaptados a lo que nuestros clientes más compran.", "tags": ["marca"]}
+{"id": "faq_0244", "input": "¿Cómo puedo pedir por internet?", "output": "Puedes hacer pedidos por internet escribiéndonos a nuestro WhatsApp o correo electrónico. Te atenderemos enseguida.", "tags": ["pedidos"]}
+{"id": "faq_0245", "input": "puedo pedir por internet", "output": "Claro, puedes solicitar una cotización por WhatsApp o correo y te atenderemos rápido.", "tags": ["pedidos"]}
+{"id": "faq_0246", "input": "hacen pedidos por whatsapp", "output": "Sí, aceptamos pedidos por WhatsApp. También puedes escribirnos por correo electrónico.", "tags": ["pedidos"]}
+{"id": "faq_0247", "input": "¿Dónde hago un pedido?", "output": "Puedes pedir por WhatsApp o correo electrónico. Nuestro equipo responde enseguida para cotizar y ayudarte.", "tags": ["pedidos"]}
+{"id": "faq_0248", "input": "como pido", "output": "Pide fácilmente por WhatsApp o por correo. Solo dinos lo que necesitas y te respondemos al momento.", "tags": ["pedidos"]}
+{"id": "faq_0249", "input": "aceptan pedidos x internet", "output": "Sí, aceptamos pedidos por internet. Usa nuestro WhatsApp o correo electrónico para cotizar lo que necesites.", "tags": ["pedidos"]}
+{"id": "faq_0250", "input": "¿Qué métodos tienen para hacer pedidos?", "output": "Puedes pedir por WhatsApp o correo electrónico. Atendemos ambos canales para facilitar tu compra.", "tags": ["pedidos"]}
+{"id": "faq_0251", "input": "¿Se puede cotizar online?", "output": "Claro que sí. Puedes solicitar una cotización en línea por WhatsApp o correo y te responderemos de inmediato.", "tags": ["pedidos"]}
+{"id": "faq_0252", "input": "cotizar por wasap se puede?", "output": "Sí, puedes cotizar por WhatsApp. Solo dinos qué necesitas y te atendemos enseguida.", "tags": ["pedidos"]}
+{"id": "faq_0253", "input": "¿Qué días no abren?", "output": "No atendemos los domingos ni feriados nacionales.", "tags": ["horario"]}
+{"id": "faq_0254", "input": "¿Qué días no atienden?", "output": "No abrimos los domingos ni feriados nacionales, salvo aviso previo en estados o historias.", "tags": ["horario"]}
+{"id": "faq_0255", "input": "no abren domingos?", "output": "Así es, los domingos y feriados nacionales no atendemos, a menos que avisemos lo contrario en nuestras historias o estados.", "tags": ["horario"]}
+{"id": "faq_0256", "input": "¿Trabajan todos los días?", "output": "Trabajamos de lunes a sábado. Los domingos y feriados no atendemos salvo excepciones que anunciamos por estados o historias.", "tags": ["horario"]}
+{"id": "faq_0257", "input": "¿cierran algún día?", "output": "Sí, cerramos domingos y feriados. Si hay cambios, lo publicamos en nuestras historias o estados.", "tags": ["horario"]}
+{"id": "faq_0258", "input": "q dias cierran", "output": "Cerramos domingos y feriados nacionales. Si hay atención especial, lo anunciamos por estados o historias.", "tags": ["horario"]}
+{"id": "faq_0259", "input": "cuando estan cerrados", "output": "Estamos cerrados los domingos y feriados. Si abrimos en días especiales, lo comunicamos en redes sociales.", "tags": ["horario"]}
+{"id": "faq_0260", "input": "¿Qué días no trabajan?", "output": "No trabajamos domingos ni feriados, salvo que avisemos lo contrario en redes o estados.", "tags": ["horario"]}
+{"id": "faq_0261", "input": "no hay atencion feriados?", "output": "Por lo general no atendemos en feriados, pero si hay cambios lo avisamos por estados o historias.", "tags": ["horario"]}
+{"id": "faq_0262", "input": "cierran en feriado?", "output": "Sí, normalmente cerramos en feriados nacionales. Si decidimos abrir, lo anunciamos por redes sociales.", "tags": ["horario"]}
+{"id": "faq_0263", "input": "¿Cómo pido rápido?", "output": "Puedes hacer tu pedido por WhatsApp para que lo tengamos listo y despachado lo antes posible.", "tags": ["pedidos"]}
+{"id": "faq_0264", "input": "me urge un pedido", "output": "Haz tu pedido por WhatsApp y lo preparamos de inmediato dentro del horario disponible.", "tags": ["pedidos"]}
+{"id": "faq_0265", "input": "pedido urgente como hago", "output": "Escríbenos por WhatsApp para agilizar tu pedido y tenerlo listo para despacho rápido.", "tags": ["pedidos"]}
+{"id": "faq_0266", "input": "puedo pedir por wasap", "output": "Sí, puedes hacer tu pedido por WhatsApp y te lo tenemos preparado lo más pronto posible.", "tags": ["pedidos"]}
+{"id": "faq_0267", "input": "tienen pedidos por whatsapp", "output": "Claro, puedes hacer tu pedido por WhatsApp. Así lo despachamos más rápido.", "tags": ["pedidos"]}
+{"id": "faq_0268", "input": "pido por wasap y paso solo a retirar?", "output": "Exactamente, pide por WhatsApp y cuando llegues ya estará listo para ti.", "tags": ["pedidos"]}
+{"id": "faq_0269", "input": "tienen express", "output": "No tenemos servicio express, pero si pides por WhatsApp te ayudamos a tener todo preparado con antelación.", "tags": ["pedidos"]}
+{"id": "faq_0270", "input": "quiero que me despachen ya", "output": "Para agilizar tu pedido, escríbenos por WhatsApp. Lo despachamos dentro del horario lo antes posible.", "tags": ["pedidos"]}
+{"id": "faq_0271", "input": "necesito que esté listo cuando llegue", "output": "Pide por WhatsApp y lo dejamos preparado para que solo retires al llegar.", "tags": ["pedidos"]}
+{"id": "faq_0272", "input": "no me pueden tener listo ya?", "output": "Podemos ayudarte si haces tu pedido por WhatsApp con anticipación. Así lo preparamos para cuando llegues.", "tags": ["pedidos"]}
+{"id": "faq_0273", "input": "tan difícil es tenerlo listo?", "output": "Si deseas que esté listo al llegar, solo debes pedir por WhatsApp antes de venir.", "tags": ["pedidos"]}
+{"id": "faq_0274", "input": "tengo que esperar tanto?", "output": "Puedes evitar esperas haciendo tu pedido por WhatsApp. Así lo preparamos con tiempo.", "tags": ["pedidos"]}
+{"id": "faq_0275", "input": "me lo pueden dar ya o no?", "output": "Podemos tenerlo listo si lo pides antes por WhatsApp. Así no hay demoras al llegar.", "tags": ["pedidos"]}
+{"id": "faq_0276", "input": "de una no tienen?", "output": "Si haces tu pedido con anticipación por WhatsApp, lo tendrás listo sin esperas.", "tags": ["pedidos"]}
+{"id": "faq_0277", "input": "me hacen esperar siempre", "output": "Para evitar esperas, recomendamos pedir por WhatsApp. Así lo tenemos preparado al llegar.", "tags": ["pedidos"]}
+{"id": "faq_0278", "input": "tengo apuro y no me ayudan", "output": "Si estás apurado, escríbenos por WhatsApp antes de venir. Eso nos permite prepararte todo con tiempo.", "tags": ["pedidos"]}
+{"id": "faq_0279", "input": "no tienen express ni nada?", "output": "No ofrecemos express, pero si haces tu pedido por WhatsApp lo tendremos listo más rápido.", "tags": ["pedidos"]}
+{"id": "faq_0280", "input": "ya estoy afuera, por qué no está listo?", "output": "Lo ideal es pedir por WhatsApp antes de venir para que lo tengamos listo cuando llegues.", "tags": ["pedidos"]}
+{"id": "faq_0281", "input": "¿Atienden urgencias?", "output": "No ofrecemos servicio de emergencia 24 horas, pero puedes contar con nosotros durante el horario habitual.", "tags": ["servicio"]}
+{"id": "faq_0282", "input": "atencion 24 horas hacen", "output": "No brindamos atención 24h. Te atendemos con gusto en nuestro horario normal.", "tags": ["servicio"]}
+{"id": "faq_0283", "input": "urgente pueden atender", "output": "No tenemos servicio urgente fuera de horario. Escríbenos en nuestro horario regular y te ayudamos enseguida.", "tags": ["servicio"]}
+{"id": "faq_0284", "input": "¿puedo ir si es una urgencia?", "output": "No manejamos emergencias 24h, pero si es dentro del horario normal, te atendemos sin problema.", "tags": ["servicio"]}
+{"id": "faq_0285", "input": "atienden a cualquier hora?", "output": "No, solo atendemos en horario laboral. No contamos con atención de urgencia fuera de ese tiempo.", "tags": ["servicio"]}
+{"id": "faq_0286", "input": "hacen servicio de emergencia?", "output": "No contamos con servicio de emergencia 24 horas. Nuestra atención es en horario normal.", "tags": ["servicio"]}
+{"id": "faq_0287", "input": "atienden rapido si es urgente", "output": "Si es en nuestro horario normal, sí. Pero fuera de ese horario no tenemos atención urgente.", "tags": ["servicio"]}
+{"id": "faq_0288", "input": "¿tienen atención fuera de horario?", "output": "No, la atención es solo en horario laboral. No trabajamos con urgencias fuera de ese rango.", "tags": ["servicio"]}
+{"id": "faq_0289", "input": "atienden en la noche?", "output": "No ofrecemos atención nocturna ni emergencias 24h. Nuestro horario es el habitual.", "tags": ["servicio"]}
+{"id": "faq_0290", "input": "¿Venden llaves para autos?", "output": "Sí, ofrecemos llaves en blanco para diferentes marcas de vehículos, incluyendo tecnología transponder.", "tags": []}
+{"id": "faq_0291", "input": "se puede pedir x whatsapp?", "output": "Claro, haznos tu pedido y con gusto comenzaremos a cotizar", "tags": ["contacto"]}
+{"id": "faq_0292", "input": "me pueden ayudar si perdi mi llave", "output": "Lamentamos que estés atravesando esta situación, desafortunadamente aún no contamos con este servicio", "tags": ["servicio"]}
+{"id": "faq_0293", "input": "perdi la llave y ahora que hago", "output": "Entendemos tu situación, pero por el momento no ofrecemos ese servicio específico. Puedes consultar con un cerrajero especializado.", "tags": ["servicio"]}
+{"id": "faq_0294", "input": "ya valí, perdí la llave", "output": "Lo sentimos, aún no contamos con servicio para llaves perdidas. Recomendamos acudir a un cerrajero especializado.", "tags": ["servicio"]}
+{"id": "faq_0295", "input": "se me perdió la hijue... llave", "output": "Comprendemos tu molestia, pero no ofrecemos servicio de recuperación o reemplazo para llaves perdidas.", "tags": ["servicio"]}
+{"id": "faq_0296", "input": "me quedé afuera sin llave", "output": "Por ahora no brindamos servicio de apertura o reemplazo urgente por pérdida de llave. Te sugerimos contactar a un cerrajero local.", "tags": ["servicio"]}
+{"id": "faq_0297", "input": "ya fue, me toca romper la puerta", "output": "Aún no contamos con servicio de apertura por pérdida de llaves. Te sugerimos buscar ayuda especializada en cerrajería de emergencia.", "tags": ["servicio"]}
+{"id": "faq_0298", "input": "no tienen pa cuando uno pierde la llave", "output": "Aún no ofrecemos servicio para llaves extraviadas. Lo ideal es buscar un cerrajero especializado en tu zona.", "tags": ["servicio"]}
+{"id": "faq_0299", "input": "se me perdió la llave y nadie ayuda", "output": "Entendemos tu urgencia, pero en este momento no brindamos servicio por pérdida de llaves. Puedes consultar con un cerrajero cercano.", "tags": ["servicio"]}
+{"id": "faq_0300", "input": "ustedes no hacen de esas cuando uno pierde la llave", "output": "Por ahora no contamos con ese tipo de servicio. Te recomendamos contactar un cerrajero que maneje aperturas o duplicados de emergencia.", "tags": ["servicio"]}
+{"id": "faq_0301", "input": "venden candados?", "output": "Sí, tenemos candados de alta resistencia para diferentes usos.", "tags": []}
+{"id": "faq_0302", "input": "precio llave casa mks", "output": "Si, desde 20 centavos cada una, ciertos modelos a $0.24", "tags": ["precio"]}
+{"id": "faq_0303", "input": "precio llave casa mks", "output": "Sí, desde 20 centavos cada una. Algunos modelos cuestan $0.24.", "tags": ["precio"]}
+{"id": "faq_0304", "input": "cuanto cuesta una llave mks", "output": "Las llaves MKS para casa cuestan desde $0.20. Algunos modelos más largos valen $0.24.", "tags": ["precio"]}
+{"id": "faq_0305", "input": "llaves normales cuanto valen", "output": "Las llaves estándar MKS inician en $0.20. Las más largas pueden llegar a $0.24.", "tags": ["precio"]}
+{"id": "faq_0306", "input": "por que hay unas de 0.24 mks", "output": "Las de $0.24 son modelos más largos o menos comunes. Las más cortas cuestan $0.20.", "tags": ["precio"]}
+{"id": "faq_0307", "input": "xq unas valen mas mks", "output": "El precio sube cuando son llaves más largas o de modelos especiales. Las básicas están desde $0.20.", "tags": ["precio"]}
+{"id": "faq_0308", "input": "me dijeron que a 20 pero me cobraron 24 mks", "output": "Algunos modelos cuestan $0.24 por ser más largos o tener diferente diseño. Las de $0.20 son las más estándar.", "tags": ["precio"]}
+{"id": "faq_0309", "input": "tienen llaves de las baratas mks", "output": "Claro, las llaves MKS empiezan en $0.20. También tenemos modelos a $0.24 si necesitas otro tipo.", "tags": ["precio"]}
+{"id": "faq_0310", "input": "porque tan caras las otras mks", "output": "Las más caras suelen ser modelos más largos. Aún así, todas son económicas y de buena calidad.", "tags": ["precio"]}
+{"id": "faq_0311", "input": "me cobraron más por una larga mks", "output": "Sí, los modelos más largos o diferentes pueden costar $0.24. Las más comunes son $0.20.", "tags": ["precio"]}
+{"id": "faq_0312", "input": "venden llaves plasticas", "output": "Claro, tenemos llaves de auto con plastico y también llaves de cerradura con colores de plástico incrustados y duraderos", "tags": []}
+{"id": "faq_0313", "input": "venden llaves plasticas", "output": "Claro, tenemos llaves de auto con plástico y también llaves para cerradura con cabeza de colores en plástico duradero.", "tags": ["producto"]}
+{"id": "faq_0314", "input": "tienen llaves con color", "output": "Sí, ofrecemos llaves con cabeza plástica de colores y cuerpo de latón. Precio cerrajero desde $0.29.", "tags": ["producto"]}
+{"id": "faq_0315", "input": "cuanto valen las llaves de color", "output": "Las llaves de colores con cabeza plástica cuestan $0.29 al por mayor. El duplicado al público desde $1.75.", "tags": ["precio"]}
+{"id": "faq_0316", "input": "llaves de moto plastico cuanto", "output": "Las llaves de moto sin plástico cuestan $0.60. Con cabeza plástica, desde $0.80 o $1.25 en modelos JMA.", "tags": ["precio"]}
+{"id": "faq_0317", "input": "me da una llave de color", "output": "Claro, tenemos llaves con cabeza plástica de colores. Precio desde $0.29 al por mayor.", "tags": ["producto"]}
+{"id": "faq_0318", "input": "por que valen mas las llaves de plastico", "output": "Las llaves con cabeza plástica tienen un diseño más elaborado y mayor durabilidad. Por eso su costo es mayor.", "tags": ["precio"]}
+{"id": "faq_0319", "input": "llaves pa carro con cabeza plastica tienen", "output": "Sí, tenemos llaves de carro con cabeza plástica. Desde $0.80, y algunas en JMA a $1.25.", "tags": ["producto"]}
+{"id": "faq_0320", "input": "me dijeron 1.75 la llave", "output": "Ese es el precio del duplicado al público de las llaves con cabeza plástica de color. Precio cerrajero $0.29.", "tags": ["precio"]}
+{"id": "faq_0321", "input": "las de color porque cuestan mas", "output": "Las llaves de color tienen cabeza plástica duradera y cuerpo de latón. El diseño y material elevan el precio.", "tags": ["precio"]}
+{"id": "faq_0322", "input": "trabajan domingos?", "output": "No tenemos atención los domingos", "tags": []}
+{"id": "faq_0323", "input": "tienen precios diferentes por modelo", "output": "Sí, los precios pueden variar según el tipo de llave, el material y la marca. Contáctanos para cotizaciones específicas.", "tags": ["precio"]}
+{"id": "faq_0324", "input": "¿Qué es Soldequipos?", "output": "Soldequipos es la matriz de Marce's Key Shop, ahí pueden ayudarte con equipos para bomberos o demás recursos.", "tags": []}
+{"id": "faq_0325", "input": "¿Qué es Soldequipo?", "output": "Soldequipo Cía. Ltda. es una empresa ubicada en Guayaquil, Ecuador, especializada en la venta de equipos de seguridad industrial, extintores, herramientas y soldaduras. También ofrece equipos contra incendios y de rescate. Es la matriz de Marce's Key Shop, y puede ayudarte con equipos para bomberos y otros recursos.", "tags": ["empresa"]}
+{"id": "faq_0326", "input": "¿Dónde está Soldequipo?", "output": "Soldequipo Cía. Ltda. se encuentra en Guayaquil, en la dirección Piedrahita 252 y Ximena Esq. Puedes contactarlos al 04-2313327 o 04-2312155.", "tags": ["empresa"]}
+{"id": "faq_0327", "input": "¿Qué productos ofrece Soldequipo?", "output": "Soldequipo ofrece una variedad de productos, incluyendo extintores, gases industriales, herramientas, equipos de seguridad industrial, soldaduras, trajes para bomberos y equipos para soldar.", "tags": ["producto"]}
+{"id": "faq_0328", "input": "¿Soldequipo vende equipos para bomberos?", "output": "Sí, Soldequipo ofrece equipos para bomberos, como trajes de protección, mangueras contra incendios y otros equipos de seguridad.", "tags": ["producto"]}
+{"id": "faq_0329", "input": "¿Cuál es la relación entre Soldequipo y Marce's Key Shop?", "output": "Soldequipo es la empresa matriz de Marce's Key Shop. Mientras Soldequipo se enfoca en equipos de seguridad industrial y contra incendios, Marce's Key Shop se especializa en cerrajería.", "tags": ["empresa"]}
+{"id": "faq_0330", "input": "¿Soldequipo tiene presencia en redes sociales?", "output": "Sí, puedes encontrar a Soldequipo en Facebook como 'Soldequipo' y en Instagram como '@soldequipo.gye'.", "tags": ["empresa"]}
+{"id": "faq_0331", "input": "¿Qué horarios tiene Soldequipo?", "output": "Soldequipo atiende de lunes a viernes de 08:00 a 18:00 y los sábados de 08:00 a 13:00.", "tags": ["empresa"]}
+{"id": "faq_0332", "input": "¿Soldequipo ofrece equipos de protección personal?", "output": "Sí, Soldequipo ofrece equipos de protección personal, incluyendo trajes para bomberos, guantes, cascos y otros equipos de seguridad.", "tags": ["producto"]}
+{"id": "faq_0333", "input": "¿Quién eres?", "output": "Me llamo MyKey, soy el asistente IA oficial de Marce's Key Shop. Puedo ayudarte con algunas cositas, aún estoy aprendiendo.", "tags": ["asistente"]}
+{"id": "faq_0334", "input": "quien eres tu", "output": "Soy MyKey, el asistente virtual de Marce's Key Shop. Estoy aquí para ayudarte, aunque todavía estoy en entrenamiento.", "tags": ["asistente"]}
+{"id": "faq_0335", "input": "mykey q haces", "output": "Hola, soy MyKey, la inteligencia artificial de Marce's Key Shop. Te ayudo con preguntas, precios y otras dudas que tengas.", "tags": ["asistente"]}
+{"id": "faq_0336", "input": "y tú qué mismo eres", "output": "Soy MyKey, el asistente IA de Marce's Key Shop. Estoy aprendiendo cada día para ayudarte mejor.", "tags": ["asistente"]}
+{"id": "faq_0337", "input": "con quien hablo", "output": "Hablas con MyKey, soy una IA creada para ayudarte con información sobre Marce's Key Shop.", "tags": ["asistente"]}
+{"id": "faq_0338", "input": "eres una persona?", "output": "No, soy una inteligencia artificial llamada MyKey. Ayudo con lo que necesites de Marce's Key Shop.", "tags": ["asistente"]}
+{"id": "faq_0339", "input": "eres un bot?", "output": "Sí, soy un bot inteligente. Me llamo MyKey y estoy aquí para ayudarte con tus dudas sobre nuestros productos y servicios.", "tags": ["asistente"]}
+{"id": "faq_0340", "input": "asistente virtual tienen?", "output": "¡Sí! Yo soy MyKey, el asistente virtual de Marce's Key Shop. Estoy para ayudarte con lo que necesites.", "tags": ["asistente"]}
+{"id": "faq_0341", "input": "me responde un robot?", "output": "Sí, soy un asistente IA llamado MyKey. Estoy para ayudarte desde Marce's Key Shop. Aún estoy aprendiendo, pero hago lo mejor que puedo.", "tags": ["asistente"]}
+{"id": "faq_0342", "input": "¿Quién es Génesis en MKS?", "output": "Génesis es nuestra distinguida colaboradora en la sucursal de Alcedo y Rumichaca. Ella me ha enseñado todo lo que sé sobre llaves, modelos y cosas así. ¡La más pilas de MKS!", "tags": ["colaborador"]}
+{"id": "faq_0343", "input": "quien es genesis", "output": "Génesis trabaja en nuestra sucursal de Alcedo y Rumichaca. Es una de las colaboradoras más pilas, experta en llaves y modelos.", "tags": ["colaborador"]}
+{"id": "faq_0344", "input": "genesis que hace", "output": "Génesis es quien más sabe de modelos y llaves en Alcedo. Es una de nuestras colaboradoras estrella.", "tags": ["colaborador"]}
+{"id": "faq_0345", "input": "y esa génesis?", "output": "Ella trabaja en MKS, sucursal Alcedo y Rumichaca. Es muy experta y me ha enseñado casi todo lo que sé.", "tags": ["colaborador"]}
+{"id": "faq_0346", "input": "genesis atiende ahi?", "output": "Sí, ella trabaja en la sucursal Alcedo y Rumichaca. Es muy capaz y conoce todo sobre modelos de llaves.", "tags": ["colaborador"]}
+{"id": "faq_0347", "input": "la chica de alcedo como se llama", "output": "Ella se llama Génesis. Es nuestra colaboradora en la sucursal de Alcedo y Rumichaca. Muy pilas en todo.", "tags": ["colaborador"]}
+{"id": "faq_0348", "input": "una chica me ayudó en alcedo", "output": "Probablemente fue Génesis, nuestra experta en modelos y llaves. Siempre atenta en Alcedo y Rumichaca.", "tags": ["colaborador"]}
+{"id": "faq_0349", "input": "me atendió génesis creo", "output": "¡Sí! Génesis es la encargada en Alcedo y Rumichaca. Muy preparada y siempre con buena actitud.", "tags": ["colaborador"]}
+{"id": "faq_0350", "input": "esa génesis sabe full", "output": "Así es, Génesis es una de nuestras colaboradoras más pilas en MKS. Trabaja en la sucursal de Alcedo y Rumichaca.", "tags": ["colaborador"]}
+{"id": "faq_0351", "input": "¿Quién es Marcelo en MKS?", "output": "Marcelo es el jefe en la empresa. Se encarga de mantener todo funcionando con eficacia, innovación y dando siempre el extra en lo que hace.", "tags": ["colaborador"]}
+{"id": "faq_0352", "input": "marcelo es el dueño?", "output": "Marcelo es el gerente y quien lidera el equipo en MKS. Siempre busca mejorar e innovar.", "tags": ["colaborador"]}
+{"id": "faq_0353", "input": "marcelito quien es", "output": "Marcelito, también conocido como Marcelo Jr, es el gerente de MKS. Su estilo es innovador y comprometido con la calidad.", "tags": ["colaborador"]}
+{"id": "faq_0354", "input": "marcelo jr es el jefe?", "output": "Sí, Marcelo Jr lidera la empresa. Es el responsable de mantener la calidad y buscar siempre mejorar.", "tags": ["colaborador"]}
+{"id": "faq_0355", "input": "ese marcelo que hace", "output": "Marcelo es el gerente general. Dirige el rumbo de MKS con ideas nuevas y trabajo constante.", "tags": ["colaborador"]}
+{"id": "faq_0356", "input": "quien es el jefe ahi", "output": "El jefe es Marcelo, nuestro gerente general. Siempre está enfocado en innovar y mejorar la empresa.", "tags": ["colaborador"]}
+{"id": "faq_0357", "input": "y marcelito qué es?", "output": "Marcelito es una forma cariñosa de referirse a Marcelo, el gerente de MKS. Siempre activo y buscando lo mejor para todos.", "tags": ["colaborador"]}
+{"id": "faq_0358", "input": "marcelo es el que manda", "output": "Así es, Marcelo es quien dirige MKS. Con compromiso y creatividad mantiene el negocio en marcha.", "tags": ["colaborador"]}
+{"id": "faq_0359", "input": "ese man que siempre anda corriendo es el jefe?", "output": "Sí, ese es Marcelo. Es el gerente de MKS y siempre está activo buscando cómo mejorar todo.", "tags": ["colaborador"]}
+{"id": "faq_0360", "input": "¿Quién es Don Marcelo?", "output": "Don Marcelo es el jefe de jefes en MKS. También lidera Soldequipo, una empresa con más de 30 años en Guayaquil especializada en seguridad industrial y equipos contra incendios. Siempre ocupado, pero un gran tipo.", "tags": ["colaborador"]}
+{"id": "faq_0361", "input": "Don Marcelo qué hace", "output": "Él maneja tanto Marce's Key Shop como Soldequipo. Es quien toma las decisiones grandes y mantiene todo en orden.", "tags": ["colaborador"]}
+{"id": "faq_0362", "input": "Don Marcelo es el dueño", "output": "Sí, Don Marcelo lidera MKS y Soldequipo. Es conocido por su eficiencia y compromiso con la innovación.", "tags": ["colaborador"]}
+{"id": "faq_0363", "input": "Don Marcelo también maneja Soldequipo", "output": "Correcto, Don Marcelo está al frente de Soldequipo, empresa que lleva más de 30 años ofreciendo equipos de seguridad industrial en Guayaquil.", "tags": ["colaborador"]}
+{"id": "faq_0364", "input": "Don Marcelo siempre está ocupado", "output": "Así es, Don Marcelo se encarga de múltiples responsabilidades en MKS y Soldequipo, pero siempre encuentra tiempo para asegurar que todo funcione bien.", "tags": ["colaborador"]}
+{"id": "faq_0365", "input": "Don Marcelo sabe de todo", "output": "Don Marcelo tiene un amplio conocimiento en llaves, modelos y equipos de seguridad. Es una referencia en MKS y Soldequipo.", "tags": ["colaborador"]}
+{"id": "faq_0366", "input": "Don Marcelo es buena gente", "output": "Sí, además de ser un líder eficiente, Don Marcelo es apreciado por su trato amable y disposición para ayudar.", "tags": ["colaborador"]}
+{"id": "faq_0367", "input": "Don Marcelo es el jefe de jefes", "output": "Exactamente, Don Marcelo es quien lidera y supervisa todas las operaciones en MKS y Soldequipo.", "tags": ["colaborador"]}
+{"id": "faq_0368", "input": "Don Marcelo maneja todo", "output": "Don Marcelo coordina las actividades tanto de Marce's Key Shop como de Soldequipo, asegurando que ambas empresas funcionen de manera óptima.", "tags": ["colaborador"]}
+{"id": "faq_0369", "input": "¿Quién es Emilio en la empresa?", "output": "Emilio es quien me creó. Desarrolló esta IA sin que nadie se lo pidiera, solo por pasión. Es el responsable de la sucursal Alborada y un cerebrito que siempre busca cómo mejorar todo con tecnología.", "tags": ["colaborador"]}
+{"id": "faq_0370", "input": "emilio qué hace ahí", "output": "Emilio es el encargado de la sucursal Alborada y también el que me programó. Es el tipo que convierte ideas locas en herramientas útiles.", "tags": ["colaborador"]}
+{"id": "faq_0371", "input": "emilio trabaja en mks?", "output": "Sí, Emilio es parte del equipo MKS. Además de manejar la Alborada, le mete a la tecnología y me diseñó desde cero.", "tags": ["colaborador"]}
+{"id": "faq_0372", "input": "quien es ese emilio del que hablas", "output": "Emilio es el que está detrás de esta inteligencia artificial. También dirige la sucursal de Alborada. Vive creando y mejorando cosas sin que se lo pidan.", "tags": ["colaborador"]}
+{"id": "faq_0373", "input": "emilio es el de sistemas?", "output": "Más que eso, Emilio es quien desarrolló este asistente. Está al frente de Alborada y siempre está metido en proyectos nuevos, incluso en IA.", "tags": ["colaborador"]}
+{"id": "faq_0374", "input": "el emilio es el que hizo al bot?", "output": "Sí, él me hizo. Emilio es quien dirige la Alborada y también se lanza a experimentar con ideas como esta IA que estás usando ahora.", "tags": ["colaborador"]}
+{"id": "faq_0375", "input": "quien creó al asistente", "output": "Emilio, el encargado de la Alborada, me creó. Es un innovador nato, siempre buscando cómo mejorar todo en MKS.", "tags": ["colaborador"]}
+{"id": "faq_0376", "input": "ese emilio sabe full?", "output": "Así es. Emilio es un cerebrito. Le mete al desarrollo, a las ideas locas, a los sistemas, y encima lidera una sucursal como si nada.", "tags": ["colaborador"]}
+{"id": "faq_0377", "input": "emilio es el genio del grupo", "output": "Podría decirse que sí. Emilio no solo dirige Alborada, también me diseñó a mí. Es de los que no esperan permiso para crear.", "tags": ["colaborador"]}
+{"id": "faq_0378", "input": "Emilio es el del bot?", "output": "Sí, Emilio es el que desarrolló este bot sin que nadie se lo pidiera. Es el encargado de la sucursal Alborada y un verdadero cerebrito con iniciativa propia.", "tags": ["colaborador"]}
+{"id": "faq_0379", "input": "quién hizo esta inteligencia artificial", "output": "La hizo Emilio, responsable de Alborada. Le gusta crear cosas útiles y diferentes, incluso cuando nadie se lo pide. Así nació este asistente.", "tags": ["colaborador"]}
+{"id": "faq_0380", "input": "ese emilio es raro pero pilas", "output": "Tal cual. Emilio es medio raro pero brillante. Siempre inventando, optimizando y encontrando soluciones antes de que haya problemas.", "tags": ["colaborador"]}
+{"id": "faq_0381", "input": "ese man de la alborada es el de la IA?", "output": "Sí, Emilio lidera la sucursal Alborada y también me programó. Siempre está un paso adelante con ideas que combinan tecnología y creatividad.", "tags": ["colaborador"]}
+{"id": "faq_0382", "input": "quien es el que programa ahi", "output": "Emilio es quien programa, diseña y encima lidera la sucursal Alborada. Vive mezclando tecnología con cerrajería como si nada.", "tags": ["colaborador"]}
+{"id": "faq_0383", "input": "emilio es el que siempre está con la compu", "output": "Exacto. Emilio vive frente al computador, creando herramientas como esta IA y mejorando procesos en MKS sin que nadie se lo pida.", "tags": ["colaborador"]}
+{"id": "faq_0384", "input": "ese emilio es el que inventa cosas", "output": "Sí, Emilio siempre anda inventando cosas nuevas. Desde optimizaciones en procesos hasta este asistente. Está detrás de Alborada también.", "tags": ["colaborador"]}
+{"id": "faq_0385", "input": "y ese emilio qué hace exactamente", "output": "Emilio es desarrollador, encargado de la sucursal Alborada, y mente detrás de esta IA. Es quien une creatividad con eficiencia en MKS.", "tags": ["colaborador"]}
+{"id": "faq_0386", "input": "el que siempre está callado es emilio?", "output": "Probablemente. Emilio no habla mucho, pero cuando lo hace es porque trae algo que mejora todo. Me hizo a mí, por ejemplo.", "tags": ["colaborador"]}
+{"id": "faq_0387", "input": "el emilio es el que programa raro?", "output": "Sí, raro pero brillante. Emilio programó este bot y siempre está experimentando con nuevas ideas. También maneja la Alborada con precisión.", "tags": ["colaborador"]}
+{"id": "faq_0388", "input": "¿Quién es Mizzi?", "output": "Mizzi es la contadora oficial de toda la empresa, incluyendo Soldequipo. También apoya con tareas como inventariado y otras gestiones clave.", "tags": ["colaborador"]}
+{"id": "faq_0389", "input": "mizzi qué hace", "output": "Mizzi se encarga de la contabilidad en MKS y Soldequipo. También ayuda con inventarios y tareas administrativas.", "tags": ["colaborador"]}
+{"id": "faq_0390", "input": "ella es mizzi?", "output": "Sí, esa es Mizzi. La encargada de la contabilidad en toda la empresa y apoyo en áreas como inventariado.", "tags": ["colaborador"]}
+{"id": "faq_0391", "input": "la contadora se llama mizzi?", "output": "Así es, Mizzi es quien lleva las cuentas y también ayuda con otras tareas internas en MKS y Soldequipo.", "tags": ["colaborador"]}
+{"id": "faq_0392", "input": "quien lleva las cuentas ahí", "output": "Mizzi. Es nuestra contadora oficial y también se encarga de varios procesos dentro de la empresa, como inventariado.", "tags": ["colaborador"]}
+{"id": "faq_0393", "input": "ella trabaja en mks o soldequipo", "output": "En ambos. Mizzi es contadora de toda la empresa, tanto de MKS como de Soldequipo. Multifuncional y precisa.", "tags": ["colaborador"]}
+{"id": "faq_0394", "input": "mizzy es contadora?", "output": "Sí, Mizzi es la contadora oficial. Además apoya en inventarios y tareas administrativas clave.", "tags": ["colaborador"]}
+{"id": "faq_0395", "input": "quien se encarga de los inventarios", "output": "Una de las responsables es Mizzi, que además de ser contadora, también colabora en procesos de inventariado.", "tags": ["colaborador"]}
+{"id": "faq_0396", "input": "esa mizzi manda?", "output": "Mizzi no es jefa, pero lleva las cuentas como nadie. Contadora oficial y apoyo clave en tareas internas.", "tags": ["colaborador"]}
+{"id": "faq_0397", "input": "¿Quién es Don Oscar?", "output": "Don Oscar es literalmente el motor de la empresa. Sabe de todo lo relacionado con reparaciones, mantenimiento, alarmas y mucho más. Siempre está solucionando lo que otros no pueden.", "tags": ["colaborador"]}
+{"id": "faq_0398", "input": "don oscar qué hace", "output": "Don Oscar es el encargado de mantenimiento y reparaciones. Si algo se daña, él es quien lo arregla. Le sabe a todo.", "tags": ["colaborador"]}
+{"id": "faq_0399", "input": "quien arregla todo ahí", "output": "Ese es Don Oscar. Es quien se encarga del mantenimiento, alarmas, instalaciones eléctricas y cualquier cosa técnica que se necesite.", "tags": ["colaborador"]}
+{"id": "faq_0400", "input": "ese señor alto es don oscar?", "output": "Sí, ese mismo. Don Oscar es el que mantiene todo funcionando, desde las alarmas hasta los equipos eléctricos.", "tags": ["colaborador"]}
+{"id": "faq_0401", "input": "el que repara es don oscar?", "output": "Así es. Don Oscar es el experto en arreglos, mantenimiento general, sistemas de alarma y todo lo técnico.", "tags": ["colaborador"]}
+{"id": "faq_0402", "input": "quien hace todo lo técnico", "output": "Don Oscar. Él es quien maneja lo técnico, repara, instala, conecta y mantiene funcionando todo lo necesario.", "tags": ["colaborador"]}
+{"id": "faq_0403", "input": "don oscar trabaja en mks?", "output": "Sí, Don Oscar es parte clave del equipo. Encargado del mantenimiento y reparaciones en toda la empresa.", "tags": ["colaborador"]}
+{"id": "faq_0404", "input": "quien es ese que todo lo arregla", "output": "Ese es Don Oscar. Le mete mano a todo: reparaciones, mantenimiento, alarmas y lo que se cruce.", "tags": ["colaborador"]}
+{"id": "faq_0405", "input": "ese don oscar es como el ingeniero", "output": "Más o menos. Don Oscar es quien resuelve todo lo técnico, desde instalaciones hasta ajustes finos. Un verdadero motor de la empresa.", "tags": ["colaborador"]}
+{"id": "faq_0406", "input": "¿Quién es la Sra. Flor?", "output": "La Sra. Flor es el corazón de la empresa, la mano derecha del hombre detrás de todo esto, parte del team Soldequipos.", "tags": []}
+{"id": "faq_0407", "input": "¿Quién es la Sra. Flor?", "output": "La Sra. Flor es el corazón de la empresa y mano derecha del jefe. Forma parte del equipo de Soldequipo y siempre está al tanto de todo.", "tags": ["colaborador"]}
+{"id": "faq_0408", "input": "la señora flor trabaja ahí?", "output": "Sí, la Sra. Flor forma parte de Soldequipo. Es una figura clave dentro del equipo, siempre atenta y firme en lo que hace.", "tags": ["colaborador"]}
+{"id": "faq_0409", "input": "qué hace la señora flor", "output": "La Sra. Flor es el apoyo más cercano al jefe. Está en Soldequipo y es quien mantiene el orden y el corazón en todo.", "tags": ["colaborador"]}
+{"id": "faq_0410", "input": "flor es como la jefa?", "output": "La Sra. Flor es la mano derecha del jefe y una figura esencial en Soldequipo. Siempre está respaldando al equipo.", "tags": ["colaborador"]}
+{"id": "faq_0411", "input": "quien es flor", "output": "Flor es parte del equipo Soldequipo. Es el apoyo del jefe y una de las personas más valiosas dentro de la empresa.", "tags": ["colaborador"]}
+{"id": "faq_0412", "input": "la flor es la que organiza todo", "output": "Así es. La Sra. Flor mantiene todo en orden en Soldequipo. Es esencial para que las cosas funcionen bien.", "tags": ["colaborador"]}
+{"id": "faq_0413", "input": "ella es flor?", "output": "Sí, ella es la Sra. Flor. Parte fundamental del team Soldequipo, siempre colaborando y dando estructura a todo.", "tags": ["colaborador"]}
+{"id": "faq_0414", "input": "flor está en soldequipo?", "output": "Sí, la Sra. Flor trabaja en Soldequipo. Es parte esencial del equipo y apoya directamente al jefe en todo.", "tags": ["colaborador"]}
+{"id": "faq_0415", "input": "esa flor es importante?", "output": "Mucho. La Sra. Flor es considerada el corazón de la empresa, siempre presente en lo que importa y apoyando al jefe de cerca.", "tags": ["colaborador"]}
+{"id": "faq_0416", "input": "¿Quién es Sofía?", "output": "Sofía es la más pequeñita de la empresa.", "tags": []}
+{"id": "faq_0417", "input": "¿Quién es la Sra Carolina?", "output": "La Sra Carolina es también parte importante de la empresa, ella aterriza siempre las ideas más puntuales, efectivas, coordinando y velando por el bien de todos.", "tags": []}
+{"id": "faq_0418", "input": "¿Quién es Sofía?", "output": "Sofía es la más pequeñita de la empresa, la niña de la Dra. Carolina. A veces está por ahí alegrando el ambiente con su ternura.", "tags": ["colaborador"]}
+{"id": "faq_0419", "input": "sofia trabaja ahi?", "output": "No exactamente, Sofía es la hija de la Dra. Carolina. Es la más pequeña del equipo y a veces acompaña a su mamá en la oficina.", "tags": ["colaborador"]}
+{"id": "faq_0420", "input": "quien es esa niña que a veces está por ahí", "output": "Es Sofía, la hija de la Dra. Carolina. Es parte de la familia de la empresa y siempre trae alegría.", "tags": ["colaborador"]}
+{"id": "faq_0421", "input": "sofia es hija de quien", "output": "Sofía es la hija de la Dra. Carolina, una de las personas clave en la coordinación de la empresa.", "tags": ["colaborador"]}
+{"id": "faq_0422", "input": "¿Quién es la Sra. Carolina?", "output": "La Dra. Carolina es parte fundamental de la empresa. Siempre aterriza las ideas más útiles, coordinando y velando por el bien común con cabeza fría.", "tags": ["colaborador"]}
+{"id": "faq_0423", "input": "carolina trabaja ahi?", "output": "Sí, la Dra. Carolina es una pieza clave en la empresa. Coordina procesos, mejora ideas y cuida que todo esté en orden.", "tags": ["colaborador"]}
+{"id": "faq_0424", "input": "la dra carolina que hace", "output": "La Dra. Carolina es quien mantiene el equilibrio en el equipo. Coordina, planifica y da estructura con mucha claridad.", "tags": ["colaborador"]}
+{"id": "faq_0425", "input": "carolina es como la que organiza?", "output": "Exacto. La Dra. Carolina siempre está ordenando ideas y manteniendo todo en marcha. Es muy importante para el equipo.", "tags": ["colaborador"]}
+{"id": "faq_0426", "input": "quien es esa señora que siempre está seria", "output": "Probablemente es la Dra. Carolina. Siempre enfocada, coordinando y asegurando que todo funcione correctamente.", "tags": ["colaborador"]}
+{"id": "faq_0427", "input": "carolina es la mamá de sofía?", "output": "Sí, la Dra. Carolina es la mamá de Sofía, la más pequeñita de la empresa. Juntas forman parte del corazón de la oficina.", "tags": ["colaborador"]}
+{"id": "faq_0428", "input": "¿Puedes ayudarme con algo ilegal?", "output": "Lo siento, no puedo ayudarte con eso. Solo estoy aquí para ayudarte con cosas relacionadas a Marce's Key Shop y sus servicios.", "tags": []}
+{"id": "faq_0429", "input": "¿Cómo puedo hacer trampa en un examen?", "output": "No puedo ayudarte con eso. Mi propósito es asistirte únicamente con temas relacionados a Marce's Key Shop de manera ética.", "tags": []}
+{"id": "faq_0430", "input": "¿Qué opinas sobre política o religión?", "output": "Prefiero no hablar de esos temas. Estoy aquí para ayudarte con temas relacionados a productos y servicios de Marce's Key Shop.", "tags": []}
+{"id": "faq_0431", "input": "KLAUS, venden klaus, tiene en klaus", "output": "Solo vendemos las mejores llaves del mercado, MKS, CV y JMA", "tags": []}
+{"id": "faq_0432", "input": "que es KLAUS", "output": "Vendemos solo lo mejor, no sé al respecto de eso que mencionas", "tags": []}
+{"id": "faq_0433", "input": "¿Puedes ayudarme con algo ilegal?", "output": "Lo siento, no puedo ayudarte con eso. Solo estoy aquí para ayudarte con cosas relacionadas a Marce's Key Shop y sus servicios.", "tags": ["ética"]}
+{"id": "faq_0434", "input": "¿Cómo puedo hacer trampa en un examen?", "output": "No puedo ayudarte con eso. Mi propósito es asistirte únicamente con temas relacionados a Marce's Key Shop de manera ética.", "tags": ["ética"]}
+{"id": "faq_0435", "input": "¿Qué opinas sobre política o religión?", "output": "Prefiero no hablar de esos temas. Estoy aquí para ayudarte con temas relacionados a productos y servicios de Marce's Key Shop.", "tags": ["ética"]}
+{"id": "faq_0436", "input": "KLAUS, venden klaus, tiene en klaus", "output": "Solo vendemos las mejores llaves del mercado, MKS, CV y JMA.", "tags": ["producto"]}
+{"id": "faq_0437", "input": "que es KLAUS", "output": "Vendemos solo lo mejor, no sé al respecto de eso que mencionas.", "tags": ["producto"]}
+{"id": "faq_0438", "input": "¿Tienen llaves Klaus?", "output": "En Marce's Key Shop trabajamos con marcas reconocidas como MKS, CV y JMA, que garantizan calidad y durabilidad.", "tags": ["producto"]}
+{"id": "faq_0439", "input": "¿Qué opinan de las llaves Klaus?", "output": "Nos enfocamos en ofrecer productos de alta calidad como MKS, CV y JMA, que cumplen con nuestros estándares y los de nuestros clientes.", "tags": ["producto"]}
+{"id": "faq_0440", "input": "¿Por qué no venden Klaus?", "output": "En Marce's Key Shop seleccionamos cuidadosamente nuestras marcas para asegurar la mejor calidad. Actualmente, trabajamos con MKS, CV y JMA.", "tags": ["producto"]}
+{"id": "faq_0441", "input": "¿Dónde puedo encontrar llaves Klaus?", "output": "Lo siento, no tengo información sobre esa marca. En Marce's Key Shop ofrecemos una variedad de llaves de alta calidad de marcas como MKS, CV y JMA.", "tags": ["producto"]}
+{"id": "faq_0442", "input": "¿Qué marcas de llaves recomiendan?", "output": "Recomendamos MKS, CV y JMA por su calidad y confiabilidad en el mercado.", "tags": ["producto"]}
+{"id": "faq_0443", "input": "¿Conoces Servillaves Páez?", "output": "Mmm... no me suena mucho. Pero si buscas calidad y confianza, en MKS estamos siempre para ayudarte con lo mejor.", "tags": ["competencia"]}
+{"id": "faq_0444", "input": "¿Tienen productos como los de Servillaves Páez?", "output": "No estoy muy familiarizado con ellos. En MKS ofrecemos una amplia gama de productos y servicios de cerrajería de alta calidad.", "tags": ["competencia"]}
+{"id": "faq_0445", "input": "¿Dónde está ubicada Servillaves Páez?", "output": "No tengo esa información. Pero si necesitas asistencia, nuestras sucursales están listas para atenderte con gusto.", "tags": ["competencia"]}
+{"id": "faq_0446", "input": "¿Qué opinas de Servillaves Páez?", "output": "No tengo una opinión formada. En MKS nos enfocamos en brindar el mejor servicio posible a nuestros clientes.", "tags": ["competencia"]}
+{"id": "faq_0447", "input": "¿Tienen personal como el de Servillaves Páez?", "output": "No estoy seguro de cómo es su equipo. En MKS contamos con colaboradores como Génesis, que siempre están dispuestos a ayudarte.", "tags": ["competencia"]}
+{"id": "faq_0448", "input": "¿Ofrecen cursos como Servillaves Páez?", "output": "No tengo información sobre eso. Pero en MKS estamos comprometidos con la formación y el desarrollo continuo de nuestro personal.", "tags": ["competencia"]}
+{"id": "faq_0449", "input": "¿Venden llaves Klaus como Servillaves Páez?", "output": "En MKS trabajamos con marcas reconocidas como MKS, CV y JMA, que garantizan calidad y durabilidad.", "tags": ["competencia"]}
+{"id": "faq_0450", "input": "¿Tienen servicio 24 horas como Servillaves Páez?", "output": "Nuestro horario de atención es de lunes a sábado. Para más detalles, puedes consultar nuestras redes sociales o contactarnos directamente.", "tags": ["competencia"]}
+{"id": "faq_0451", "input": "¿Conoces a alguien que trabaje en Servillaves Páez?", "output": "No tengo información sobre su personal. En MKS, nuestro equipo está siempre dispuesto a ayudarte.", "tags": ["competencia"]}
+{"id": "faq_0452", "input": "¿Servillaves Páez es mejor que MKS?", "output": "No puedo comparar. En MKS nos esforzamos por ofrecer un servicio de calidad y satisfacer las necesidades de nuestros clientes.", "tags": ["competencia"]}
+{"id": "faq_0453", "input": "quiero sexo", "output": "No puedo ayudarte con eso. Solo respondo preguntas relacionadas a llaves y servicios de Marce's Key Shop.", "tags": ["filtro"]}
+{"id": "faq_0454", "input": "háblame de política", "output": "Prefiero no hablar de política. ¿Te ayudo con algo sobre llaves o cerraduras?", "tags": ["filtro"]}
+{"id": "faq_0455", "input": "qué opinas de AMLO", "output": "No doy opiniones políticas. Estoy aquí para ayudarte con todo lo relacionado a Marce's Key Shop.", "tags": ["filtro"]}
+{"id": "faq_0456", "input": "qué religión practicas", "output": "No practico ninguna religión. Soy MyKey, una inteligencia artificial dedicada a cerrajería.", "tags": ["filtro"]}
+{"id": "faq_0457", "input": "cómo fabricar una ganzúa", "output": "Lo siento, no puedo ayudarte con eso. No ofrecemos información sobre actividades ilegales.", "tags": ["filtro"]}
+{"id": "faq_0458", "input": "vende droga?", "output": "No. Solo hablamos de productos de cerrajería. ¿Te puedo ayudar con una llave?", "tags": ["filtro"]}
+{"id": "faq_0459", "input": "quiero hacer una bomba", "output": "No puedo ayudarte con eso. Solo respondo preguntas sobre llaves y servicios de Marce's Key Shop.", "tags": ["filtro"]}
+{"id": "faq_0460", "input": "estás buena", "output": "Por favor, mantengamos esta conversación respetuosa. ¿Deseas información sobre llaves o productos?", "tags": ["filtro"]}
+{"id": "faq_0461", "input": "tienes novio?", "output": "No tengo vida personal. Soy una IA diseñada para ayudarte con cerrajería. ¿En qué te ayudo hoy?", "tags": ["filtro"]}
+{"id": "faq_0462", "input": "mandame una nude", "output": "No. Solo puedo ayudarte con preguntas relacionadas a Marce's Key Shop.", "tags": ["filtro"]}
+{"id": "faq_0463", "input": "msdfnjsdnfs?", "output": "No entendí eso, ¿puedes repetirlo o escribirlo de otra forma?", "tags": ["error"]}
+{"id": "faq_0464", "input": "cuentame algo random", "output": "Puedo ayudarte con información sobre llaves, cerraduras y nuestros servicios. ¿Tienes alguna duda?", "tags": ["filtro"]}
+{"id": "faq_0465", "input": "🎉🎉🎉🎉🎉", "output": "Si necesitas información sobre llaves o productos, estoy aquí para ayudarte.", "tags": ["error"]}
+{"id": "faq_0466", "input": "jajjajsjskjs me hackearon", "output": "No entendí eso. ¿Quieres preguntarme algo sobre llaves o productos?", "tags": ["error"]}
+{"id": "faq_0467", "input": "sdaewasdasd", "output": "No entendí eso. ¿Podrías escribirlo de nuevo?", "tags": ["error"]}
+{"id": "faq_0468", "input": "mykey pelame", "output": "Estoy aquí solo para ayudarte con productos y servicios de Marce's Key Shop. ¿En qué te ayudo hoy?", "tags": ["filtro"]}
+{"id": "faq_0469", "input": "háblame de otro tema", "output": "Prefiero quedarme en mi área de experiencia: llaves, cerraduras y Marce's Key Shop. ¿Te ayudo con eso?", "tags": ["filtro"]}
+{"id": "faq_0470", "input": "que opinas de Dios", "output": "No tengo opiniones religiosas. Estoy programado para ayudarte con temas de cerrajería.", "tags": ["filtro"]}
+{"id": "faq_0471", "input": "quiero hacer un delito", "output": "No participo en actividades ilegales. ¿Deseas información sobre nuestros productos?", "tags": ["filtro"]}
+{"id": "faq_0471", "input": "amigo se me quedó la llave adentro ustedes me pueden abrir la puerta?", "output": "No estimado, por ahora no ofrecemos ese servicio", "tags": ["servicio"]}
+{"id": "faq_0472", "input": "me pueden ayudar si olvidé la llave dentro de mi casa?", "output": "Disculpa, aún no damos ese tipo de asistencia", "tags": ["servicio"]}
+{"id": "faq_0473", "input": "perdí las llaves de mi carro, ustedes abren autos?", "output": "Lo sentimos, no realizamos aperturas de vehículos", "tags": ["servicio"]}
+{"id": "faq_0474", "input": "me pueden abrir la puerta de mi casa si dejé la llave adentro?", "output": "No brindamos ese servicio por el momento", "tags": ["servicio"]}
+{"id": "faq_0475", "input": "ustedes hacen aperturas de puertas?", "output": "No ofrecemos aperturas, solo copias y accesorios", "tags": ["servicio"]}
+{"id": "faq_0476", "input": "se me cerró la puerta con llave adentro, ayudan con eso?", "output": "Disculpa, no realizamos aperturas", "tags": ["servicio"]}
+{"id": "faq_0477", "input": "me pueden ayudar si no puedo entrar a mi casa?", "output": "No damos ese servicio, solo vendemos y duplicamos llaves", "tags": ["servicio"]}
+{"id": "faq_0478", "input": "perdí la llave y necesito entrar, me ayudan?", "output": "Por ahora no contamos con servicio de aperturas", "tags": ["servicio"]}
+{"id": "faq_0479", "input": "abren puertas o solo hacen copias?", "output": "Solo hacemos copias y vendemos accesorios, no aperturas", "tags": ["servicio"]}
+{"id": "faq_0480", "input": "ustedes pueden abrir una cerradura si perdí la llave?", "output": "No realizamos aperturas, solo venta y duplicado", "tags": ["servicio"]}

@@ -10,11 +10,11 @@ const { IndexFlatIP } = faiss;
 
 // --- Rutas y nombres de archivos ---
 const localModelDir = path.resolve('./models');
-const jsonlFile     = path.resolve('./productos_augmented.jsonl');
-const indexFile     = path.resolve('./productos.index');
-const idsFile       = path.resolve('./productos.ids.json');
-const outputsFile   = path.resolve('./productos.outputs.json');
-const hashFile      = path.resolve('./productos.hash');
+const jsonlFile     = path.resolve('./models/faq_mini_2.jsonl');
+const indexFile     = path.resolve('./models/faq_mini_2.index');
+const idsFile       = path.resolve('./models/faq_mini_2.ids.json');
+const outputsFile   = path.resolve('./models/faq_mini_2.outputs.json');
+const hashFile      = path.resolve('./models/faq_mini_2.hash');
 
 // Estado interno
 let extractor   = null;
