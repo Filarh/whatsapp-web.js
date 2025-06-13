@@ -8,6 +8,7 @@ const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config(); // 👈 esto es imprescindible para que config/ia.js funcione
 
 // Importar configuración y utilidades
 const config = require('./config');

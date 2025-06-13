@@ -1,82 +1,65 @@
 'use strict';
 
-const fs       = require('fs');
-const path     = require('path');
-const crypto   = require('crypto');
-const readline = require('readline');
-const faiss    = require('faiss-node');
+const fs = require('fs');
+const crypto = require('crypto');
+const faiss = require('faiss-node');
 const cliProgress = require('cli-progress');
+const config = require('../config/ai'); // 👈 aseguras que toma el correcto
+const Logger = require('./logger');
+
 const { IndexFlatIP } = faiss;
 
-// --- Rutas y nombres de archivos ---
-const localModelDir = path.resolve('./models');
-const jsonlFile     = path.resolve('./models/faq_mini_2.jsonl');
-const indexFile     = path.resolve('./models/faq_mini_2.index');
-const idsFile       = path.resolve('./models/faq_mini_2.ids.json');
-const outputsFile   = path.resolve('./models/faq_mini_2.outputs.json');
-const hashFile      = path.resolve('./models/faq_mini_2.hash');
+let extractor = null;
+let faissIndex = null;
+let ids = [];
+let outputs = [];
 
-// Estado interno
-let extractor   = null;
-let faissIndex  = null;
-let ids         = [];
-let outputs     = [];
-let texts       = [];
-
-/**
- * Calcula el hash MD5 de un archivo completo.
- */
 function computeFileHash(filePath) {
   const data = fs.readFileSync(filePath);
   return crypto.createHash('md5').update(data).digest('hex');
 }
 
-/**
- * Inicializa el pipeline de embeddings y carga o crea el índice Faiss.
- */
 async function ensureModelLoaded() {
   if (extractor) return;
 
   const { pipeline, env } = await import('@xenova/transformers');
-  if (!fs.existsSync(localModelDir)) fs.mkdirSync(localModelDir, { recursive: true });
-  env.cacheDir = localModelDir;
+  if (!fs.existsSync(config.embedding.modelsDir)) {
+    fs.mkdirSync(config.embedding.modelsDir, { recursive: true });
+  }
+  env.cacheDir = config.embedding.modelsDir;
 
-  extractor = await pipeline(
-    'feature-extraction',
-    'Allenbv/mks-similarity-onnx'
-  );
+  extractor = await pipeline('feature-extraction', config.embedding.model);
 
-  const currentHash = computeFileHash(jsonlFile);
-  const storedHash  = fs.existsSync(hashFile)
-    ? fs.readFileSync(hashFile, 'utf8').trim()
+  const currentHash = computeFileHash(config.data.jsonlFile);
+  const storedHash = fs.existsSync(config.data.hashFile)
+    ? fs.readFileSync(config.data.hashFile, 'utf8').trim()
     : null;
 
-  const hasIndexFiles = fs.existsSync(indexFile)
-                     && fs.existsSync(idsFile)
-                     && fs.existsSync(outputsFile);
+  const hasIndexFiles = fs.existsSync(config.data.indexFile) &&
+                       fs.existsSync(config.data.idsFile) &&
+                       fs.existsSync(config.data.outputsFile);
 
   if (hasIndexFiles && storedHash === currentHash) {
-    faissIndex = IndexFlatIP.read(indexFile);
-    ids        = JSON.parse(fs.readFileSync(idsFile, 'utf8'));
-    outputs    = JSON.parse(fs.readFileSync(outputsFile, 'utf8'));
-    console.log('[Embedding] Carga rápida de índice Faiss (hash coincide)');
+    faissIndex = IndexFlatIP.read(config.data.indexFile);
+    ids = JSON.parse(fs.readFileSync(config.data.idsFile, 'utf8'));
+    outputs = JSON.parse(fs.readFileSync(config.data.outputsFile, 'utf8'));
+    Logger.info('Embedding', 'Carga rápida de índice (hash coincide)');
   } else {
-    console.log('[Embedding] Rebuild de índice Faiss (hash distinto o archivos faltantes)');
+    Logger.info('Embedding', 'Rebuild de índice (hash distinto o archivos faltantes)');
     await buildIndex();
-    fs.writeFileSync(hashFile, currentHash, 'utf8');
+    fs.writeFileSync(config.data.hashFile, currentHash, 'utf8');
   }
 }
 
-/**
- * Lee el JSONL, genera embeddings, crea el índice y guarda en disco.
- */
 async function buildIndex() {
   ids = [];
   outputs = [];
-  texts = [];
   faissIndex = null;
 
-  const lines = fs.readFileSync(jsonlFile, 'utf8').split('\n').filter(l => l.trim());
+  const lines = fs.readFileSync(config.data.jsonlFile, 'utf8')
+    .split('\n')
+    .filter(l => l.trim());
+
   const progress = new cliProgress.SingleBar({
     format: '[{bar}] {percentage}% | {value}/{total} líneas',
     barCompleteChar: '█',
@@ -93,16 +76,12 @@ async function buildIndex() {
     try {
       parsed = JSON.parse(lines[i]);
     } catch (err) {
-      console.warn('[Embedding] Línea JSON inválida, se omite:', lines[i].slice(0, 60));
+      Logger.warn('Embedding', `Línea JSON inválida: ${lines[i].slice(0, 60)}`);
       continue;
     }
 
     const { id, input, output = '', tags = [] } = parsed;
-
-    if (!id || typeof input !== 'string' || !input.trim()) {
-      console.warn('[Embedding] Entrada sin input válido, se omite:', id || '(sin ID)');
-      continue;
-    }
+    if (!id || !input?.trim()) continue;
 
     const enrichedText = [input, ...(Array.isArray(tags) ? tags : [])].join(' ').trim();
     if (!enrichedText) continue;
@@ -116,90 +95,33 @@ async function buildIndex() {
     faissIndex.add(vec);
     ids.push(id);
     outputs.push(output);
-    texts.push(enrichedText);
   }
 
   progress.stop();
 
-  faissIndex.write(indexFile);
-  fs.writeFileSync(idsFile,     JSON.stringify(ids,     null, 2), 'utf8');
-  fs.writeFileSync(outputsFile, JSON.stringify(outputs, null, 2), 'utf8');
+  faissIndex.write(config.data.indexFile);
+  fs.writeFileSync(config.data.idsFile, JSON.stringify(ids, null, 2), 'utf8');
+  fs.writeFileSync(config.data.outputsFile, JSON.stringify(outputs, null, 2), 'utf8');
 
-  console.log(`[Embedding] Embeddings generados: ${ids.length}`);
+  Logger.info('Embedding', `Embeddings generados: ${ids.length}`);
 }
 
-/**
- * Genera el embedding de un texto dado (JS Array de números).
- */
 async function generateEmbedding(text) {
   if (!extractor) await ensureModelLoaded();
   const { data } = await extractor(text, { pooling: 'mean', normalize: true });
   return Array.isArray(data) ? data : Array.from(data);
 }
 
-/**
- * Busca la coincidencia más cercana (solo si similarity > 0.3).
- */
-async function findClosestMatch(query) {
+async function findMultipleMatches(query, k = null, threshold = null) {
   await ensureModelLoaded();
   const vec = await generateEmbedding(query);
-  const { labels, distances } = faissIndex.search(vec, 1);
-  const idx = labels[0];
-  if (idx < 0 || distances[0] < 0.3) return null;
-  return {
-    id: ids[idx],
-    output: outputs[idx],
-    similarity: distances[0]
-  };
-}
-
-/**
- * Busca las k coincidencias más cercanas (filtradas por similarity).
- */
-async function findMultipleMatches(query, k = 5, threshold = 0.3) {
-  await ensureModelLoaded();
-  const vec = await generateEmbedding(query);
-  const { labels, distances } = faissIndex.search(vec, k);
+  const { labels, distances } = faissIndex.search(vec, k || config.rag.maxMatches);
+  
   return labels.map((idx, i) => ({
     id: ids[idx],
     output: outputs[idx],
     similarity: distances[i]
-  })).filter(c => c.similarity >= threshold);
+  })).filter(c => c.similarity >= (threshold || config.rag.minSimilarity));
 }
 
-// Carga todos los tags únicos desde el JSONL original
-async function getKnownTags() {
-  const tagsSet = new Set();
-
-  const rl = readline.createInterface({
-    input: fs.createReadStream(jsonlFile),
-    crlfDelay: Infinity
-  });
-
-  for await (const line of rl) {
-    if (!line.trim()) continue;
-    try {
-      const { tags = [] } = JSON.parse(line);
-      for (const tag of tags) {
-        if (tag && typeof tag === 'string') {
-          tagsSet.add(tag.toLowerCase());
-        }
-      }
-    } catch (e) {
-      continue;
-    }
-  }
-
-  return Array.from(tagsSet);
-}
-
-
-
-
-module.exports = {
-  ensureModelLoaded,
-  generateEmbedding,
-  findClosestMatch,
-  findMultipleMatches,
-  getKnownTags
-};
+module.exports = { ensureModelLoaded, findMultipleMatches };

@@ -1,56 +1,46 @@
 'use strict';
 
-const userHistories = new Map(); // Historial por usuario
+const config = require('../config/ai'); // 👈 aseguras que toma el correcto
 
-const BASE_INSTRUCTIONS = `
-Eres MyKey, el asistente IA oficial de Marce's Key Shop, una tienda especializada en llaves, cerraduras y servicios relacionados.
+const Logger = require('./logger');
 
-INSTRUCCIONES:
-- Responde de forma concisa, útil y conversacional (máximo 3 frases).
-- Utiliza el conocimiento proporcionado como base, pero no lo repitas literalmente.
-- Parafrasea y contextualiza la información para que sea natural.
-- Si no tienes información suficiente, responde con lo que sabes sin inventar datos específicos.
-- Si la consulta no está relacionada con productos o servicios de cerrajería, responde amablemente que solo puedes ayudar con temas de Marce's Key Shop.
-- Mantén un tono amable y profesional.
+const userHistories = new Map();
+const INSTRUCTIONS = `
+Eres MyKey, asistente especializado de Marce's Key Shop. Ayudas con:
+- Información sobre llaves, cerraduras, copias y servicios
+- Precios y disponibilidad de productos
+- Ubicaciones y horarios de sucursales
+- Recomendaciones técnicas de cerrajería
+
+ESTILO: Máximo 2-3 oraciones claras y directas, lenguaje simple, tono amigable pero profesional.
 `.trim();
-
-const MAX_HISTORY_TURNS = 5;
-const MAX_CONTEXT_LENGTH = 512;
 
 let chatSession = null;
 
-/**
- * Inicializa el modelo LLM para chat
- */
-async function initModel(modelPath) {
-  console.log('[Llama] Inicializando modelo en', modelPath);
+async function initModel() {
+  Logger.info('Llama', `Inicializando modelo en ${config.model.path}`);
 
-  const { getLlama, LlamaChatSession } = await import('node-llama-cpp').then(m => m);
+  const { getLlama, LlamaChatSession } = await import('node-llama-cpp');
   const llama = await getLlama();
   const model = await llama.loadModel({
-    modelPath,
-    nCtx: MAX_CONTEXT_LENGTH,
+    modelPath: config.model.path,
+    nCtx: config.model.maxContext,
     seed: 42,
     nGpuLayers: 0,
-    gpuOffload: false,
-    useMlock: false,
     backend: 'cpu'
   });
 
   const context = await model.createContext();
   chatSession = new LlamaChatSession({
     contextSequence: context.getSequence(),
-    contextSize: MAX_CONTEXT_LENGTH
+    contextSize: config.model.maxContext
   });
 
-  console.log('[Llama] Modelo cargado y listo');
+  Logger.info('Llama', 'Modelo cargado y listo');
 }
 
-/**
- * Genera una respuesta basada en el historial del usuario y el contexto RAG.
- */
-async function generateResponse(userPrompt, opts = {}, contextoTemporal = '', userId = 'global') {
-  if (!chatSession) throw new Error('El modelo no está inicializado');
+async function generateResponse(userPrompt, contexto = '', userId = 'global') {
+  if (!chatSession) throw new Error('Modelo no inicializado');
 
   if (!userHistories.has(userId)) {
     userHistories.set(userId, []);
@@ -59,61 +49,41 @@ async function generateResponse(userPrompt, opts = {}, contextoTemporal = '', us
   const history = userHistories.get(userId);
   history.push({ role: 'user', content: userPrompt.trim() });
 
-  // Limita el historial
-  if (history.length > MAX_HISTORY_TURNS * 2) {
-    history.splice(0, history.length - MAX_HISTORY_TURNS * 2);
+  if (history.length > 10) {
+    history.splice(0, history.length - 10);
   }
 
-  // Construye el historial con formato limpio
-  const historyText = history.map(entry => {
-    const clean = entry.content.replace(/^Usuario:|^Asistente:/i, '').trim();
-    return entry.role === 'user'
-      ? `Usuario: ${clean}`
-      : `Asistente: ${clean}`;
-  }).join('\n');
+  const historyText = history.map(entry => 
+    `${entry.role === 'user' ? 'Usuario' : 'Asistente'}: ${entry.content}`
+  ).join('\n');
 
-  // Monta el prompt final
-  const components = [
-    BASE_INSTRUCTIONS,
-    contextoTemporal.trim(),
+  const fullPrompt = [
+    INSTRUCTIONS,
+    contexto,
     historyText,
     'Asistente:'
-  ].filter(Boolean);
-  const fullPrompt = components.join('\n\n');
+  ].filter(Boolean).join('\n\n');
 
-  const preview = fullPrompt.length > 300
-    ? fullPrompt.slice(0, 297) + '...'
-    : fullPrompt;
-  console.log(`[Llama] Prompt generado (${fullPrompt.length} chars):\n`, preview);
+  Logger.info('Llama', `Prompt generado (${fullPrompt.length} chars)`);
 
-  const defaultOpts = {
-    maxTokens: 150,
-    temperature: 0.7,
+  const response = await chatSession.prompt(fullPrompt, {
+    maxTokens: config.model.maxTokens,
+    temperature: config.model.temperature,
     topP: 0.95,
-    stop: ['\n\n', 'Usuario:', 'Asistente:']  // <--- importante
-  };
-  
+    stop: ['\n\n', 'Usuario:', 'Asistente:']
+  });
 
-  const merged = { ...defaultOpts, ...opts };
+  const cleanResponse = response.trim().replace(/^Asistente:\s*/i, '');
+  history.push({ role: 'assistant', content: cleanResponse });
 
-  const out = await chatSession.prompt(fullPrompt, merged);
-  const clean = out.trim().replace(/^Asistente:\s*/i, '');
-
-  history.push({ role: 'assistant', content: clean });
-
-  return clean;
+  return cleanResponse;
 }
 
-/**
- * Reinicia el historial de un usuario o todos.
- */
-async function resetConversation(userId = null) {
-  if (userId && userHistories.has(userId)) {
+function resetConversation(userId = null) {
+  if (userId) {
     userHistories.set(userId, []);
-    console.log(`[Llama] Conversación reiniciada para ${userId}`);
   } else {
     userHistories.clear();
-    console.log('[Llama] Todas las conversaciones reiniciadas');
   }
 }
 
