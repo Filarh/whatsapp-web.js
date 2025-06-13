@@ -1,0 +1,65 @@
+[33mcommit 5a9b9a94eb6783b538fdfdfb0e58f9ab1b8e53ff[m
+Author: Filarh <emiliothedemon@gmail.com>
+Date:   Fri Jun 13 11:09:46 2025 -0500
+
+    sas
+
+ .../mks-similarity-onnx/onnx/model_quantized.onnx   | Bin [31m110556190[m -> [32m0[m bytes
+ models/qwen2.5-mks.gguf                             | Bin [31m994156160[m -> [32m0[m bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+[33mcommit ac7418894137510834b48e03f942541ad5fd31cf[m
+Author: Filarh <emiliothedemon@gmail.com>
+Date:   Wed Jun 11 15:50:39 2025 -0500
+
+    calma antes de la tormenta
+
+ models/faq_mini_2.hash         |   1 [32m+[m
+ models/faq_mini_2.ids.json     |  35 [32m+++[m
+ models/faq_mini_2.index        | Bin [31m0[m -> [32m101421[m bytes
+ models/faq_mini_2.jsonl        |  34 [32m+++[m
+ models/faq_mini_2.outputs.json |  35 [32m+++[m
+ models/faqs.hash               |   1 [32m+[m
+ models/faqs.ids.json           | 483 [32m+++++++++++++++++++++++++++++++++++++++++[m
+ models/faqs.index              | Bin [31m0[m -> [32m1477677[m bytes
+ models/faqs.jsonl              | 481 [32m++++++++++++++++++++++++++++++++++++++++[m
+ models/faqs.outputs.json       | 483 [32m+++++++++++++++++++++++++++++++++++++++++[m
+ 10 files changed, 1553 insertions(+)
+
+[33mcommit 0aa30654b0ee3025257f84e30c5c7f530f7485c1[m
+Author: Filarh <emiliothedemon@gmail.com>
+Date:   Tue Jun 10 15:01:17 2025 -0500
+
+    qué me voy a acordar qué mondá hice
+
+ models/Allenbv/mks-similarity-onnx/config.json     |    26 [32m+[m
+ .../mks-similarity-onnx/onnx/model_quantized.onnx  |   Bin [31m0[m -> [32m110556190[m bytes
+ models/Allenbv/mks-similarity-onnx/tokenizer.json  | 31164 [32m+++++++++++++[m
+ .../mks-similarity-onnx/tokenizer_config.json      |    65 [32m+[m
+ models/productos_augmented.jsonl                   | 16493 [32m+++++++[m
+ models/productos_augmented.jsonl.bkp               | 43836 [32m+++++++++++++++++++[m
+ models/qwen2.5-mks.gguf                            |   Bin [31m0[m -> [32m994156160[m bytes
+ 7 files changed, 91584 insertions(+)
+
+[33mcommit e3706712036238fd16bcfc92528ad9c938c1a876[m[33m ([m[1;32mmain[m[33m)[m
+Author: Filarh <emiliothedemon@gmail.com>
+Date:   Fri May 2 09:11:06 2025 -0500
+
+    unos cuantos cambios
+
+ models/Xenova/all-MiniLM-L6-v2/config.json         |    25 [32m+[m
+ models/Xenova/all-MiniLM-L6-v2/tokenizer.json      | 30686 [32m+++++++++++++++++++[m
+ .../Xenova/all-MiniLM-L6-v2/tokenizer_config.json  |    15 [32m+[m
+ 3 files changed, 30726 insertions(+)
+
+[33mcommit 7a794707a324e321b8980eed9fb5119d0688ac0c[m
+Author: Filarh <emiliothedemon@gmail.com>
+Date:   Fri May 2 08:08:08 2025 -0500
+
+    se plantean las bases del modelo de ia
+
+ .../config.json                                    |    21 [32m+[m
+ .../tokenizer.json                                 | 30690 [32m+++++++++++++++++++[m
+ .../tokenizer_config.json                          |    65 [32m+[m
+ models/etiquetas_modelo.json                       |     1 [32m+[m
+ 4 files changed, 30777 insertions(+)
