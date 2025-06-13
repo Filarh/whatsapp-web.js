@@ -4,29 +4,24 @@ const config = require('../config/ai');
 const Logger = require('../utils/logger');
 const llama = require('../utils/llama');
 const embedding = require('../utils/embedding');
+const TemplateManager = require('../utils/template');
 
-// Análisis de consultas
-const QUERY_PATTERNS = {
-  precio: /precio|cuánto|vale|costo|cobran|barato|caro/i,
-  ubicacion: /dónde|dirección|ubicación|sucursal|local/i,
-  horario: /horario|abren|cierran|hora|cuando/i,
-  servicio: /hacen|pueden|servicio|reparan|arreglan/i,
-  producto: /llave|cerradura|candado|chapa|copia/i,
-  urgente: /urgente|rápido|ya|ahora|emergency/i
-};
-
+// Análisis de consultas usando patrones del template
 function analyzeQuery(text) {
+  const patterns = TemplateManager.getQueryPatterns();
   const analysis = {};
-  for (const [key, pattern] of Object.entries(QUERY_PATTERNS)) {
+  
+  for (const [key, pattern] of Object.entries(patterns)) {
     analysis[key] = pattern.test(text);
   }
+  
   return analysis;
 }
 
 function buildIntelligentContext(matches = []) {
   if (!matches.length) {
     return {
-      context: 'No se encontraron datos específicos en la base de conocimiento.',
+      context: TemplateManager.getFallback('no_data'),
       stats: { total: 0, highQuality: 0, avgSimilarity: 0 }
     };
   }
@@ -35,23 +30,25 @@ function buildIntelligentContext(matches = []) {
   const avgSimilarity = matches.reduce((sum, m) => sum + m.similarity, 0) / matches.length;
 
   let contextParts = [];
+  const templates = TemplateManager.promptData.response_templates;
   
   if (highQuality.length > 0) {
-    contextParts.push('Información más relevante:');
+    contextParts.push(templates.high_quality_context);
     highQuality.forEach((m, i) => {
       contextParts.push(`${i + 1}. ${m.output.trim()}`);
     });
   } else {
-    contextParts.push('Información adicional:');
+    contextParts.push(templates.additional_context);
     matches.slice(0, 3).forEach(m => {
       contextParts.push(`- ${m.output.trim()}`);
     });
   }
 
   const finalContext = contextParts.join('\n').substring(0, config.rag.maxContextLength);
+  const contextPrefix = TemplateManager.promptData.system_prompts.context_prefix;
   
   return {
-    context: `Contexto relevante (usa como base, no cites literalmente):\n${finalContext}`,
+    context: `${contextPrefix}\n${finalContext}`,
     stats: {
       total: matches.length,
       highQuality: highQuality.length,
@@ -60,40 +57,26 @@ function buildIntelligentContext(matches = []) {
   };
 }
 
-function generateSmartFallback(query, analysis) {
-  if (analysis.precio) {
-    return 'Los precios varían según el producto específico. ¿Qué tipo de llave o servicio necesitas?';
-  }
-  if (analysis.ubicacion) {
-    return 'Tenemos varias sucursales. ¿En qué zona te encuentras? Te indico la más cercana.';
-  }
-  if (analysis.horario) {
-    return 'Los horarios pueden variar por sucursal. ¿Te interesa alguna ubicación en particular?';
-  }
-  if (analysis.producto && analysis.urgente) {
-    return 'Para servicios urgentes, te recomiendo contactarnos directamente. ¿Qué tipo de emergencia tienes?';
-  }
-  return 'Estoy aquí para ayudarte con temas de cerrajería. ¿Podrías darme más detalles?';
-}
-
 function validateResponse(response, query) {
   if (!response || typeof response !== 'string') return false;
   
+  const validationConfig = TemplateManager.getValidationConfig();
   const clean = response.trim().toLowerCase();
-  const invalidPatterns = [
-    /^(no tengo|lo siento|como ia|no puedo)/,
-    /contexto relevante/i
-  ];
-
-  return !invalidPatterns.some(pattern => pattern.test(clean)) &&
-         clean.length >= 10 &&
-         response.length <= 500;
+  
+  // Verificar patrones inválidos
+  const invalidPatterns = validationConfig.invalid_patterns.map(p => new RegExp(p, 'i'));
+  const hasInvalidPattern = invalidPatterns.some(pattern => pattern.test(clean));
+  
+  return !hasInvalidPattern &&
+         clean.length >= validationConfig.min_length &&
+         response.length <= validationConfig.max_length;
 }
 
 module.exports = async function (client, pluginConfig) {
   if (!pluginConfig.plugins.ia) return;
 
-  Logger.info('Plugin IA', 'Inicializando RAG mejorado...');
+  const companyInfo = TemplateManager.getCompanyInfo();
+  Logger.info('Plugin IA', `Inicializando RAG para ${companyInfo.company.name}...`);
 
   try {
     await llama.initModel();
@@ -113,7 +96,8 @@ module.exports = async function (client, pluginConfig) {
   });
 
   client.on('message_create', async msg => {
-    const NUMERO_AUTORIZADO = '593964001175@c.us';
+    // Usar número autorizado del template
+    const NUMERO_AUTORIZADO = companyInfo.contact.whatsapp;
     if (!msg.body || msg.fromMe || msg.from !== NUMERO_AUTORIZADO) return;
 
     const query = msg.body.trim();
@@ -122,7 +106,7 @@ module.exports = async function (client, pluginConfig) {
     const startTime = Date.now();
     
     try {
-      console.log('[DEBUG IA] Entró al handler IA');
+      console.log('[DEBUG IA] Procesando consulta para', companyInfo.company.name);
 
       // 1. Analizar consulta
       const queryAnalysis = analyzeQuery(query);
@@ -148,7 +132,7 @@ module.exports = async function (client, pluginConfig) {
           response = matches[0].output.trim();
           fallbackType = 'mejor_coincidencia';
         } else {
-          response = generateSmartFallback(query, queryAnalysis);
+          response = TemplateManager.getQueryFallback(queryAnalysis);
           fallbackType = 'fallback_inteligente';
         }
       }
@@ -161,20 +145,25 @@ module.exports = async function (client, pluginConfig) {
         tipoFallback: fallbackType 
       });
 
-      Logger.info('Plugin IA', `⚡ Procesado en ${processingTime}ms`);
+      const processingMsg = TemplateManager.replaceVars(
+        TemplateManager.promptData.response_templates.processing_info,
+        { time: processingTime }
+      );
+      Logger.info('Plugin IA', processingMsg);
       
       await msg.reply(response);
 
     } catch (err) {
       Logger.ragDebug('error', { error: err });
-      await msg.reply('Disculpa, hubo un problema técnico. ¿Podrías intentar de nuevo?');
+      const errorMsg = TemplateManager.getFallback('error');
+      await msg.reply(errorMsg);
     }
   });
 
   return {
-    nombre: 'MyKey RAG Pro',
-    descripcion: 'Sistema RAG avanzado con configuración externa',
-    version: '8.0.0',
+    nombre: `${companyInfo.company.displayName} RAG Pro`,
+    descripcion: `Sistema RAG avanzado para ${companyInfo.company.name}`,
+    version: '9.0.0',
     comandos: ['ia']
   };
 };

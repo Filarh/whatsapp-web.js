@@ -1,0 +1,53 @@
+{
+    "company": {
+      "name": "Marce's Key Shop",
+      "displayName": "MyKey",
+      "description": "Especialistas en cerrajería y seguridad",
+      "industry": "cerrajería",
+      "type": "retail"
+    },
+    "contact": {
+      "phone": "593964001175",
+      "whatsapp": "593964001175@c.us",
+      "email": "info@marceskeyshop.com",
+      "website": "https://marceskeyshop.com"
+    },
+    "location": {
+      "country": "Ecuador",
+      "city": "Guayaquil",
+      "timezone": "America/Guayaquil",
+      "branches": [
+        {
+          "id": "main",
+          "name": "Sucursal Principal",
+          "address": "Av. Principal 123, Guayaquil",
+          "hours": "Lunes a Viernes: 8:00 AM - 6:00 PM, Sábados: 8:00 AM - 4:00 PM"
+        }
+      ]
+    },
+    "services": [
+      "Duplicado de llaves",
+      "Instalación de cerraduras",
+      "Reparación de chapas",
+      "Cambio de combinaciones",
+      "Servicios de emergencia",
+      "Asesoría en seguridad"
+    ],
+    "products": [
+      "Llaves residenciales",
+      "Llaves automotrices",
+      "Cerraduras de seguridad",
+      "Candados",
+      "Chapas eléctricas",
+      "Sistemas de acceso"
+    ],
+    "business_hours": {
+      "monday": "08:00-18:00",
+      "tuesday": "08:00-18:00",
+      "wednesday": "08:00-18:00",
+      "thursday": "08:00-18:00",
+      "friday": "08:00-18:00",
+      "saturday": "08:00-16:00",
+      "sunday": "closed"
+    }
+  }

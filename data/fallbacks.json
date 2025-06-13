@@ -1,0 +1,29 @@
+{
+    "fallbacks": {
+      "default": "Estoy aquí para ayudarte con temas de {industry}. ¿Podrías darme más detalles?",
+      "no_data": "No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera.",
+      "error": "Disculpa, hubo un problema técnico. ¿Podrías intentar de nuevo?",
+      "query_patterns": {
+        "precio": "Los precios varían según el producto específico. ¿Qué tipo de {main_product} o servicio necesitas?",
+        "ubicacion": "Tenemos varias sucursales. ¿En qué zona te encuentras? Te indico la más cercana.",
+        "horario": "Los horarios pueden variar por sucursal. ¿Te interesa alguna ubicación en particular?",
+        "servicio": "Ofrecemos varios servicios de {industry}. ¿Qué tipo de trabajo necesitas?",
+        "producto": "Manejamos diversos productos de {industry}. ¿Buscas algo específico?",
+        "urgente": "Para servicios urgentes, te recomiendo contactarnos directamente. ¿Qué tipo de emergencia tienes?",
+        "combo_producto_urgente": "Para servicios urgentes de {industry}, te recomiendo contactarnos directamente. ¿Qué tipo de emergencia tienes?"
+      }
+    },
+    "greetings": {
+      "welcome": "¡Hola! Soy {bot_name}, asistente de {company_name}. ¿En qué puedo ayudarte hoy?",
+      "help": "Puedo ayudarte con información sobre nuestros productos, servicios, precios, ubicaciones y horarios.",
+      "goodbye": "¡Gracias por contactar a {company_name}! Que tengas un excelente día."
+    },
+    "validation": {
+      "invalid_patterns": [
+        "^(no tengo|lo siento|como ia|no puedo)",
+        "contexto relevante"
+      ],
+      "min_length": 10,
+      "max_length": 500
+    }
+  }

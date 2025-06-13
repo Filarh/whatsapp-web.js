@@ -1,20 +1,10 @@
 'use strict';
 
-const config = require('../config/ai'); // 👈 aseguras que toma el correcto
-
+const config = require('../config/ai');
 const Logger = require('./logger');
+const TemplateManager = require('./template');
 
 const userHistories = new Map();
-const INSTRUCTIONS = `
-Eres MyKey, asistente especializado de Marce's Key Shop. Ayudas con:
-- Información sobre llaves, cerraduras, copias y servicios
-- Precios y disponibilidad de productos
-- Ubicaciones y horarios de sucursales
-- Recomendaciones técnicas de cerrajería
-
-ESTILO: Máximo 2-3 oraciones claras y directas, lenguaje simple, tono amigable pero profesional.
-`.trim();
-
 let chatSession = null;
 
 async function initModel() {
@@ -36,7 +26,8 @@ async function initModel() {
     contextSize: config.model.maxContext
   });
 
-  Logger.info('Llama', 'Modelo cargado y listo');
+  const companyInfo = TemplateManager.getCompanyInfo();
+  Logger.info('Llama', `Modelo cargado para ${companyInfo.company.name}`);
 }
 
 async function generateResponse(userPrompt, contexto = '', userId = 'global') {
@@ -49,19 +40,27 @@ async function generateResponse(userPrompt, contexto = '', userId = 'global') {
   const history = userHistories.get(userId);
   history.push({ role: 'user', content: userPrompt.trim() });
 
-  if (history.length > 10) {
-    history.splice(0, history.length - 10);
+  const conversationConfig = TemplateManager.promptData.conversation;
+  if (history.length > conversationConfig.max_history) {
+    history.splice(0, history.length - conversationConfig.max_history);
   }
 
+  // Formatear historial usando el template
   const historyText = history.map(entry => 
-    `${entry.role === 'user' ? 'Usuario' : 'Asistente'}: ${entry.content}`
+    TemplateManager.replaceVars(conversationConfig.history_format, {
+      role: entry.role === 'user' ? conversationConfig.roles.user : conversationConfig.roles.assistant,
+      content: entry.content
+    })
   ).join('\n');
 
+  // Obtener instrucciones del sistema desde el template
+  const instructions = TemplateManager.getSystemPrompt();
+
   const fullPrompt = [
-    INSTRUCTIONS,
+    instructions,
     contexto,
     historyText,
-    'Asistente:'
+    `${conversationConfig.roles.assistant}:`
   ].filter(Boolean).join('\n\n');
 
   Logger.info('Llama', `Prompt generado (${fullPrompt.length} chars)`);
@@ -70,10 +69,14 @@ async function generateResponse(userPrompt, contexto = '', userId = 'global') {
     maxTokens: config.model.maxTokens,
     temperature: config.model.temperature,
     topP: 0.95,
-    stop: ['\n\n', 'Usuario:', 'Asistente:']
+    stop: ['\n\n', `${conversationConfig.roles.user}:`, `${conversationConfig.roles.assistant}:`]
   });
 
-  const cleanResponse = response.trim().replace(/^Asistente:\s*/i, '');
+  const cleanResponse = response.trim().replace(
+    new RegExp(`^${conversationConfig.roles.assistant}:\\s*`, 'i'), 
+    ''
+  );
+  
   history.push({ role: 'assistant', content: cleanResponse });
 
   return cleanResponse;

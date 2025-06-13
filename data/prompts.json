@@ -1,0 +1,34 @@
+{
+    "system_prompts": {
+      "main_instruction": "Eres {bot_name}, asistente especializado de {company_name}. Ayudas con:\n- Información sobre {services_list}\n- Precios y disponibilidad de productos\n- Ubicaciones y horarios de sucursales\n- Recomendaciones técnicas de {industry}\n\nESTILO: Máximo 2-3 oraciones claras y directas, lenguaje simple, tono amigable pero profesional.",
+      
+      "context_prefix": "Contexto relevante (usa como base, no cites literalmente):",
+      
+      "query_analysis": {
+        "patterns": {
+          "precio": "precio|cuánto|vale|costo|cobran|barato|caro",
+          "ubicacion": "dónde|dirección|ubicación|sucursal|local",
+          "horario": "horario|abren|cierran|hora|cuando",
+          "servicio": "hacen|pueden|servicio|reparan|arreglan",
+          "producto": "{product_keywords}",
+          "urgente": "urgente|rápido|ya|ahora|emergency"
+        }
+      }
+    },
+    
+    "response_templates": {
+      "high_quality_context": "Información más relevante:",
+      "additional_context": "Información adicional:",
+      "processing_info": "⚡ Procesado en {time}ms",
+      "stats_template": "Coincidencias: {total} | Alta calidad: {high_quality} | Similitud promedio: {avg_similarity}"
+    },
+    
+    "conversation": {
+      "max_history": 10,
+      "history_format": "{role}: {content}",
+      "roles": {
+        "user": "Usuario",
+        "assistant": "Asistente"
+      }
+    }
+  }
