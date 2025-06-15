@@ -15,7 +15,7 @@ const config = require('./config');
 const { log, crearDirectorio, cargarArchivos } = require('./utils/helper');
 
 // Importar WebUI para Render.com compatibilidad
-const webui = require('./services/webui');
+const webui = require('./services/WebUIService');
 
 // Crear directorios necesarios
 Object.values(config.directorios).forEach(crearDirectorio);

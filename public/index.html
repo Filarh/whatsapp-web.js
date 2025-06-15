@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Bot Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 WhatsApp Bot Dashboard</h1>
+            <p>Monitoreo y estadísticas en tiempo real</p>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <h3>📊 Estado del Bot</h3>
+                <div id="bot-status" class="loading">Cargando estado...</div>
+                <button class="refresh-btn" onclick="refreshData()">🔄 Actualizar</button>
+            </div>
+            <div class="card">
+                <h3>📈 Estadísticas</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="messages-count">-</div>
+                        <div class="stat-label">Mensajes</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="plugins-count">-</div>
+                        <div class="stat-label">Plugins</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="uptime-hours">-</div>
+                        <div class="stat-label">Horas Activo</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="memory-usage">-</div>
+                        <div class="stat-label">Memoria MB</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h3>🔌 Plugins Cargados</h3>
+                <div id="plugins-list" class="plugin-list loading">Cargando plugins...</div>
+            </div>
+        </div>
+    </div>
+    <script src="/main.js"></script>
+</body>
+</html>
