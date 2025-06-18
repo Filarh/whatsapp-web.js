@@ -4,7 +4,7 @@ const fs = require('fs');
 const crypto = require('crypto');
 const faiss = require('faiss-node');
 const cliProgress = require('cli-progress');
-const config = require('../config/ai'); // 👈 aseguras que toma el correcto
+const config = require('../config/ai');
 const Logger = require('./logger');
 
 const { IndexFlatIP } = faiss;
@@ -17,6 +17,31 @@ let outputs = [];
 function computeFileHash(filePath) {
   const data = fs.readFileSync(filePath);
   return crypto.createHash('md5').update(data).digest('hex');
+}
+
+function loadIndexFiles() {
+  try {
+    faissIndex = IndexFlatIP.read(config.data.indexFile);
+    ids = JSON.parse(fs.readFileSync(config.data.idsFile, 'utf8'));
+    outputs = JSON.parse(fs.readFileSync(config.data.outputsFile, 'utf8'));
+    Logger.info('Embedding', 'Índice FAISS cargado desde disco.');
+    return true;
+  } catch (err) {
+    Logger.warn('Embedding', 'Error al cargar el índice desde disco: ' + err.message);
+    return false;
+  }
+}
+
+function saveIndexFiles(currentHash) {
+  try {
+    faissIndex.write(config.data.indexFile);
+    fs.writeFileSync(config.data.idsFile, JSON.stringify(ids, null, 2), 'utf8');
+    fs.writeFileSync(config.data.outputsFile, JSON.stringify(outputs, null, 2), 'utf8');
+    fs.writeFileSync(config.data.hashFile, currentHash, 'utf8');
+    Logger.info('Embedding', 'Índice FAISS y metadatos guardados correctamente.');
+  } catch (err) {
+    Logger.error('Embedding', 'Error al guardar el índice: ' + err.message);
+  }
 }
 
 async function ensureModelLoaded() {
@@ -36,18 +61,15 @@ async function ensureModelLoaded() {
     : null;
 
   const hasIndexFiles = fs.existsSync(config.data.indexFile) &&
-                       fs.existsSync(config.data.idsFile) &&
-                       fs.existsSync(config.data.outputsFile);
+                        fs.existsSync(config.data.idsFile) &&
+                        fs.existsSync(config.data.outputsFile);
 
-  if (hasIndexFiles && storedHash === currentHash) {
-    faissIndex = IndexFlatIP.read(config.data.indexFile);
-    ids = JSON.parse(fs.readFileSync(config.data.idsFile, 'utf8'));
-    outputs = JSON.parse(fs.readFileSync(config.data.outputsFile, 'utf8'));
-    Logger.info('Embedding', 'Carga rápida de índice (hash coincide)');
+  if (hasIndexFiles && storedHash === currentHash && loadIndexFiles()) {
+    Logger.info('Embedding', 'Carga rápida del índice (hash coincide)');
   } else {
-    Logger.info('Embedding', 'Rebuild de índice (hash distinto o archivos faltantes)');
+    Logger.info('Embedding', 'Reconstruyendo índice...');
     await buildIndex();
-    fs.writeFileSync(config.data.hashFile, currentHash, 'utf8');
+    saveIndexFiles(currentHash);
   }
 }
 
@@ -76,33 +98,33 @@ async function buildIndex() {
     try {
       parsed = JSON.parse(lines[i]);
     } catch (err) {
-      Logger.warn('Embedding', `Línea JSON inválida: ${lines[i].slice(0, 60)}`);
+      Logger.warn('Embedding', `JSON inválido en línea ${i + 1}: ${lines[i].slice(0, 60)}`);
       continue;
     }
 
     const { id, input, output = '', tags = [] } = parsed;
-    if (!id || !input?.trim()) continue;
+    if (!id || typeof input !== 'string' || !input.trim()) continue;
 
-    const enrichedText = [input, ...(Array.isArray(tags) ? tags : [])].join(' ').trim();
+    const tagText = Array.isArray(tags) ? tags.join(' ') : String(tags);
+    const enrichedText = `${input} ${tagText}`.trim();
     if (!enrichedText) continue;
 
-    const vec = await generateEmbedding(enrichedText);
+    try {
+      const vec = await generateEmbedding(enrichedText);
 
-    if (!faissIndex) {
-      faissIndex = new IndexFlatIP(vec.length);
+      if (!faissIndex) {
+        faissIndex = new IndexFlatIP(vec.length);
+      }
+
+      faissIndex.add(vec);
+      ids.push(id);
+      outputs.push(output);
+    } catch (err) {
+      Logger.warn('Embedding', `Fallo al procesar embedding línea ${i + 1}: ${err.message}`);
     }
-
-    faissIndex.add(vec);
-    ids.push(id);
-    outputs.push(output);
   }
 
   progress.stop();
-
-  faissIndex.write(config.data.indexFile);
-  fs.writeFileSync(config.data.idsFile, JSON.stringify(ids, null, 2), 'utf8');
-  fs.writeFileSync(config.data.outputsFile, JSON.stringify(outputs, null, 2), 'utf8');
-
   Logger.info('Embedding', `Embeddings generados: ${ids.length}`);
 }
 
@@ -114,9 +136,14 @@ async function generateEmbedding(text) {
 
 async function findMultipleMatches(query, k = null, threshold = null) {
   await ensureModelLoaded();
+
+  if (!faissIndex || faissIndex.ntotal() === 0) {
+    throw new Error('El índice FAISS no está inicializado o está vacío.');
+  }
+
   const vec = await generateEmbedding(query);
   const { labels, distances } = faissIndex.search(vec, k || config.rag.maxMatches);
-  
+
   return labels.map((idx, i) => ({
     id: ids[idx],
     output: outputs[idx],

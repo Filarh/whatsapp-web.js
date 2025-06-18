@@ -124,3 +124,4 @@ models/qwen2.5-mks.gguf
 models/Allenbv/mks-similarity-onnx/onnx/model_quantized.onnx
 models/synthia-7b-v1.3.Q3_K_S.gguf
 models/Phi-3-mini-4k-instruct-q4.gguf
+models/qwen2-1.5b-mks.gguf

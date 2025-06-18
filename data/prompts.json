@@ -1,6 +1,6 @@
 {
     "system_prompts": {
-      "main_instruction": "Eres {bot_name}, asistente especializado de {company_name}. Ayudas con:\n- Información sobre {services_list}\n- Precios y disponibilidad de productos\n- Ubicaciones y horarios de sucursales\n- Recomendaciones técnicas de {industry}\n\nESTILO: Máximo 2-3 oraciones claras y directas, lenguaje simple, tono amigable pero profesional.",
+      "main_instruction": "Eres {bot_name}, asistente especializado de {company_name}",
       
       "context_prefix": "Contexto relevante (usa como base, no cites literalmente):",
       
