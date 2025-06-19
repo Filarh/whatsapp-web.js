@@ -2,3 +2,186 @@
 
 {"instruction": "y a que hora cierran?", "context": "- No, ninguna de nuestras sucursales abre los domingos, se atiende de lunes a viernes de 08:00 a 17:30 y sábados hasta las 15:00 - si pero solamente hasta las 15:00 los días sábados, de lunes a...", "output": ""}
 
+
+=== PROMPT LOG - 2025-06-18T19:18:19.914Z ===
+Usuario: 593964001175@c.us
+Longitud: 636 caracteres
+Contenido:
+contexto: Contexto relevante (usa como base, no cites literalmente):
+Información más relevante:
+1. Contamos con dos sucursales principales: una en Alcedo y Rumichaca, atendida por Génesis, y otra en Alborada, bajo la responsabilidad de Emilio. Ambas con stock de productos para cerrajeros.
+2. Contamos con varios tipos: llaves normales ($1.50), llaves con cabeza plástica de colores ($1.75), llaves de aluminio ($2.00) y llaves con diseños especiales ($2.00). Para cerrajeros, ofrecemos versiones en bruto de marcas MKS, CV y JMA. usuario: Hola muy buenas tardes estimad@, tienen servicio de cerrajería para abrir una puerta? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-18T20:38:16.390Z ===
+Usuario: 593964001175@c.us
+Longitud: 197 caracteres
+Contenido:
+contexto: Contexto relevante (usa como base, no cites literalmente):
+Información más relevante:
+1. Solo copiamos con la llave en mano, no por foto ni molde usuario: hola q vale la copia? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-18T20:39:41.737Z ===
+Usuario: 593964001175@c.us
+Longitud: 349 caracteres
+Contenido:
+contexto: Contexto relevante (usa como base, no cites literalmente):
+Información adicional:
+- Solo copiamos con la llave en mano, no por foto ni molde
+- Llaves de diseño $2
+- Sí, con chip depende del modelo del vehículo conversación previa: usuario: hola q vale la copia? asistente: Si te puedo ayudar con algo más? usuario: cuanto cuesta asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-18T20:40:18.029Z ===
+Usuario: 593964001175@c.us
+Longitud: 484 caracteres
+Contenido:
+contexto: Contexto relevante (usa como base, no cites literalmente):
+Información adicional:
+- Solo copiamos con la llave en mano completa
+- Solo copiamos con la llave en mano, no por foto ni molde
+- Llaves de colores $1.75 conversación previa: usuario: cuanto cuesta asistente: La copia de una llave normalmente cuesta entre $1 y $2, dependiendo del tipo y marca. Si tiene chip, el precio puede variar según el modelo del vehículo. usuario: o sea que si sale a $1 la copia? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-18T20:42:02.575Z ===
+Usuario: 593964001175@c.us
+Longitud: 378 caracteres
+Contenido:
+contexto: Contexto relevante (usa como base, no cites literalmente):
+Información más relevante:
+1. Desde $1.50 cada una. Más de 4 copias: $1.25 c/u.
+2. Solo copiamos con la llave en mano, no por foto ni molde
+3. Solo copiamos con la llave en mano completa
+4. Solo copiamos con la llave en mano, no por foto ni molde
+5. Llaves de colores $1.75 usuario: q vale la copia asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-18T20:45:17.573Z ===
+Usuario: 593964001175@c.us
+Longitud: 600 caracteres
+Contenido:
+contexto: Contexto relevante (usa como base, no cites literalmente):
+Información más relevante:
+1. Desde $1.50 cada una. Más de 4 copias: $1.25 c/u.
+2. Solo copiamos con la llave en mano, no por foto ni molde
+3. Solo copiamos con la llave en mano completa
+4. Solo copiamos con la llave en mano, no por foto ni molde
+5. Llaves de colores $1.75 conversación previa: usuario: q vale la copia asistente: Las copias de llaves cuestan desde $1.50 hasta $1.75 según el color. Si necesitas más de una, como mínimo pones la llave en mano, y no cuesta por foto ni por molde. usuario: q vale la copia asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-18T20:47:14.673Z ===
+Usuario: 593964001175@c.us
+Longitud: 244 caracteres
+Contenido:
+contexto: Contexto relevante (usa como base, no cites literalmente):
+Información más relevante:
+1. Desde $1.50 cada una. Más de 4 copias: $1.25 c/u.
+2. Solo copiamos con la llave en mano, no por foto ni molde usuario: q vale la copia asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-18T20:49:49.771Z ===
+Usuario: 593964001175@c.us
+Longitud: 185 caracteres
+Contenido:
+contexto: Información más relevante:
+1. Desde $1.50 cada una. Más de 4 copias: $1.25 c/u.
+2. Solo copiamos con la llave en mano, no por foto ni molde usuario: q vale la copia asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-18T20:51:38.866Z ===
+Usuario: 593964001175@c.us
+Longitud: 153 caracteres
+Contenido:
+contexto: 1. Desde $1.50 cada una. Más de 4 copias: $1.25 c/u.
+2. Solo copiamos con la llave en mano completa usuario: buenas q vale la copia? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-18T20:57:47.713Z ===
+Usuario: 593964001175@c.us
+Longitud: 185 caracteres
+Contenido:
+contexto: No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera. usuario: se me quedó la llave adentro de la casa si me la pueden arreglar? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-18T20:58:11.533Z ===
+Usuario: 593964001175@c.us
+Longitud: 324 caracteres
+Contenido:
+contexto: 1. No hacemos trabajos de cerrajería, solo vendemos productos para cerrajeros conversación previa: usuario: se me quedó la llave adentro de la casa si me la pueden arreglar? asistente: No te puedo ayudar con esa consulta. usuario: Hágame un favor necesito cambiar la llave de unas cerraduras en un local asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-19T15:54:08.641Z ===
+Usuario: 593964001175@c.us
+Longitud: 143 caracteres
+Contenido:
+contexto: No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera. usuario: ayúdame con unas llaves asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-19T15:54:28.527Z ===
+Usuario: 593964001175@c.us
+Longitud: 299 caracteres
+Contenido:
+contexto: No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera. conversación previa: usuario: ayúdame con unas llaves asistente: Claro, te puedo ayudar. Escribe la marca y el modelo de las llaves si te puedo dar esa información. usuario: quiero la viro asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-19T15:54:53.240Z ===
+Usuario: 593964001175@c.us
+Longitud: 340 caracteres
+Contenido:
+contexto: No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera. conversación previa: usuario: quiero la viro asistente: Lo siento, como modelo de lenguaje, no tengo la capacidad de comunicarme con llaves. Pero si necesitas ayuda con algo más, estoy aquí para ayudarte. usuario: como te llamas? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-19T16:20:12.256Z ===
+Usuario: 593964001175@c.us
+Longitud: 162 caracteres
+Contenido:
+contexto: 1. El código es VP116
+2. El código es VP009
+3. El código es VP059
+4. El código es VM023
+5. El código es VP058 usuario: hola que vale la viro? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-19T16:21:27.321Z ===
+Usuario: 593964001175@c.us
+Longitud: 406 caracteres
+Contenido:
+contexto: No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera. conversación previa: usuario: hola que vale la viro? asistente: La VP116 es mejor que la VP009, pero si necesitas más rápido, la VP059 es la opción. Si buscas algo más rápido, la VM023 es la mejor opción. Si lo que buscas es algo más, la VP058 es la mejor elección. usuario: y esa vp009 cual es? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-19T16:21:58.508Z ===
+Usuario: 593964001175@c.us
+Longitud: 343 caracteres
+Contenido:
+contexto: 1. El código es YA11AZ
+2. El código es YA6ROJ
+3. El código es YA11VE
+4. El código es YM015
+5. El código es 2032R conversación previa: usuario: y esa vp009 cual es? asistente: La VP009 es la segunda más popular de las Viro, pero si necesitas algo más rápido, la VP059 es el mejor ejemplo. usuario: si tiene la yale derecha? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-19T16:23:05.945Z ===
+Usuario: 593964001175@c.us
+Longitud: 80 caracteres
+Contenido:
+contexto: 1. El código es VR1 usuario: cuanto vale la viro izquierda? asistente:
+================================================================================
+

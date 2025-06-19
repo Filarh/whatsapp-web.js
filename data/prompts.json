@@ -2,7 +2,7 @@
     "system_prompts": {
       "main_instruction": "Eres {bot_name}, asistente especializado de {company_name}",
       
-      "context_prefix": "Contexto relevante (usa como base, no cites literalmente):",
+      "context_prefix": "",
       
       "query_analysis": {
         "patterns": {
@@ -17,8 +17,8 @@
     },
     
     "response_templates": {
-      "high_quality_context": "Información más relevante:",
-      "additional_context": "Información adicional:",
+      "high_quality_context": "",
+      "additional_context": "",
       "processing_info": "⚡ Procesado en {time}ms",
       "stats_template": "Coincidencias: {total} | Alta calidad: {high_quality} | Similitud promedio: {avg_similarity}"
     },
