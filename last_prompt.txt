@@ -185,3 +185,13 @@ Contenido:
 contexto: 1. El código es VR1 usuario: cuanto vale la viro izquierda? asistente:
 ================================================================================
 
+
+=== PROMPT LOG - 2025-06-19T19:45:34.302Z ===
+Usuario: 593964001175@c.us
+Longitud: 204 caracteres
+Contenido:
+contexto: 1. No hacemos trabajos de cerrajería, solo vendemos productos para cerrajeros
+2. No vendemos cerraduras electrónicas
+3. No reparamos controles ni carcasas usuario: arreglan cerradura? asistente:
+================================================================================
+

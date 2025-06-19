@@ -18,11 +18,20 @@ function analyzeQuery(text) {
   return analysis;
 }
 
-function buildIntelligentContext(matches = []) {
+function buildIntelligentContext(searchResults) {
+  const { matches, usedDataset, attemptedDatasets, fallbackReason } = searchResults;
+  
   if (!matches.length) {
     return {
       context: TemplateManager.getFallback('no_data'),
-      stats: { total: 0, highQuality: 0, avgSimilarity: 0 }
+      stats: { 
+        total: 0, 
+        highQuality: 0, 
+        avgSimilarity: 0, 
+        usedDataset: null,
+        attemptedDatasets,
+        fallbackReason
+      }
     };
   }
 
@@ -52,7 +61,10 @@ function buildIntelligentContext(matches = []) {
     stats: {
       total: matches.length,
       highQuality: highQuality.length,
-      avgSimilarity: Math.round(avgSimilarity * 100) / 100
+      avgSimilarity: Math.round(avgSimilarity * 100) / 100,
+      usedDataset,
+      attemptedDatasets,
+      fallbackReason
     }
   };
 }
@@ -76,14 +88,46 @@ module.exports = async function (client, pluginConfig) {
   if (!pluginConfig.plugins.ia) return;
 
   const companyInfo = TemplateManager.getCompanyInfo();
-  Logger.info('Plugin IA', `Inicializando RAG para ${companyInfo.company.name}...`);
+  Logger.info('Plugin IA', `🚀 Inicializando RAG para ${companyInfo.company.name}...`);
 
   try {
     await llama.initModel();
-    await embedding.ensureModelLoaded();
-    Logger.info('Plugin IA', '✅ Modelos cargados correctamente');
+    Logger.info('Plugin IA', '✅ Modelo LLM inicializado');
+    
+    // Verificar disponibilidad de datasets
+    Logger.info('Plugin IA', '🔍 Verificando disponibilidad de datasets...');
+    const availabilityReport = await embedding.checkDatasetAvailability();
+    
+    // Inicializar solo los datasets disponibles
+    const initPromises = [];
+    for (const [datasetName, status] of Object.entries(availabilityReport)) {
+      if (status.available) {
+        initPromises.push(
+          embedding.ensureModelLoaded(datasetName)
+            .then(() => {
+              Logger.info('Plugin IA', `✅ Dataset '${datasetName}' cargado correctamente`);
+            })
+            .catch(err => {
+              Logger.error('Plugin IA', `❌ Error cargando dataset '${datasetName}': ${err.message}`);
+            })
+        );
+      }
+    }
+    
+    await Promise.allSettled(initPromises);
+    
+    // Reporte final de inicialización
+    const availableCount = Object.values(availabilityReport).filter(s => s.available).length;
+    const totalCount = Object.keys(availabilityReport).length;
+    Logger.info('Plugin IA', `🎯 Sistema RAG inicializado: ${availableCount}/${totalCount} datasets disponibles`);
+    
+    // Verificar que al menos el dataset principal (FAQ) esté disponible
+    if (!availabilityReport.faq?.available) {
+      Logger.error('Plugin IA', '❌ CRÍTICO: Dataset principal (FAQ) no disponible. El sistema podría no funcionar correctamente.');
+    }
+    
   } catch (err) {
-    Logger.error('Plugin IA', 'Error inicializando modelos', err);
+    Logger.error('Plugin IA', '💥 Error crítico inicializando sistema RAG', err);
     return;
   }
 
@@ -106,30 +150,50 @@ module.exports = async function (client, pluginConfig) {
     const startTime = Date.now();
     
     try {
-      console.log('[DEBUG IA] Procesando consulta para', companyInfo.company.name);
+      console.log('[DEBUG IA] 🔄 Procesando consulta para', companyInfo.company.name);
 
-      // 1. Analizar consulta
+      // 1. Analizar consulta e intenciones
       const queryAnalysis = analyzeQuery(query);
-      Logger.ragDebug('consulta', { consulta: query, analisis: queryAnalysis });
+      const detectedIntentions = Object.entries(queryAnalysis)
+        .filter(([key, value]) => value === true)
+        .map(([key]) => key);
+      
+      Logger.ragDebug('consulta', { consulta: query, analisis: queryAnalysis, intenciones: detectedIntentions });
 
-      // 2. Búsqueda RAG
-      const matches = await embedding.findMultipleMatches(query);
-      Logger.ragDebug('busqueda', { matches });
+      // 2. Determinar prioridad de datasets basado en intenciones
+      const datasetPriorities = config.getBestDatasetForQuery(queryAnalysis);
+      Logger.info('Embedding', `🎯 Intenciones detectadas: [${detectedIntentions.join(', ')}] → Prioridad de datasets: [${datasetPriorities.join(' → ')}]`);
 
-      // 3. Construir contexto inteligente
-      const { context, stats } = buildIntelligentContext(matches);
+      // 3. Búsqueda inteligente con fallback jerárquico
+      const searchResults = await embedding.findMatchesWithFallback(query, datasetPriorities);
+      
+      // Log detallado de la búsqueda
+      if (searchResults.usedDataset) {
+        Logger.info('Embedding', `✅ Respuesta derivada desde dataset '${searchResults.usedDataset}' con ${searchResults.matches.length} matches`);
+      } else {
+        Logger.warn('Embedding', `⚠️ No se pudieron obtener resultados de ningún dataset. Datasets intentados: [${searchResults.attemptedDatasets.join(', ')}]`);
+      }
+
+      if (searchResults.fallbackReason && searchResults.attemptedDatasets.length > 1) {
+        Logger.info('Embedding', `🔄 Razón de fallback: ${searchResults.fallbackReason}`);
+      }
+
+      Logger.ragDebug('busqueda', { searchResults });
+
+      // 4. Construir contexto inteligente
+      const { context, stats } = buildIntelligentContext(searchResults);
       Logger.ragDebug('contexto', { context, stats });
 
-      // 4. Generar respuesta
+      // 5. Generar respuesta
       let response = await llama.generateResponse(query, context, msg.from);
 
-      // 5. Validar y usar fallback si es necesario
+      // 6. Validar y usar fallback si es necesario
       const isValid = validateResponse(response, query);
       let fallbackType = null;
 
       if (!isValid) {
-        if (matches.length > 0 && matches[0].similarity > 0.6) {
-          response = matches[0].output.trim();
+        if (searchResults.matches.length > 0 && searchResults.matches[0].similarity > 0.6) {
+          response = searchResults.matches[0].output.trim();
           fallbackType = 'mejor_coincidencia';
         } else {
           response = TemplateManager.getQueryFallback(queryAnalysis);
@@ -138,23 +202,25 @@ module.exports = async function (client, pluginConfig) {
       }
 
       const processingTime = Date.now() - startTime;
+      
+      // Log final con información completa
       Logger.ragDebug('respuesta', { 
-        respuesta: response, 
+        respuesta: response.substring(0, 100) + '...', 
         esValida: isValid && !fallbackType, 
         fallback: !!fallbackType,
-        tipoFallback: fallbackType 
+        tipoFallback: fallbackType,
+        datasetUsado: stats.usedDataset,
+        datasetsIntentados: stats.attemptedDatasets
       });
 
-      const processingMsg = TemplateManager.replaceVars(
-        TemplateManager.promptData.response_templates.processing_info,
-        { time: processingTime }
-      );
+      const processingMsg = `🤖 Consulta procesada en ${processingTime}ms usando dataset '${stats.usedDataset || 'ninguno'}' (intentados: ${stats.attemptedDatasets.join(', ')})`;
       Logger.info('Plugin IA', processingMsg);
       
       await msg.reply(response);
 
     } catch (err) {
-      Logger.ragDebug('error', { error: err });
+      Logger.ragDebug('error', { error: err.message, stack: err.stack });
+      Logger.error('Plugin IA', `💥 Error procesando consulta: ${err.message}`);
       const errorMsg = TemplateManager.getFallback('error');
       await msg.reply(errorMsg);
     }
@@ -163,7 +229,7 @@ module.exports = async function (client, pluginConfig) {
   return {
     nombre: `${companyInfo.company.displayName} RAG Pro`,
     descripcion: `Sistema RAG avanzado para ${companyInfo.company.name}`,
-    version: '9.0.0',
+    version: '11.0.0',
     comandos: ['ia']
   };
 };

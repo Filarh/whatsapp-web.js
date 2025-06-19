@@ -26,13 +26,19 @@ class Logger {
         console.log(`🔍 Análisis:`, data.analisis);
         break;
         
-      case 'busqueda':
-        console.log(`🎯 Coincidencias: ${data.matches.length}`);
-        data.matches.forEach((m, i) => {
-          console.log(`  ${i + 1}. [${m.similarity.toFixed(3)}] ${m.output.substring(0, 80)}...`);
+      case 'busqueda': {
+        const matches = Array.isArray(data.matches)
+          ? data.matches
+          : (data.searchResults && Array.isArray(data.searchResults.matches)
+              ? data.searchResults.matches
+              : []);
+        console.log(`🎯 Coincidencias: ${matches.length}`);
+        matches.forEach((m, i) => {
+          console.log(`  ${i + 1}. [${m.similarity?.toFixed(3) ?? '---'}] ${m.output?.substring(0, 80) ?? ''}...`);
         });
         break;
-        
+      }
+      
       case 'contexto':
         console.log(`📊 Stats: ${data.stats.total} total, ${data.stats.highQuality} alta calidad`);
         break;
@@ -43,7 +49,11 @@ class Logger {
         break;
         
       case 'error':
-        console.log(`❌ Error: ${data.error.message}`);
+        if (typeof data.error === 'string') {
+          console.log(`❌ Error: ${data.error}`);
+        } else {
+          console.log(`❌ Error: ${data.error?.message}`);
+        }
         break;
     }
   }
