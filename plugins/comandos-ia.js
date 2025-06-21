@@ -3,23 +3,16 @@
 const config = require('../config/ai');
 const Logger = require('../utils/logger');
 const llama = require('../utils/llama');
-const embedding = require('../utils/embedding');
 const TemplateManager = require('../utils/template');
+const { searchEngine } = require('../utils/embedding_search');
 
-// Análisis de consultas usando patrones del template
+// Análisis de consultas usando el template manager
 function analyzeQuery(text) {
-  const patterns = TemplateManager.getQueryPatterns();
-  const analysis = {};
-  
-  for (const [key, pattern] of Object.entries(patterns)) {
-    analysis[key] = pattern.test(text);
-  }
-  
-  return analysis;
+  return TemplateManager.analyzeQuery(text);
 }
 
 function buildIntelligentContext(searchResults) {
-  const { matches, usedDataset, attemptedDatasets, fallbackReason } = searchResults;
+  const { matches, usedDataset, attemptedDatasets, fallbackReason, formattedResults } = searchResults;
   
   if (!matches.length) {
     return {
@@ -30,7 +23,8 @@ function buildIntelligentContext(searchResults) {
         avgSimilarity: 0, 
         usedDataset: null,
         attemptedDatasets,
-        fallbackReason
+        fallbackReason,
+        strategy: searchResults.strategy
       }
     };
   }
@@ -41,16 +35,45 @@ function buildIntelligentContext(searchResults) {
   let contextParts = [];
   const templates = TemplateManager.promptData.response_templates;
   
-  if (highQuality.length > 0) {
-    contextParts.push(templates.high_quality_context);
-    highQuality.forEach((m, i) => {
-      contextParts.push(`${i + 1}. ${m.output.trim()}`);
-    });
+  // Si hay resultados formateados (como lista de productos), usar esos
+  if (formattedResults) {
+    contextParts.push("INSTRUCCIÓN ESPECIAL: El usuario ha hecho una consulta que requiere mostrar múltiples productos o información estructurada.");
+    
+    if (formattedResults.type === 'product_list') {
+      contextParts.push("FORMATO REQUERIDO: Presenta los productos de manera organizada y amigable, agrupados por categoría si es posible.");
+      contextParts.push("PRODUCTOS ENCONTRADOS:");
+      
+      for (const [category, products] of Object.entries(formattedResults.categories)) {
+        contextParts.push(`\n**${category}:**`);
+        products.slice(0, 8).forEach((product, index) => {
+          if (product.nombre) {
+            let productLine = `${index + 1}. ${product.nombre}`;
+            if (product.codigo) productLine += ` (Código: ${product.codigo})`;
+            if (product.marca) productLine += ` - Marca: ${product.marca}`;
+            if (product.precio) productLine += ` - Precio: $${product.precio}`;
+            contextParts.push(productLine);
+          } else if (product.contenido) {
+            contextParts.push(`${index + 1}. ${product.contenido}`);
+          }
+        });
+      }
+      
+      contextParts.push(`\nTotal de productos encontrados: ${formattedResults.totalProducts}`);
+      contextParts.push("IMPORTANTE: Presenta esta información de manera conversacional y amigable, no como datos técnicos.");
+    }
   } else {
-    contextParts.push(templates.additional_context);
-    matches.slice(0, 3).forEach(m => {
-      contextParts.push(`- ${m.output.trim()}`);
-    });
+    // Contexto tradicional para búsquedas específicas
+    if (highQuality.length > 0) {
+      contextParts.push(templates.high_quality_context);
+      highQuality.forEach((m, i) => {
+        contextParts.push(`${i + 1}. ${m.output.trim()}`);
+      });
+    } else {
+      contextParts.push(templates.additional_context);
+      matches.slice(0, 3).forEach(m => {
+        contextParts.push(`- ${m.output.trim()}`);
+      });
+    }
   }
 
   const finalContext = contextParts.join('\n').substring(0, config.rag.maxContextLength);
@@ -64,7 +87,8 @@ function buildIntelligentContext(searchResults) {
       avgSimilarity: Math.round(avgSimilarity * 100) / 100,
       usedDataset,
       attemptedDatasets,
-      fallbackReason
+      fallbackReason,
+      strategy: searchResults.strategy
     }
   };
 }
@@ -88,60 +112,36 @@ module.exports = async function (client, pluginConfig) {
   if (!pluginConfig.plugins.ia) return;
 
   const companyInfo = TemplateManager.getCompanyInfo();
-  Logger.info('Plugin IA', `🚀 Inicializando RAG para ${companyInfo.company.name}...`);
+  Logger.info('Plugin IA', `🚀 Inicializando RAG Pro para ${companyInfo.company.name}...`);
 
   try {
+    // Inicializar LLM
     await llama.initModel();
     Logger.info('Plugin IA', '✅ Modelo LLM inicializado');
     
-    // Verificar disponibilidad de datasets
-    Logger.info('Plugin IA', '🔍 Verificando disponibilidad de datasets...');
-    const availabilityReport = await embedding.checkDatasetAvailability();
-    
-    // Inicializar solo los datasets disponibles
-    const initPromises = [];
-    for (const [datasetName, status] of Object.entries(availabilityReport)) {
-      if (status.available) {
-        initPromises.push(
-          embedding.ensureModelLoaded(datasetName)
-            .then(() => {
-              Logger.info('Plugin IA', `✅ Dataset '${datasetName}' cargado correctamente`);
-            })
-            .catch(err => {
-              Logger.error('Plugin IA', `❌ Error cargando dataset '${datasetName}': ${err.message}`);
-            })
-        );
-      }
-    }
-    
-    await Promise.allSettled(initPromises);
-    
-    // Reporte final de inicialización
-    const availableCount = Object.values(availabilityReport).filter(s => s.available).length;
-    const totalCount = Object.keys(availabilityReport).length;
-    Logger.info('Plugin IA', `🎯 Sistema RAG inicializado: ${availableCount}/${totalCount} datasets disponibles`);
-    
-    // Verificar que al menos el dataset principal (FAQ) esté disponible
-    if (!availabilityReport.faq?.available) {
-      Logger.error('Plugin IA', '❌ CRÍTICO: Dataset principal (FAQ) no disponible. El sistema podría no funcionar correctamente.');
-    }
+    // Inicializar motor de búsqueda
+    await searchEngine.initialize();
+    Logger.info('Plugin IA', '✅ Motor de búsqueda inicializado');
     
   } catch (err) {
     Logger.error('Plugin IA', '💥 Error crítico inicializando sistema RAG', err);
     return;
   }
 
+  // Debug de mensajes
   client.on('message_create', async msg => {
-    console.log('[DEBUG] Mensaje recibido:', {
-      from: msg.from,
-      body: msg.body,
-      fromMe: msg.fromMe
-    });
+    if (config.rag.debugMode) {
+      console.log('[DEBUG] Mensaje recibido:', {
+        from: msg.from,
+        body: msg.body,
+        fromMe: msg.fromMe
+      });
+    }
   });
 
   client.on('message_create', async msg => {
     // Usar número autorizado del template
-    const NUMERO_AUTORIZADO = companyInfo.contact.whatsapp;
+    const NUMERO_AUTORIZADO = config.bot.authorizedNumber;
     if (!msg.body || msg.fromMe || msg.from !== NUMERO_AUTORIZADO) return;
 
     const query = msg.body.trim();
@@ -152,7 +152,7 @@ module.exports = async function (client, pluginConfig) {
     try {
       console.log('[DEBUG IA] 🔄 Procesando consulta para', companyInfo.company.name);
 
-      // 1. Analizar consulta e intenciones
+      // 1. Análizar consulta e intenciones
       const queryAnalysis = analyzeQuery(query);
       const detectedIntentions = Object.entries(queryAnalysis)
         .filter(([key, value]) => value === true)
@@ -164,12 +164,12 @@ module.exports = async function (client, pluginConfig) {
       const datasetPriorities = config.getBestDatasetForQuery(queryAnalysis);
       Logger.info('Embedding', `🎯 Intenciones detectadas: [${detectedIntentions.join(', ')}] → Prioridad de datasets: [${datasetPriorities.join(' → ')}]`);
 
-      // 3. Búsqueda inteligente con fallback jerárquico
-      const searchResults = await embedding.findMatchesWithFallback(query, datasetPriorities);
+      // 3. Búsqueda inteligente con estrategias avanzadas
+      const searchResults = await searchEngine.intelligentSearch(query, datasetPriorities, queryAnalysis);
       
       // Log detallado de la búsqueda
       if (searchResults.usedDataset) {
-        Logger.info('Embedding', `✅ Respuesta derivada desde dataset '${searchResults.usedDataset}' con ${searchResults.matches.length} matches`);
+        Logger.info('Embedding', `✅ Respuesta derivada desde dataset '${searchResults.usedDataset}' con ${searchResults.matches.length} matches usando estrategia '${searchResults.strategy}'`);
       } else {
         Logger.warn('Embedding', `⚠️ No se pudieron obtener resultados de ningún dataset. Datasets intentados: [${searchResults.attemptedDatasets.join(', ')}]`);
       }
@@ -182,9 +182,9 @@ module.exports = async function (client, pluginConfig) {
 
       // 4. Construir contexto inteligente
       const { context, stats } = buildIntelligentContext(searchResults);
-      Logger.ragDebug('contexto', { context, stats });
+      Logger.ragDebug('contexto', { context: context.substring(0, 200) + '...', stats });
 
-      // 5. Generar respuesta
+      // 5. Generar respuesta usando LLM
       let response = await llama.generateResponse(query, context, msg.from);
 
       // 6. Validar y usar fallback si es necesario
@@ -192,7 +192,11 @@ module.exports = async function (client, pluginConfig) {
       let fallbackType = null;
 
       if (!isValid) {
-        if (searchResults.matches.length > 0 && searchResults.matches[0].similarity > 0.6) {
+        if (searchResults.formattedResults) {
+          // Si tenemos resultados formateados (como lista de productos), usar el formateador del template
+          response = TemplateManager.formatProductResponse(searchResults.formattedResults, query);
+          fallbackType = 'formatted_results';
+        } else if (searchResults.matches.length > 0 && searchResults.matches[0].similarity > 0.6) {
           response = searchResults.matches[0].output.trim();
           fallbackType = 'mejor_coincidencia';
         } else {
@@ -210,10 +214,11 @@ module.exports = async function (client, pluginConfig) {
         fallback: !!fallbackType,
         tipoFallback: fallbackType,
         datasetUsado: stats.usedDataset,
-        datasetsIntentados: stats.attemptedDatasets
+        datasetsIntentados: stats.attemptedDatasets,
+        estrategia: stats.strategy
       });
 
-      const processingMsg = `🤖 Consulta procesada en ${processingTime}ms usando dataset '${stats.usedDataset || 'ninguno'}' (intentados: ${stats.attemptedDatasets.join(', ')})`;
+      const processingMsg = `🤖 Consulta procesada en ${processingTime}ms usando dataset '${stats.usedDataset || 'ninguno'}' con estrategia '${stats.strategy}' (intentados: ${stats.attemptedDatasets.join(', ')})`;
       Logger.info('Plugin IA', processingMsg);
       
       await msg.reply(response);
@@ -229,7 +234,7 @@ module.exports = async function (client, pluginConfig) {
   return {
     nombre: `${companyInfo.company.displayName} RAG Pro`,
     descripcion: `Sistema RAG avanzado para ${companyInfo.company.name}`,
-    version: '11.0.0',
+    version: '12.0.0',
     comandos: ['ia']
   };
 };

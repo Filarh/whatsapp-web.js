@@ -1,34 +1,61 @@
 {
-    "system_prompts": {
-      "main_instruction": "Eres {bot_name}, asistente especializado de {company_name}",
-      
-      "context_prefix": "",
-      
-      "query_analysis": {
-        "patterns": {
-          "precio": "precio|cuánto|vale|costo|cobran|barato|caro",
-          "ubicacion": "dónde|dirección|ubicación|sucursal|local",
-          "horario": "horario|abren|cierran|hora|cuando",
-          "servicio": "hacen|pueden|servicio|reparan|arreglan",
-          "producto": "{product_keywords}",
-          "urgente": "urgente|rápido|ya|ahora|emergency"
-        }
-      }
+  "company_info": {
+    "company": {
+      "name": "Tu Empresa",
+      "displayName": "Asistente Especializado"
     },
-    
-    "response_templates": {
-      "high_quality_context": "",
-      "additional_context": "",
-      "processing_info": "⚡ Procesado en {time}ms",
-      "stats_template": "Coincidencias: {total} | Alta calidad: {high_quality} | Similitud promedio: {avg_similarity}"
-    },
-    
-    "conversation": {
-      "max_history": 10,
-      "history_format": "{role}: {content}",
-      "roles": {
-        "user": "Usuario",
-        "assistant": "Asistente"
+    "contact": {
+      "whatsapp": "593964001175@c.us"
+    }
+  },
+  "system_prompts": {
+    "main_instruction": "Eres {bot_name}, asistente especializado de {company_name}. Respondes de manera amigable y profesional.",
+    "context_prefix": "Información relevante para responder:",
+    "query_analysis": {
+      "patterns": {
+        "precio": "precio|cuánto|vale|costo|cobran|barato|caro|tarifa",
+        "ubicacion": "dónde|dirección|ubicación|sucursal|local|donde",
+        "horario": "horario|abren|cierran|hora|cuando|atienden",
+        "servicio": "hacen|pueden|servicio|reparan|arreglan|ofrecen",
+        "producto": "modelos|tipos|opciones|productos|variedades|catálogo|regata|bajaj|pulsar|honda|yamaha|suzuki|moto|carro|auto",
+        "urgente": "urgente|rápido|ya|ahora|emergency|inmediato",
+        "general": "qué|cuáles|cómo|todos|todas|lista|mostrar|ver"
       }
     }
+  },
+  "response_templates": {
+    "high_quality_context": "Información de alta relevancia:",
+    "additional_context": "Información adicional:",
+    "product_list_intro": "Aquí tienes los modelos disponibles:",
+    "no_products_found": "No encontré productos específicos con esa descripción en este momento.",
+    "general_product_help": "Te puedo ayudar con información sobre nuestros productos. ¿Hay algo específico que te interese?",
+    "processing_info": "⚡ Procesado en {time}ms",
+    "stats_template": "Coincidencias: {total} | Alta calidad: {high_quality} | Similitud promedio: {avg_similarity}"
+  },
+  "query_synonyms": {
+    "modelos": ["tipos", "opciones", "variedades", "versiones"],
+    "regata": ["regatas", "llaves regata"],
+    "moto": ["motocicleta", "motos", "motorbike"],
+    "carro": ["auto", "automóvil", "vehículo", "coche"],
+    "precio": ["costo", "valor", "cuánto cuesta", "tarifa"],
+    "bajaj": ["bajaj/pulsar", "pulsar"],
+    "honda": ["honda civic", "honda accord"],
+    "yamaha": ["yamaha mt", "yamaha r1"],
+    "suzuki": ["suzuki gsxr", "suzuki swift"]
+  },
+  "fallback_responses": {
+    "no_data": "No tengo información específica sobre esa consulta en este momento. ¿Podrías ser más específico?",
+    "error": "Disculpa, ocurrió un error procesando tu consulta. ¿Podrías intentar de nuevo?",
+    "ambiguous_product": "Tenemos varios productos disponibles. ¿Podrías ser más específico sobre qué tipo de producto te interesa? Por ejemplo: marca, modelo o categoría.",
+    "no_products_found": "No encontré productos que coincidan exactamente con tu búsqueda. ¿Te gustaría que te muestre productos similares o de alguna categoría específica?",
+    "general_help": "¡Hola! Estoy aquí para ayudarte con información sobre nuestros productos y servicios. ¿En qué puedo asistirte?"
+  },
+  "conversation": {
+    "max_history": 10,
+    "history_format": "{role}: {content}",
+    "roles": {
+      "user": "Usuario",
+      "assistant": "Asistente"
+    }
   }
+}

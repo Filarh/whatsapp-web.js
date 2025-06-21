@@ -323,3 +323,73 @@ Contenido:
 contexto: No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera. usuario: cuál es el código de la kia de regata? asistente:
 ================================================================================
 
+
+=== PROMPT LOG - 2025-06-21T16:54:33.032Z ===
+Usuario: 593964001175@c.us
+Longitud: 885 caracteres
+Contenido:
+contexto: Información relevante:
+INSTRUCCIÓN ESPECIAL: El usuario ha hecho una consulta que requiere mostrar múltiples productos o información estructurada.
+FORMATO REQUERIDO: Presenta los productos de manera organizada y amigable, agrupados por categoría si es posible.
+PRODUCTOS ENCONTRADOS:
+
+**CERRADURA:**
+1. YALE DERECHA COLORES GOMA YES (Código: 1000P) - Marca: CASA HERRERA - Precio: $0.29
+2. YALE DER DE COLORES (Código: YA1E) - Marca: SILCA - Precio: $0.35
+3. YALE 5 PIN JMA MODELO USA (Código: Y1E) - Marca: JMA - Precio: $0.3
+4. YALE IZQUIERDA COLORES GOMA YES (Código: 1000RP) - Marca: CASA HERRERA - Precio: $0.29
+5. YALE SOMBRERO ALUMINIO (Código: YA11SOA) - Marca: MARCA GENERICA - Precio: $0.5
+6. YALE SOMBRERO (Código: YA11SOM) - Marca: CV - Precio: $0.28
+7. YALE CABEZA PLAST ROSA (Código: YA10ROS) - Marca: CV - Pr usuario: hola que modelos de yale tiene? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-21T16:55:34.878Z ===
+Usuario: 593964001175@c.us
+Longitud: 1134 caracteres
+Contenido:
+contexto: Información relevante:
+INSTRUCCIÓN ESPECIAL: El usuario ha hecho una consulta que requiere mostrar múltiples productos o información estructurada.
+FORMATO REQUERIDO: Presenta los productos de manera organizada y amigable, agrupados por categoría si es posible.
+PRODUCTOS ENCONTRADOS:
+
+**CERRADURA:**
+1. YALE DERECHA COLORES GOMA YES (Código: 1000P) - Marca: CASA HERRERA - Precio: $0.29
+2. YALE IZQUIERDA COLORES GOMA YES (Código: 1000RP) - Marca: CASA HERRERA - Precio: $0.29
+3. YALE DER DE COLORES (Código: YA1E) - Marca: SILCA - Precio: $0.35
+4. YA1R TEIL (Código: YA1R) - Marca: TEIL - Precio: $0.5
+5. YALE 5 PIN JMA MODELO USA (Código: Y1E) - Marca: JMA - Precio: $0.3
+6. YALE GRAFILADA EXAGONAL 5 PIN (Código: 1000SH) - Marca: FLEXON - Precio: $0.28
+7. YALE SOMBRERO ALUMINIO (Código: YA11SOA) - Marca: MARCA GENERICA conversación previa: usuario: hola que modelos de yale tiene? asistente: Para cerrajeros, tenemos una amplia selección de modelos y precios desde $0.29 hasta $0.50, incluyendo algunas marcas especiales como YALE, CASA HERRERA, SILCA, JMA y CV. usuario: pero dime que modelos de yale tienes asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-21T16:56:33.075Z ===
+Usuario: 593964001175@c.us
+Longitud: 375 caracteres
+Contenido:
+contexto: No tengo información específica sobre esa consulta en este momento. conversación previa: usuario: pero dime que modelos de yale tienes asistente: Para cerrajeros, tenemos una amplia selección de modelos y precios desde $0.29 hasta $0.50, incluyendo algunas marcas especiales como YALE, CASA HERRERA, SILCA, JMA y CV. usuario: y la yale derecha si tienes? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-21T16:58:33.933Z ===
+Usuario: 593964001175@c.us
+Longitud: 410 caracteres
+Contenido:
+contexto: No tengo información específica sobre esa consulta en este momento. conversación previa: usuario: y la yale derecha si tienes? asistente: Tenemos varias opciones, como la YALE DERECHA COLORES GOMA YES (Código: 1000P) por $0.29, la YALE IZQUIERDA COLORES GOMA YES (Código: 1000RP) por $0.29, y la YALE DER DE COLORES (Código: YA1E) por $0.35. usuario: y de lado izquierdo las yale si tiene? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-21T17:00:24.304Z ===
+Usuario: 593964001175@c.us
+Longitud: 488 caracteres
+Contenido:
+contexto: Información relevante:
+INSTRUCCIÓN ESPECIAL: El usuario ha hecho una consulta que requiere mostrar múltiples productos o información estructurada. conversación previa: usuario: y de lado izquierdo las yale si tiene? asistente: Tenemos algunas marcas especiales como la YALE IZQUIERDA COLORES GOMA YES (Código: 1000RP) por $0.29, la YALE DER DE COLORES (Código: YA1E) por $0.35, y la YALE SOMBRERO ALUMINIO (Código: YA11SOA) por $0.5. usuario: con qué marcas trabajan? asistente:
+================================================================================
+
+
+=== 2025-06-21T18:20:12.230Z - Usuario: 593964001175@c.us ===
+información_relevante: No tengo información específica sobre esa consulta en este momento. consulta: hola tiene yale? respuesta:
+==================================================
+

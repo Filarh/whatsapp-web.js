@@ -28,24 +28,28 @@ const config = {
   dataSets: {
     precios: { 
       baseName: 'precios',
-      priority: 1, // Mayor prioridad para consultas de precios
+      priority: 1,
+      type: 'pricing',
       description: 'Información específica de precios y tarifas'
     },
     productos: { 
       baseName: 'productos',
-      priority: 2, // Segunda prioridad
+      priority: 2,
+      type: 'product',
       description: 'Catálogo de productos y características'
     },
     servicios: { 
       baseName: 'servicios',
-      priority: 3, // Tercera prioridad
+      priority: 3,
+      type: 'service',
       description: 'Información de servicios disponibles'
     },
     faq: { 
       baseName: process.env.FAQ_DATASET_NAME || 'faq_mini_2',
-      priority: 99, // Siempre como fallback principal
+      priority: 99,
+      type: 'faq',
       description: 'Base de conocimiento general (FAQ)',
-      isRequired: true // Este dataset debe existir siempre
+      isRequired: true
     }
   },
 
@@ -57,7 +61,7 @@ const config = {
     urgente: ['faq'],
     ubicacion: ['faq'],
     horario: ['faq'],
-    general: ['faq']
+    general: ['productos', 'faq'] // Para búsquedas generales, priorizar productos
   },
 
   // Directorios base
@@ -87,6 +91,7 @@ function resolveDatasetPaths(baseName) {
     indexFile: path.join(config.dirs.faiss, `${baseName}.index`),
     idsFile: path.join(config.dirs.faiss, `${baseName}.ids.json`),
     outputsFile: path.join(config.dirs.faiss, `${baseName}.outputs.json`),
+    metadataFile: path.join(config.dirs.faiss, `${baseName}.metadata.json`), // Nuevo archivo para metadata
     hashFile: path.join(config.dirs.faiss, `${baseName}.hash`)
   };
 }
