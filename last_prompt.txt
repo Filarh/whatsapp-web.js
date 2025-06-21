@@ -195,3 +195,131 @@ contexto: 1. No hacemos trabajos de cerrajería, solo vendemos productos para ce
 3. No reparamos controles ni carcasas usuario: arreglan cerradura? asistente:
 ================================================================================
 
+
+=== PROMPT LOG - 2025-06-20T13:32:26.475Z ===
+Usuario: 593964001175@c.us
+Longitud: 146 caracteres
+Contenido:
+contexto: No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera. usuario: Hola tiene viro izquierda? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-20T13:32:56.428Z ===
+Usuario: 593964001175@c.us
+Longitud: 323 caracteres
+Contenido:
+contexto: No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera. conversación previa: usuario: Hola tiene viro izquierda? asistente: No tengo información específica sobre el virus. Pero puedo ayudarte a ver si esa es la marca correcta. usuario: A cuanto sale el ciento de Yale? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-20T13:33:29.873Z ===
+Usuario: 593964001175@c.us
+Longitud: 395 caracteres
+Contenido:
+contexto: 1. El producto YA6A cuesta $0.45.
+2. El producto YA6RF cuesta $0.25.
+3. El producto YA6NA cuesta $0.30.
+4. El producto YA11F cuesta $0.28.
+5. El producto YA11SOM cuesta $0.28. conversación previa: usuario: A cuanto sale el ciento de Yale? asistente: No tengo la marca del virus. Pero si necesitas saber el precio de un ciento de Yale, puedo ayudarte. usuario: Q vale la ya6? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-21T14:44:23.165Z ===
+Usuario: 593964001175@c.us
+Longitud: 228 caracteres
+Contenido:
+contexto: 1. El producto YA6A cuesta $0.45.
+2. El producto YA6NA cuesta $0.30.
+3. El producto YA11CE cuesta $0.30.
+4. El producto YA11S cuesta $0.36.
+5. El producto YA11A cuesta $0.45. usuario: buenas que vale la ya6? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-21T14:45:05.996Z ===
+Usuario: 593964001175@c.us
+Longitud: 220 caracteres
+Contenido:
+contexto: 1. El producto CY6 cuesta $0.28. conversación previa: usuario: buenas que vale la ya6? asistente: El producto YA6A cuesta $0.45, mientras que el producto YA6NA cuesta $0.30. usuario: que vale la cy6? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-21T14:45:24.353Z ===
+Usuario: 593964001175@c.us
+Longitud: 234 caracteres
+Contenido:
+contexto: No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera. conversación previa: usuario: que vale la cy6? asistente: El producto CY6 cuesta $0.28. usuario: y si llevo 3 cuanto sería? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-21T14:47:15.858Z ===
+Usuario: 593964001175@c.us
+Longitud: 268 caracteres
+Contenido:
+contexto: No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera. conversación previa: usuario: y si llevo 3 cuanto sería? asistente: Llevar 3 productos cuestan $0.60. usuario: y si llevo 3 viro izquierda en cuanto me sale? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-21T15:51:04.137Z ===
+Usuario: 593964001175@c.us
+Longitud: 136 caracteres
+Contenido:
+contexto: No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera. usuario: !generar-indices asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-21T15:58:12.093Z ===
+Usuario: 593964001175@c.us
+Longitud: 766 caracteres
+Contenido:
+contexto: 1. {"codigo":"YA1E","nombre":"YALE DER DE COLORES","precio":0.35,"tipo":"precio","respuesta":"El precio de YALE DER DE COLORES (YA1E) es $0.35"}
+2. {"codigo":"YA1DVE","nombre":"YALE ALUMIMIO VERDE","precio":0.45,"tipo":"precio","respuesta":"El precio de YALE ALUMIMIO VERDE (YA1DVE) es $0.45"}
+3. {"codigo":"YA1DVEL","nombre":"YALE  VERDE LIMA ALUM","precio":0.45,"tipo":"precio","respuesta":"El precio de YALE  VERDE LIMA ALUM (YA1DVEL) es $0.45"}
+4. {"codigo":"YA1R","nombre":"YA1R TEIL","precio":0.5,"tipo":"precio","respuesta":"El precio de YA1R TEIL (YA1R) es $0.5"}
+5. {"codigo":"YA24VE","nombre":"YALE ALUM VERDE","precio":0.45,"tipo":"precio","respuesta":"El precio de YALE ALUM VERDE (YA24VE) es $0.45"} usuario: Buenas que vale la ya6= asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-21T15:59:54.517Z ===
+Usuario: 593964001175@c.us
+Longitud: 841 caracteres
+Contenido:
+contexto: 1. {"codigo":"CY2","nombre":"YALE CY2/YA2","precio":0.28,"tipo":"precio","respuesta":"El precio de YALE CY2/YA2 (CY2) es $0.28"}
+2. {"codigo":"CY6","nombre":"YALE CY6/YA6 CV","precio":0.28,"tipo":"precio","respuesta":"El precio de YALE CY6/YA6 CV (CY6) es $0.28"}
+3. {"codigo":"CY1","nombre":"YALE CY1/YA1","precio":0.28,"tipo":"precio","respuesta":"El precio de YALE CY1/YA1 (CY1) es $0.28"}
+4. {"codigo":"CY35","nombre":"YALE CY35/YA35","precio":0.28,"tipo":"precio","respuesta":"El precio de YALE CY35/YA35 (CY35) es $0.28"}
+5. {"codigo":"CY11","nombre":"YALE CY11/YA11","precio":0.28,"tipo":"precio","respuesta":"El precio de YALE CY11/YA11 (CY11) es $0.28"} conversación previa: usuario: Buenas que vale la ya6= asistente: La ya6 está en blanco, cuesta $0.35 y está en llave de colores. usuario: Cuanto vale la cy6? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-21T16:02:29.263Z ===
+Usuario: 593964001175@c.us
+Longitud: 239 caracteres
+Contenido:
+contexto: No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera. conversación previa: usuario: Cuanto vale la cy6? asistente: El precio de la cy6 es $0.28. usuario: y si llevo 3 en cuanto sale? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-21T16:06:03.389Z ===
+Usuario: 593964001175@c.us
+Longitud: 311 caracteres
+Contenido:
+contexto: No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera. conversación previa: usuario: y si llevo 3 en cuanto sale? asistente: Si llevas 3 llaves en cuanto sale, el precio es el mismo que si llevas una: $0.28. usuario: cual es el código de la kia de regata? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-21T16:06:24.997Z ===
+Usuario: 593964001175@c.us
+Longitud: 338 caracteres
+Contenido:
+contexto: No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera. conversación previa: usuario: cual es el código de la kia de regata? asistente: La kia de regata no tiene código, pero si la llaves tiene marca MKS, el precio es el mismo que la ya6: $0.35. usuario: qué llaves de regata tienen? asistente:
+================================================================================
+
+
+=== PROMPT LOG - 2025-06-21T16:07:26.038Z ===
+Usuario: 593964001175@c.us
+Longitud: 158 caracteres
+Contenido:
+contexto: No encontré información específica sobre tu consulta, pero puedo ayudarte de otra manera. usuario: cuál es el código de la kia de regata? asistente:
+================================================================================
+
